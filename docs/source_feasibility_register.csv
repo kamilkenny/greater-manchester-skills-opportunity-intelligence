@@ -1,0 +1,7 @@
+source_id,source_name,provider,acquisition_method,geography,core_content,period_coverage,validation_status,key_caveat
+SRC01,DfE Apprenticeships Local Authority,DfE,direct_csv,Local Authority District,"starts; participation; achievements; age; sex; level","2020/21 to 2025/26",verified,"low values must remain non-numeric low_non_zero; latest period may be provisional"
+SRC02,DfE Detailed Apprenticeships,DfE,direct_csv,Local Authority District,"starts; achievements; sector subject area; sex; ethnicity; level","2025/26",verified,"large number of low values; current detailed extract contains one academic year"
+SRC03,DfE NEET,DfE,direct_csv,Local Authority,"NEET; activity not known; age; SEND; sex; ethnicity","2019 to 2026",verified,"management information; c and z disclosure values require explicit status handling"
+SRC04,DfE Education and Training Participation,DfE,direct_csv,Local Authority,"education and training participation; age; SEND; sex; ethnicity","2019 to 2026",verified,"c and z disclosure values require explicit status handling"
+SRC05,ONS Nomis Annual Population Survey,ONS Nomis,rest_api,Local Authority District,"employment; unemployment; economic inactivity; RQF3+; RQF4+","rolling APS and calendar-year periods",verified,"labour market and qualification metrics use different reporting periods"
+SRC06,GMCA MBacc Gateway Reference,GMCA,controlled_reference,Greater Manchester,"seven MBacc gateways","current reference",verified,"official wording varies across material; canonical labels and aliases must be version controlled"
