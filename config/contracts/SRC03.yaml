@@ -36,3 +36,42 @@ special_values:
   z: not_applicable
 
 geography_key: new_la_code
+
+scope:
+  geography_codes:
+    - E08000001
+    - E08000002
+    - E08000003
+    - E08000004
+    - E08000005
+    - E08000006
+    - E08000007
+    - E08000008
+    - E08000009
+    - E08000010
+
+expected_special_values:
+  avg_cohort_count:
+    - c
+    - z
+  avg_neet_nk_count:
+    - c
+    - z
+  avg_neet_count:
+    - c
+    - z
+  avg_nk_count:
+    - c
+    - z
+  neet_nk_percent:
+    - c
+    - z
+  neet_percent:
+    - c
+    - z
+  nk_percent:
+    - c
+    - z
+  annual_change_neet_nk_percent:
+    - c
+    - z

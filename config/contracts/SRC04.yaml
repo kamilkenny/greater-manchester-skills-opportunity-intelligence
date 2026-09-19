@@ -32,3 +32,30 @@ special_values:
   z: not_applicable
 
 geography_key: new_la_code
+
+scope:
+  geography_codes:
+    - E08000001
+    - E08000002
+    - E08000003
+    - E08000004
+    - E08000005
+    - E08000006
+    - E08000007
+    - E08000008
+    - E08000009
+    - E08000010
+
+expected_special_values:
+  cohort_count:
+    - c
+    - z
+  total_in_education_and_training_count:
+    - c
+    - z
+  total_in_education_and_training_percent:
+    - c
+    - z
+  annual_change_percent:
+    - c
+    - z
