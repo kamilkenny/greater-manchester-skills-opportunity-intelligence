@@ -1,74 +1,68 @@
 version: 1
-
 sources:
-  - source_id: SRC01
-    source_name: DfE Apprenticeships Local Authority
-    provider: DfE
-    source_type: direct_csv
-    endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/22320587-106d-4c09-a39f-7228ceb950fe/csv
-    file_format: csv
-    refresh_frequency: release_driven
-    enabled: true
-    bronze_path: bronze/dfe/apprenticeships_la
-    contract: config/contracts/SRC01.yaml
-    period_strategy: source_defined
-
-  - source_id: SRC02
-    source_name: DfE Detailed Apprenticeships
-    provider: DfE
-    source_type: direct_csv
-    endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/8ea0da62-6f42-4477-a2af-de4c3f1a8d56/csv
-    file_format: csv
-    refresh_frequency: release_driven
-    enabled: true
-    bronze_path: bronze/dfe/apprenticeships_detailed
-    contract: config/contracts/SRC02.yaml
-    period_strategy: source_defined
-
-  - source_id: SRC03
-    source_name: DfE NEET
-    provider: DfE
-    source_type: direct_csv
-    endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/a7bc111a-9503-40df-99fa-764fcb13a2e9/csv
-    file_format: csv
-    refresh_frequency: release_driven
-    enabled: true
-    bronze_path: bronze/dfe/neet
-    contract: config/contracts/SRC03.yaml
-    period_strategy: source_defined
-
-  - source_id: SRC04
-    source_name: DfE Education and Training Participation
-    provider: DfE
-    source_type: direct_csv
-    endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/e1f4011a-ed67-408e-8b7b-076a44a6cc8c/csv
-    file_format: csv
-    refresh_frequency: release_driven
-    enabled: true
-    bronze_path: bronze/dfe/participation
-    contract: config/contracts/SRC04.yaml
-    period_strategy: source_defined
-
-  - source_id: SRC05
-    source_name: ONS Nomis Annual Population Survey
-    provider: ONS Nomis
-    source_type: rest_api
-    endpoint: https://www.nomisweb.co.uk/api/v01/dataset/NM_17_5.data.csv
-    file_format: csv
-    refresh_frequency: quarterly
-    enabled: true
-    bronze_path: bronze/nomis/aps
-    contract: config/contracts/SRC05.yaml
-    period_strategy: metric_specific
-
-  - source_id: SRC06
-    source_name: GMCA MBacc Gateway Reference
-    provider: GMCA
-    source_type: controlled_reference
-    endpoint: config/reference/mbacc_gateways_reference.csv
-    file_format: csv
-    refresh_frequency: manual
-    enabled: true
-    bronze_path: bronze/reference/mbacc_gateways
-    contract: config/contracts/SRC06.yaml
-    period_strategy: not_applicable
+- source_id: SRC01
+  source_name: DfE Apprenticeships Local Authority
+  provider: DfE
+  source_type: direct_csv
+  endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/22320587-106d-4c09-a39f-7228ceb950fe/csv
+  file_format: csv
+  refresh_frequency: release_driven
+  enabled: true
+  bronze_path: Files/raw/dfe/SRC01
+  contract: config/contracts/SRC01.yaml
+  period_strategy: source_defined
+- source_id: SRC02
+  source_name: DfE Detailed Apprenticeships
+  provider: DfE
+  source_type: direct_csv
+  endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/8ea0da62-6f42-4477-a2af-de4c3f1a8d56/csv
+  file_format: csv
+  refresh_frequency: release_driven
+  enabled: true
+  bronze_path: Files/raw/dfe/SRC02
+  contract: config/contracts/SRC02.yaml
+  period_strategy: source_defined
+- source_id: SRC03
+  source_name: DfE NEET
+  provider: DfE
+  source_type: direct_csv
+  endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/a7bc111a-9503-40df-99fa-764fcb13a2e9/csv
+  file_format: csv
+  refresh_frequency: release_driven
+  enabled: true
+  bronze_path: Files/raw/dfe/SRC03
+  contract: config/contracts/SRC03.yaml
+  period_strategy: source_defined
+- source_id: SRC04
+  source_name: DfE Education and Training Participation
+  provider: DfE
+  source_type: direct_csv
+  endpoint: https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/e1f4011a-ed67-408e-8b7b-076a44a6cc8c/csv
+  file_format: csv
+  refresh_frequency: release_driven
+  enabled: true
+  bronze_path: Files/raw/dfe/SRC04
+  contract: config/contracts/SRC04.yaml
+  period_strategy: source_defined
+- source_id: SRC05
+  source_name: ONS Nomis Annual Population Survey
+  provider: ONS Nomis
+  source_type: rest_api
+  endpoint: https://www.nomisweb.co.uk/api/v01/dataset/NM_17_5.data.csv
+  file_format: csv
+  refresh_frequency: quarterly
+  enabled: true
+  bronze_path: Files/raw/nomis/SRC05
+  contract: config/contracts/SRC05.yaml
+  period_strategy: metric_specific
+- source_id: SRC06
+  source_name: GMCA MBacc Gateway Reference
+  provider: GMCA
+  source_type: controlled_reference
+  endpoint: config/reference/mbacc_gateways_reference.csv
+  file_format: csv
+  refresh_frequency: manual
+  enabled: true
+  bronze_path: Files/raw/reference/SRC06
+  contract: config/contracts/SRC06.yaml
+  period_strategy: not_applicable
