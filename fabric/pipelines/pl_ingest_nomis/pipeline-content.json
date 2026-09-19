@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "copy_SRC05_nomis",
+        "type": "Copy",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "BinarySource",
+            "storeSettings": {
+              "type": "HttpReadSettings",
+              "requestMethod": "GET"
+            },
+            "formatSettings": {
+              "type": "BinaryReadSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "type": "Binary",
+              "typeProperties": {
+                "location": {
+                  "type": "HttpServerLocation",
+                  "relativeUrl": "api/v01/dataset/NM_17_5.data.csv?geography=E08000001,E08000002,E08000003,E08000004,E08000005,E08000006,E08000007,E08000008,E08000009,E08000010&variable=45,84,111,2010,1902&measures=20599"
+                }
+              },
+              "externalReferences": {
+                "connection": "d194d6bc-d08d-4167-bd0d-ffa7710b797f"
+              }
+            }
+          },
+          "sink": {
+            "type": "BinarySink",
+            "storeSettings": {
+              "type": "LakehouseWriteSettings"
+            },
+            "datasetSettings": {
+              "annotations": [],
+              "linkedService": {
+                "name": "lh_gm_skills_bronze",
+                "properties": {
+                  "annotations": [],
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916",
+                    "artifactId": "b9a4e5f8-5c7f-41b5-bd54-7241fed3dc12",
+                    "rootFolder": "Files"
+                  }
+                }
+              },
+              "type": "Binary",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "fileName": "source.csv",
+                  "folderPath": {
+                    "type": "Expression",
+                    "value": "@concat('raw/nomis/SRC05/year=',formatDateTime(utcNow(),'yyyy'),'/month=',formatDateTime(utcNow(),'MM'),'/day=',formatDateTime(utcNow(),'dd'),'/run_id=',pipeline().RunId)"
+                  }
+                }
+              }
+            }
+          },
+          "enableStaging": false
+        }
+      }
+    ]
+  }
+}
