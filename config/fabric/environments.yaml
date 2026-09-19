@@ -1,0 +1,15 @@
+version: 1
+environments:
+  development:
+    workspace_name: GM SkillsFlow Dev
+    workspace_id: 81e75ca0-f556-48c0-9dea-4851ce7bf916
+    items:
+      bronze_lakehouse:
+        name: lh_gm_skills_bronze
+        item_id: b9a4e5f8-5c7f-41b5-bd54-7241fed3dc12
+      silver_lakehouse:
+        name: lh_gm_skills_silver
+        item_id: d4a65e02-93bd-4109-9acc-80c8c57e6b4d
+      gold_warehouse:
+        name: wh_gm_skills_gold
+        item_id: ce6454df-212a-438a-809d-7f77075fb5c9
