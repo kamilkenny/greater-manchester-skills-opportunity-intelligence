@@ -13,3 +13,19 @@ business_key:
   - gateway_code
 
 geography_key: null
+
+accepted_values:
+  source_authority:
+    - GMCA
+
+  is_current:
+    - "true"
+
+expected_gateway_codes:
+  - MBACC01
+  - MBACC02
+  - MBACC03
+  - MBACC04
+  - MBACC05
+  - MBACC06
+  - MBACC07

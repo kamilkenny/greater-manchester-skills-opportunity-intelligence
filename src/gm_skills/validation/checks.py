@@ -320,3 +320,51 @@ def check_special_values(
         observed_value=sorted(observed_special),
         expected_value=sorted(allowed),
     )
+
+
+def check_expected_values(
+    dataframe: pd.DataFrame,
+    column: str,
+    expected_values: Iterable[str],
+) -> ValidationResult:
+    """Check that a column contains exactly the expected value set."""
+
+    expected = {
+        str(value).strip()
+        for value in expected_values
+    }
+
+    observed = {
+        str(value).strip()
+        for value in dataframe[column].dropna().unique()
+    }
+
+    missing = sorted(
+        expected - observed
+    )
+
+    unexpected = sorted(
+        observed - expected
+    )
+
+    if missing or unexpected:
+        return ValidationResult(
+            check_name=f"expected_values_{column}",
+            status=CheckStatus.FAIL,
+            message=(
+                f"Missing values: {missing}; "
+                f"unexpected values: {unexpected}"
+            ),
+            observed_value=sorted(observed),
+            expected_value=sorted(expected),
+        )
+
+    return ValidationResult(
+        check_name=f"expected_values_{column}",
+        status=CheckStatus.PASS,
+        message=(
+            f"{column} contains exactly the expected values."
+        ),
+        observed_value=sorted(observed),
+        expected_value=sorted(expected),
+    )
