@@ -2,73 +2,91 @@
   "properties": {
     "activities": [
       {
-        "name": "copy_SRC01",
-        "type": "Copy",
+        "name": "foreach_dfe_source",
+        "type": "ForEach",
         "dependsOn": [],
-        "policy": {
-          "timeout": "0.12:00:00",
-          "retry": 0,
-          "retryIntervalInSeconds": 30,
-          "secureOutput": false,
-          "secureInput": false
-        },
         "typeProperties": {
-          "source": {
-            "type": "BinarySource",
-            "storeSettings": {
-              "type": "HttpReadSettings",
-              "requestMethod": "GET"
-            },
-            "formatSettings": {
-              "type": "BinaryReadSettings"
-            },
-            "datasetSettings": {
-              "annotations": [],
-              "type": "Binary",
-              "typeProperties": {
-                "location": {
-                  "type": "HttpServerLocation",
-                  "relativeUrl": "data-catalogue/data-set/22320587-106d-4c09-a39f-7228ceb950fe/csv"
-                }
+          "items": {
+            "type": "Expression",
+            "value": "@json('[{\"source_id\":\"SRC01\",\"relative_url\":\"data-catalogue/data-set/22320587-106d-4c09-a39f-7228ceb950fe/csv\"},{\"source_id\":\"SRC02\",\"relative_url\":\"data-catalogue/data-set/8ea0da62-6f42-4477-a2af-de4c3f1a8d56/csv\"},{\"source_id\":\"SRC03\",\"relative_url\":\"data-catalogue/data-set/a7bc111a-9503-40df-99fa-764fcb13a2e9/csv\"},{\"source_id\":\"SRC04\",\"relative_url\":\"data-catalogue/data-set/e1f4011a-ed67-408e-8b7b-076a44a6cc8c/csv\"}]')"
+          },
+          "isSequential": false,
+          "batchCount": 4,
+          "activities": [
+            {
+              "name": "copy_current_dfe_source",
+              "type": "Copy",
+              "dependsOn": [],
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureOutput": false,
+                "secureInput": false
               },
-              "externalReferences": {
-                "connection": "e64bf791-0ff6-40b4-8dbd-e05d3faf9560"
+              "typeProperties": {
+                "source": {
+                  "type": "BinarySource",
+                  "storeSettings": {
+                    "type": "HttpReadSettings",
+                    "requestMethod": "GET"
+                  },
+                  "formatSettings": {
+                    "type": "BinaryReadSettings"
+                  },
+                  "datasetSettings": {
+                    "annotations": [],
+                    "type": "Binary",
+                    "typeProperties": {
+                      "location": {
+                        "type": "HttpServerLocation",
+                        "relativeUrl": {
+                          "type": "Expression",
+                          "value": "@item().relative_url"
+                        }
+                      }
+                    },
+                    "externalReferences": {
+                      "connection": "e64bf791-0ff6-40b4-8dbd-e05d3faf9560"
+                    }
+                  }
+                },
+                "sink": {
+                  "type": "BinarySink",
+                  "storeSettings": {
+                    "type": "LakehouseWriteSettings"
+                  },
+                  "datasetSettings": {
+                    "annotations": [],
+                    "linkedService": {
+                      "name": "lh_gm_skills_bronze",
+                      "properties": {
+                        "annotations": [],
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916",
+                          "artifactId": "b9a4e5f8-5c7f-41b5-bd54-7241fed3dc12",
+                          "rootFolder": "Files"
+                        }
+                      }
+                    },
+                    "type": "Binary",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "fileName": "source.csv",
+                        "folderPath": {
+                          "type": "Expression",
+                          "value": "@concat('raw/dfe/',item().source_id,'/year=',formatDateTime(utcNow(),'yyyy'),'/month=',formatDateTime(utcNow(),'MM'),'/day=',formatDateTime(utcNow(),'dd'),'/run_id=',pipeline().RunId)"
+                        }
+                      }
+                    }
+                  }
+                },
+                "enableStaging": false
               }
             }
-          },
-          "sink": {
-            "type": "BinarySink",
-            "storeSettings": {
-              "type": "LakehouseWriteSettings"
-            },
-            "datasetSettings": {
-              "annotations": [],
-              "linkedService": {
-                "name": "lh_gm_skills_bronze",
-                "properties": {
-                  "annotations": [],
-                  "type": "Lakehouse",
-                  "typeProperties": {
-                    "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916",
-                    "artifactId": "b9a4e5f8-5c7f-41b5-bd54-7241fed3dc12",
-                    "rootFolder": "Files"
-                  }
-                }
-              },
-              "type": "Binary",
-              "typeProperties": {
-                "location": {
-                  "type": "LakehouseLocation",
-                  "fileName": "source.csv",
-                  "folderPath": {
-                    "type": "Expression",
-                    "value": "@concat('raw/dfe/SRC01/year=',formatDateTime(utcNow(),'yyyy'),'/month=',formatDateTime(utcNow(),'MM'),'/day=',formatDateTime(utcNow(),'dd'),'/run_id=',pipeline().RunId)"
-                  }
-                }
-              }
-            }
-          },
-          "enableStaging": false
+          ]
         }
       }
     ]
