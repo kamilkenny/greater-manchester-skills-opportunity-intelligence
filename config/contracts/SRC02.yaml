@@ -34,3 +34,45 @@ special_values:
   low: low_non_zero
 
 geography_key: lad_code
+
+scope:
+  geographic_level: Local authority district
+  geography_codes:
+    - E08000001
+    - E08000002
+    - E08000003
+    - E08000004
+    - E08000005
+    - E08000006
+    - E08000007
+    - E08000008
+    - E08000009
+    - E08000010
+
+accepted_values:
+  sex:
+    - Female
+    - Male
+    - Total
+
+  ethnicity_major:
+    - Asian / Asian British
+    - Black / African / Caribbean / Black British
+    - Mixed / Multiple ethnic groups
+    - Other ethnic group
+    - Total
+    - Unknown
+    - White
+
+  apps_level:
+    - Advanced Apprenticeship
+    - Higher Apprenticeship
+    - Intermediate Apprenticeship
+    - Total
+
+expected_special_values:
+  starts:
+    - low
+
+  achievements:
+    - low

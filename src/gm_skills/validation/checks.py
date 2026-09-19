@@ -75,29 +75,42 @@ def check_business_key_nulls(
     dataframe: pd.DataFrame,
     business_key: Iterable[str],
 ) -> ValidationResult:
-    """Check for null values in business-key columns."""
+    """Check for null or blank values in business-key columns."""
 
     key_columns = list(
         business_key
     )
 
-    null_rows = dataframe[
+    key_frame = dataframe[
         key_columns
-    ].isna().any(axis=1)
+    ]
 
-    null_count = int(
-        null_rows.sum()
+    null_mask = key_frame.isna()
+
+    blank_mask = key_frame.map(
+        lambda value: (
+            isinstance(value, str)
+            and not value.strip()
+        )
     )
 
-    if null_count:
+    invalid_rows = (
+        null_mask | blank_mask
+    ).any(axis=1)
+
+    invalid_count = int(
+        invalid_rows.sum()
+    )
+
+    if invalid_count:
         return ValidationResult(
             check_name="business_key_nulls",
             status=CheckStatus.FAIL,
             message=(
-                f"{null_count} rows contain "
-                "null business-key values."
+                f"{invalid_count} rows contain "
+                "null or blank business-key values."
             ),
-            observed_value=null_count,
+            observed_value=invalid_count,
             expected_value=0,
         )
 
@@ -105,7 +118,7 @@ def check_business_key_nulls(
         check_name="business_key_nulls",
         status=CheckStatus.PASS,
         message=(
-            "No null business-key values found."
+            "No null or blank business-key values found."
         ),
         observed_value=0,
         expected_value=0,
@@ -149,4 +162,161 @@ def check_duplicate_business_keys(
         ),
         observed_value=0,
         expected_value=0,
+    )
+
+
+def check_accepted_values(
+    dataframe: pd.DataFrame,
+    column: str,
+    accepted_values: Iterable[str],
+) -> ValidationResult:
+    """Check categorical values against an approved domain."""
+
+    accepted = set(
+        accepted_values
+    )
+
+    observed = {
+        str(value).strip()
+        for value in dataframe[
+            column
+        ].dropna().unique()
+    }
+
+    unexpected = sorted(
+        observed - accepted
+    )
+
+    if unexpected:
+        return ValidationResult(
+            check_name=f"accepted_values_{column}",
+            status=CheckStatus.FAIL,
+            message=(
+                f"Unexpected values in {column}: "
+                + ", ".join(unexpected)
+            ),
+            observed_value=unexpected,
+            expected_value=sorted(accepted),
+        )
+
+    return ValidationResult(
+        check_name=f"accepted_values_{column}",
+        status=CheckStatus.PASS,
+        message=(
+            f"All {column} values are accepted."
+        ),
+        observed_value=sorted(observed),
+        expected_value=sorted(accepted),
+    )
+
+
+def check_geography_coverage(
+    dataframe: pd.DataFrame,
+    geography_column: str,
+    expected_codes: Iterable[str],
+) -> ValidationResult:
+    """Check that expected geography codes are present."""
+
+    expected = set(
+        expected_codes
+    )
+
+    observed = {
+        str(value).strip()
+        for value in dataframe[
+            geography_column
+        ].dropna().unique()
+    }
+
+    missing = sorted(
+        expected - observed
+    )
+
+    unexpected = sorted(
+        observed - expected
+    )
+
+    if missing or unexpected:
+        return ValidationResult(
+            check_name="geography_coverage",
+            status=CheckStatus.FAIL,
+            message=(
+                f"Missing geography codes: {missing}; "
+                f"unexpected codes: {unexpected}"
+            ),
+            observed_value=sorted(observed),
+            expected_value=sorted(expected),
+        )
+
+    return ValidationResult(
+        check_name="geography_coverage",
+        status=CheckStatus.PASS,
+        message=(
+            "Geography coverage matches the contract."
+        ),
+        observed_value=sorted(observed),
+        expected_value=sorted(expected),
+    )
+
+
+def check_special_values(
+    dataframe: pd.DataFrame,
+    column: str,
+    allowed_special_values: Iterable[str],
+) -> ValidationResult:
+    """Check non-numeric metric values against known source codes."""
+
+    allowed = set(
+        allowed_special_values
+    )
+
+    series = (
+        dataframe[column]
+        .fillna("")
+        .astype(str)
+        .str.strip()
+    )
+
+    numeric = pd.to_numeric(
+        series,
+        errors="coerce",
+    )
+
+    observed_special = {
+        value
+        for value, numeric_value
+        in zip(
+            series,
+            numeric,
+            strict=True,
+        )
+        if value
+        and pd.isna(numeric_value)
+    }
+
+    unexpected = sorted(
+        observed_special - allowed
+    )
+
+    if unexpected:
+        return ValidationResult(
+            check_name=f"special_values_{column}",
+            status=CheckStatus.FAIL,
+            message=(
+                f"Unexpected non-numeric values in {column}: "
+                + ", ".join(unexpected)
+            ),
+            observed_value=sorted(observed_special),
+            expected_value=sorted(allowed),
+        )
+
+    return ValidationResult(
+        check_name=f"special_values_{column}",
+        status=CheckStatus.PASS,
+        message=(
+            f"Special values in {column} "
+            "match the source contract."
+        ),
+        observed_value=sorted(observed_special),
+        expected_value=sorted(allowed),
     )
