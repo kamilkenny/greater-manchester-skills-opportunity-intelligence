@@ -1,0 +1,62 @@
+source_id: SRC05
+grain: period_geography_variable
+
+expected_columns:
+  - DATE
+  - DATE_NAME
+  - DATE_CODE
+  - DATE_TYPE
+  - DATE_TYPECODE
+  - DATE_SORTORDER
+  - GEOGRAPHY
+  - GEOGRAPHY_NAME
+  - GEOGRAPHY_CODE
+  - GEOGRAPHY_TYPE
+  - GEOGRAPHY_TYPECODE
+  - GEOGRAPHY_SORTORDER
+  - VARIABLE
+  - VARIABLE_NAME
+  - VARIABLE_CODE
+  - VARIABLE_TYPE
+  - VARIABLE_TYPECODE
+  - VARIABLE_SORTORDER
+  - MEASURES
+  - MEASURES_NAME
+  - OBS_VALUE
+  - OBS_STATUS
+  - OBS_STATUS_NAME
+  - OBS_CONF
+  - OBS_CONF_NAME
+  - URN
+  - RECORD_OFFSET
+  - RECORD_COUNT
+
+business_key:
+  - DATE_CODE
+  - GEOGRAPHY_CODE
+  - VARIABLE
+
+value_fields:
+  - OBS_VALUE
+
+status_fields:
+  - OBS_STATUS
+  - OBS_STATUS_NAME
+  - OBS_CONF
+  - OBS_CONF_NAME
+
+geography_key: GEOGRAPHY_CODE
+
+period_rules:
+  labour_market:
+    variables:
+      - "45"
+      - "84"
+      - "111"
+    date_selector: latest
+
+  qualifications:
+    variables:
+      - "1902"
+      - "2010"
+    period_type: calendar_year

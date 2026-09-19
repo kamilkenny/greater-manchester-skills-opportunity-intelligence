@@ -1,0 +1,36 @@
+source_id: SRC02
+grain: academic_year_lad_ssa_sex_ethnicity_level
+
+expected_columns:
+  - time_period
+  - time_identifier
+  - geographic_level
+  - country_code
+  - country_name
+  - region_code
+  - region_name
+  - lad_code
+  - lad_name
+  - ssa_tier_1
+  - sex
+  - ethnicity_major
+  - apps_level
+  - starts
+  - achievements
+
+business_key:
+  - time_period
+  - lad_code
+  - ssa_tier_1
+  - sex
+  - ethnicity_major
+  - apps_level
+
+value_fields:
+  - starts
+  - achievements
+
+special_values:
+  low: low_non_zero
+
+geography_key: lad_code

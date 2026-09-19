@@ -1,0 +1,34 @@
+source_id: SRC04
+grain: year_local_authority_age_characteristic
+
+expected_columns:
+  - time_period
+  - time_identifier
+  - geographic_level
+  - country_code
+  - country_name
+  - region_code
+  - region_name
+  - old_la_code
+  - new_la_code
+  - la_name
+  - age
+  - characteristic_grouping
+  - characteristic
+  - cohort_count
+  - total_in_education_and_training_count
+  - total_in_education_and_training_percent
+  - annual_change_percent
+
+business_key:
+  - time_period
+  - new_la_code
+  - age
+  - characteristic_grouping
+  - characteristic
+
+special_values:
+  c: suppressed
+  z: not_applicable
+
+geography_key: new_la_code

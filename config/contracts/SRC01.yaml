@@ -1,0 +1,38 @@
+source_id: SRC01
+grain: academic_year_lad_age_level_sex
+
+expected_columns:
+  - time_period
+  - time_identifier
+  - geographic_level
+  - country_code
+  - country_name
+  - region_code
+  - region_name
+  - lad_code
+  - lad_name
+  - pcon_code
+  - pcon_name
+  - age_summary
+  - apps_level
+  - sex
+  - starts
+  - achievements
+  - participation
+
+business_key:
+  - time_period
+  - lad_code
+  - age_summary
+  - apps_level
+  - sex
+
+value_fields:
+  - starts
+  - achievements
+  - participation
+
+special_values:
+  low: low_non_zero
+
+geography_key: lad_code

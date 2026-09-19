@@ -1,0 +1,15 @@
+source_id: SRC06
+grain: mbacc_gateway
+
+expected_columns:
+  - gateway_code
+  - gateway_name
+  - alternate_name
+  - source_authority
+  - is_current
+  - source_checked_date
+
+business_key:
+  - gateway_code
+
+geography_key: null
