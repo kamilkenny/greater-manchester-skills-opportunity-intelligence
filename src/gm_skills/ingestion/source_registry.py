@@ -10,7 +10,6 @@ import yaml
 
 from gm_skills.settings import settings
 
-
 DEFAULT_REGISTRY = settings.project_root / "config" / "sources.yaml"
 
 

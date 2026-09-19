@@ -3,7 +3,6 @@ from gm_skills.ingestion.source_registry import (
     load_source_registry,
 )
 
-
 EXPECTED_SOURCE_IDS = {
     "SRC01",
     "SRC02",
