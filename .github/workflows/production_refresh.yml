@@ -135,13 +135,30 @@ jobs:
           subscription-id: ${{ vars.SERVING_SUBSCRIPTION_ID }}
 
       - name: Publish validated snapshot
+        id: publish_snapshot
+        shell: bash
         run: |
-          python scripts/publish_public_snapshot.py \
-            --account "${{ vars.SERVING_STORAGE_ACCOUNT }}" \
-            --container "${{ vars.SERVING_STORAGE_CONTAINER }}" \
-            --snapshot-dir data/public/build
+          set -euo pipefail
+
+          OUTPUT="$(
+            python scripts/publish_public_snapshot.py \
+              --account "${{ vars.SERVING_STORAGE_ACCOUNT }}" \
+              --container "${{ vars.SERVING_STORAGE_CONTAINER }}" \
+              --snapshot-dir data/public/build
+          )"
+
+          echo "${OUTPUT}"
+
+          if echo "${OUTPUT}" | grep -q "NO_CHANGE"; then
+            echo "No material data change detected."
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+          else
+            echo "New validated snapshot published."
+            echo "changed=true" >> "${GITHUB_OUTPUT}"
+          fi
 
       - name: Tell live application to check new snapshot
+        if: steps.publish_snapshot.outputs.changed == 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -153,6 +170,14 @@ jobs:
             --max-time 60 \
             -X POST \
             "${{ vars.PUBLIC_APP_URL }}/refresh-data"
+
+      - name: No change detected
+        if: steps.publish_snapshot.outputs.changed == 'false'
+        shell: bash
+        run: |
+          echo "NO_CHANGE"
+          echo "No new public snapshot was required."
+          echo "The currently published dashboard snapshot remains active."
 
       - name: Verify live health
         shell: bash
