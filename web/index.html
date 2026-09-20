@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Greater Manchester Skills and Opportunity Intelligence platform."
+  >
+
+  <title>
+    GM SkillsFlow | Skills & Opportunity Intelligence
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/styles.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="assets/css/redesign.css"
+  >
+
+  <script
+    src="https://cdn.plot.ly/plotly-2.35.2.min.js"
+    charset="utf-8"
+  ></script>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <div class="brand">
+    <div class="brand-mark">GM</div>
+
+    <div>
+      <div class="brand-name">GM SkillsFlow</div>
+      <div class="brand-subtitle">
+        Skills & Opportunity Intelligence
+      </div>
+
+      <div class="designer-credit-header">
+        Designed and modelled by Kamil Ridwan
+      </div>
+    </div>
+  </div>
+
+  <nav class="desktop-nav">
+    <button
+      class="nav-link active"
+      data-section="overview"
+    >
+      Overview
+    </button>
+
+    <button
+      class="nav-link"
+      data-section="boroughs"
+    >
+      Borough Explorer
+    </button>
+
+    <button
+      class="nav-link"
+      data-section="pathways"
+    >
+      MBacc Pathways
+    </button>
+
+    <button
+      class="nav-link"
+      data-section="trends"
+    >
+      Trends
+    </button>
+
+    <button
+      class="nav-link"
+      data-section="methodology"
+    >
+      Data & Methodology
+    </button>
+  </nav>
+
+</header>
+
+
+<main>
+
+<section
+  id="overview"
+  class="page-section active"
+>
+
+  <div class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        GREATER MANCHESTER
+      </div>
+
+      <h1>
+        Connecting skills supply
+        with economic opportunity
+      </h1>
+
+      <p>
+        Explore apprenticeships, youth transitions,
+        qualifications and labour-market outcomes
+        across Greater Manchester's ten boroughs.
+      </p>
+
+      <div class="hero-meta">
+        <span id="hero-refresh">
+          Loading latest data…
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="content">
+
+    <div
+      id="overview-stats"
+      class="stat-grid"
+    ></div>
+
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">
+          CURRENT POSITION
+        </div>
+
+        <h2>
+          Compare Greater Manchester boroughs
+        </h2>
+
+        <p>
+          Choose an indicator to compare the latest
+          available observation for each borough.
+        </p>
+      </div>
+
+      <div class="control">
+        <label for="overview-kpi">
+          Indicator
+        </label>
+
+        <select id="overview-kpi"></select>
+      </div>
+    </div>
+
+
+    <div class="panel">
+      <div
+        id="overview-chart"
+        class="plot"
+      ></div>
+
+      <div
+        id="overview-period"
+        class="chart-note"
+      ></div>
+    </div>
+
+
+    <div class="two-column">
+
+      <div class="panel">
+        <div class="panel-heading">
+          <span class="eyebrow">
+            YOUTH TRANSITION
+          </span>
+
+          <h3>
+            NEET and education participation
+          </h3>
+        </div>
+
+        <div
+          id="overview-youth-chart"
+          class="plot medium"
+        ></div>
+      </div>
+
+
+      <div class="panel">
+        <div class="panel-heading">
+          <span class="eyebrow">
+            LABOUR MARKET
+          </span>
+
+          <h3>
+            Employment and inactivity
+          </h3>
+        </div>
+
+        <div
+          id="overview-labour-chart"
+          class="plot medium"
+        ></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  id="boroughs"
+  class="page-section"
+>
+
+  <div class="page-hero">
+    <div class="eyebrow">
+      BOROUGH EXPLORER
+    </div>
+
+    <h1>
+      One borough.
+      Multiple dimensions of opportunity.
+    </h1>
+
+    <p>
+      Examine the latest skills, youth,
+      labour-market and qualification indicators.
+    </p>
+  </div>
+
+
+  <div class="content">
+
+    <div class="toolbar">
+
+      <div class="control">
+        <label for="borough-select">
+          Borough
+        </label>
+
+        <select id="borough-select"></select>
+      </div>
+
+    </div>
+
+
+    <div
+      id="borough-kpi-grid"
+      class="kpi-grid"
+    ></div>
+
+
+    <div class="two-column">
+
+      <div class="panel">
+        <div class="panel-heading">
+          <span class="eyebrow">
+            LABOUR MARKET
+          </span>
+
+          <h3>
+            Current labour-market profile
+          </h3>
+        </div>
+
+        <div
+          id="borough-labour-chart"
+          class="plot medium"
+        ></div>
+      </div>
+
+
+      <div class="panel">
+        <div class="panel-heading">
+          <span class="eyebrow">
+            QUALIFICATIONS
+          </span>
+
+          <h3>
+            RQF attainment
+          </h3>
+        </div>
+
+        <div
+          id="borough-qualification-chart"
+          class="plot medium"
+        ></div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  id="pathways"
+  class="page-section"
+>
+
+  <div class="page-hero">
+    <div class="eyebrow">
+      MBACC PATHWAYS
+    </div>
+
+    <h1>
+      Apprenticeship supply across
+      Greater Manchester's MBacc gateways
+    </h1>
+
+    <p>
+      Explore apprenticeship starts and achievements
+      using the governed analytical SSA-to-MBacc mapping.
+    </p>
+  </div>
+
+
+  <div class="content">
+
+    <div class="toolbar">
+
+      <div class="control">
+        <label for="pathway-borough-select">
+          Borough
+        </label>
+
+        <select id="pathway-borough-select"></select>
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <div
+        id="pathway-chart"
+        class="plot large"
+      ></div>
+
+      <div class="chart-note">
+        Suppressed or partially reportable gateway
+        aggregates remain unavailable rather than
+        being reconstructed.
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  id="trends"
+  class="page-section"
+>
+
+  <div class="page-hero">
+    <div class="eyebrow">
+      TRENDS
+    </div>
+
+    <h1>
+      How are skills and opportunity
+      changing over time?
+    </h1>
+
+    <p>
+      Explore the historical series available for
+      individual Greater Manchester boroughs.
+    </p>
+  </div>
+
+
+  <div class="content">
+
+    <div class="toolbar">
+
+      <div class="control">
+        <label for="trend-borough-select">
+          Borough
+        </label>
+
+        <select id="trend-borough-select"></select>
+      </div>
+
+      <div class="control">
+        <label for="trend-domain-select">
+          Indicator group
+        </label>
+
+        <select id="trend-domain-select">
+          <option value="apprenticeships">
+            Apprenticeships
+          </option>
+
+          <option value="youth">
+            Youth transition
+          </option>
+
+          <option value="labour">
+            Labour market
+          </option>
+
+          <option value="qualifications">
+            Qualifications
+          </option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <div class="panel">
+
+      <div
+        id="trend-chart"
+        class="plot large"
+      ></div>
+
+      <div
+        id="trend-note"
+        class="chart-note"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  id="methodology"
+  class="page-section"
+>
+
+  <div class="page-hero">
+    <div class="eyebrow">
+      DATA & METHODOLOGY
+    </div>
+
+    <h1>
+      Transparent by design
+    </h1>
+
+    <p>
+      Understand the sources, reporting periods,
+      mapping rules and disclosure treatment behind
+      GM SkillsFlow.
+    </p>
+  </div>
+
+
+  <div class="content methodology-grid">
+
+    <article class="method-card">
+      <span class="method-number">01</span>
+      <h3>Apprenticeships</h3>
+      <p>
+        Department for Education apprenticeship
+        statistics are used for borough-level supply,
+        detailed subject areas and achievements.
+      </p>
+    </article>
+
+
+    <article class="method-card">
+      <span class="method-number">02</span>
+      <h3>Youth transition</h3>
+      <p>
+        DfE NEET and participation statistics are
+        modelled at the combined 16-to-17 age-group
+        headline level to avoid overlapping totals.
+      </p>
+    </article>
+
+
+    <article class="method-card">
+      <span class="method-number">03</span>
+      <h3>Labour market</h3>
+      <p>
+        ONS Nomis Annual Population Survey data
+        provides employment, unemployment,
+        inactivity and qualification indicators.
+      </p>
+    </article>
+
+
+    <article class="method-card">
+      <span class="method-number">04</span>
+      <h3>MBacc mapping</h3>
+      <p>
+        Subject Sector Areas are mapped to MBacc
+        gateways through a governed analytical
+        crosswalk. It is not represented as an
+        official GMCA classification.
+      </p>
+    </article>
+
+
+    <article class="method-card">
+      <span class="method-number">05</span>
+      <h3>Reporting periods</h3>
+      <p>
+        Apprenticeship, youth-transition,
+        labour-market and qualification statistics
+        retain their actual publication periods.
+      </p>
+    </article>
+
+
+    <article class="method-card">
+      <span class="method-number">06</span>
+      <h3>Disclosure</h3>
+      <p>
+        Official suppressed or unavailable values
+        remain null. GM SkillsFlow does not infer or
+        reconstruct suppressed observations.
+      </p>
+    </article>
+
+  </div>
+
+
+  <div class="content">
+
+    <div class="panel">
+      <div class="panel-heading">
+        <span class="eyebrow">
+          CURRENT DATA PERIODS
+        </span>
+
+        <h3>
+          Reporting coverage
+        </h3>
+      </div>
+
+      <div
+        id="methodology-periods"
+        class="period-grid"
+      ></div>
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div>
+    <strong>GM SkillsFlow</strong>
+    <span>
+      Greater Manchester Skills & Opportunity Intelligence
+    </span>
+  </div>
+
+  <div>
+    Public analytical prototype using official statistics.
+  </div>
+
+</footer>
+
+
+<div
+  id="loading-overlay"
+  class="loading-overlay"
+>
+  <div class="loader"></div>
+  <span>Loading GM SkillsFlow…</span>
+</div>
+
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/enhancements.js"></script>
+
+</body>
+</html>

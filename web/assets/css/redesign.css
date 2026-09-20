@@ -1,0 +1,423 @@
+/* =========================================================
+   GM SkillsFlow, redesign overrides
+   ========================================================= */
+
+/* ---------- Hero ---------- */
+.hero,
+.hero-panel,
+.hero-shell,
+.hero-card {
+  width: min(1500px, calc(100vw - 56px));
+  max-width: 1500px;
+  min-height: 360px;
+  margin: 0 auto 2rem auto;
+  padding: 38px 44px 36px 44px;
+  border-radius: 30px;
+  position: relative;
+  overflow: visible !important;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(0, 210, 255, 0.16), transparent 24rem),
+    radial-gradient(circle at 85% 20%, rgba(120, 90, 255, 0.16), transparent 26rem),
+    radial-gradient(circle at 88% 84%, rgba(0, 255, 200, 0.12), transparent 22rem),
+    linear-gradient(120deg, #08233b 0%, #0d4863 35%, #146a7e 68%, #3a5f9b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 46px rgba(8, 20, 32, 0.22);
+}
+
+/* Kicker / eyebrow text */
+.hero .eyebrow,
+.hero .kicker,
+.hero .hero-kicker,
+.hero .section-kicker {
+  position: static !important;
+  display: block;
+  margin: 0 0 14px 0;
+  padding: 0 0 0 4px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: 0.24em;
+  color: #d9f4ff;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+/* Main title */
+.hero h1,
+.hero .hero-title,
+.hero .headline {
+  margin: 0 0 18px 0;
+  max-width: 12.8ch;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  line-height: 0.93;
+  letter-spacing: -0.045em;
+  color: #f5f9ff;
+  text-wrap: balance;
+}
+
+/* Supporting copy */
+.hero p,
+.hero .hero-copy,
+.hero .lede,
+.hero .subhead {
+  max-width: 980px;
+  margin: 0 0 18px 0;
+  font-size: clamp(1.12rem, 1.55vw, 1.55rem);
+  line-height: 1.55;
+  color: rgba(244, 249, 255, 0.95);
+}
+
+/* Footer line in hero */
+.hero .hero-meta,
+.hero .refresh-line,
+.hero .hero-footnote {
+  margin-top: 26px;
+  font-size: 1rem;
+  color: rgba(244, 249, 255, 0.88);
+}
+
+/* ---------- KPI cards, richer blended backgrounds ---------- */
+.kpi-card:nth-child(1) {
+  background:
+    linear-gradient(135deg, rgba(19, 139, 201, 0.16), rgba(77, 213, 195, 0.14)),
+    #f7fbff;
+}
+.kpi-card:nth-child(2) {
+  background:
+    linear-gradient(135deg, rgba(89, 107, 255, 0.16), rgba(132, 115, 255, 0.14)),
+    #f9f8ff;
+}
+.kpi-card:nth-child(3) {
+  background:
+    linear-gradient(135deg, rgba(0, 199, 197, 0.15), rgba(95, 221, 255, 0.13)),
+    #f6fdff;
+}
+.kpi-card:nth-child(4) {
+  background:
+    linear-gradient(135deg, rgba(231, 163, 51, 0.16), rgba(169, 119, 255, 0.13)),
+    #fffaf5;
+}
+
+.kpi-card {
+  border: 1px solid rgba(120, 145, 170, 0.18);
+  box-shadow: 0 10px 24px rgba(12, 28, 44, 0.08);
+}
+
+/* ---------- Chart cards ---------- */
+.chart-card,
+.panel-card,
+.insight-card {
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .hero,
+  .hero-panel,
+  .hero-shell,
+  .hero-card {
+    width: min(100%, calc(100vw - 30px));
+    padding: 30px 26px 28px 26px;
+  }
+
+  .hero h1,
+  .hero .hero-title,
+  .hero .headline {
+    max-width: 100%;
+    font-size: clamp(2.5rem, 8vw, 4.3rem);
+  }
+}
+
+
+/* ============================================================
+   HEADER DESIGN CREDIT
+   ============================================================ */
+
+.designer-credit-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 5px;
+
+  padding: 3px 9px;
+
+  border-radius: 999px;
+
+  color: rgba(230, 244, 251, 0.92);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 180, 216, 0.13),
+      rgba(112, 98, 217, 0.15)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.12);
+
+  font-size: 0.67rem;
+  font-weight: 650;
+
+  letter-spacing: 0.015em;
+
+  white-space: nowrap;
+}
+
+
+.designer-credit-header::before {
+  content: "✦";
+
+  color: #62d9ec;
+
+  font-size: 0.65rem;
+}
+
+
+/* ============================================================
+   OVERVIEW KPI CARDS
+   Restore distinct pastel backgrounds
+   ============================================================ */
+
+.stat-grid .stat-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 14px 34px rgba(8, 27, 44, 0.09);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.stat-grid .stat-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 20px 42px rgba(8, 27, 44, 0.13);
+}
+
+
+/* ------------------------------------------------------------
+   1. Greater Manchester
+   Blue / cyan
+   ------------------------------------------------------------ */
+
+.stat-grid .stat-card:nth-child(1) {
+  background:
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(52, 191, 223, 0.19),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #edfaff 0%,
+      #e1f5fb 52%,
+      #eefafb 100%
+    ) !important;
+
+  border:
+    1px solid #70bfd1 !important;
+}
+
+
+.stat-grid .stat-card:nth-child(1)::before {
+  background:
+    linear-gradient(
+      90deg,
+      #159db8,
+      #45c9db
+    ) !important;
+}
+
+
+.stat-grid .stat-card:nth-child(1) .stat-label {
+  color: #16758b !important;
+}
+
+
+.stat-grid .stat-card:nth-child(1) .stat-value {
+  color: #093d57 !important;
+}
+
+
+/* ------------------------------------------------------------
+   2. Current KPI layer
+   Lavender / indigo
+   ------------------------------------------------------------ */
+
+.stat-grid .stat-card:nth-child(2) {
+  background:
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(112, 98, 217, 0.18),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #f6f2ff 0%,
+      #ece8ff 52%,
+      #f5f4ff 100%
+    ) !important;
+
+  border:
+    1px solid #a99ae2 !important;
+}
+
+
+.stat-grid .stat-card:nth-child(2)::before {
+  background:
+    linear-gradient(
+      90deg,
+      #7062d9,
+      #5778ee
+    ) !important;
+}
+
+
+.stat-grid .stat-card:nth-child(2) .stat-label {
+  color: #6251a8 !important;
+}
+
+
+.stat-grid .stat-card:nth-child(2) .stat-value {
+  color: #342969 !important;
+}
+
+
+/* ------------------------------------------------------------
+   3. MBacc framework
+   Mint / teal
+   ------------------------------------------------------------ */
+
+.stat-grid .stat-card:nth-child(3) {
+  background:
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(36, 188, 157, 0.17),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #effbf7 0%,
+      #e2f7ef 52%,
+      #eefbf8 100%
+    ) !important;
+
+  border:
+    1px solid #72c2b1 !important;
+}
+
+
+.stat-grid .stat-card:nth-child(3)::before {
+  background:
+    linear-gradient(
+      90deg,
+      #159a8c,
+      #3cc8ad
+    ) !important;
+}
+
+
+.stat-grid .stat-card:nth-child(3) .stat-label {
+  color: #277f70 !important;
+}
+
+
+.stat-grid .stat-card:nth-child(3) .stat-value {
+  color: #134f46 !important;
+}
+
+
+/* ------------------------------------------------------------
+   4. Latest apprenticeships
+   Amber / peach
+   ------------------------------------------------------------ */
+
+.stat-grid .stat-card:nth-child(4) {
+  background:
+    radial-gradient(
+      circle at 90% 12%,
+      rgba(217, 154, 54, 0.18),
+      transparent 42%
+    ),
+    linear-gradient(
+      135deg,
+      #fff9eb 0%,
+      #fff0d9 52%,
+      #fff7ee 100%
+    ) !important;
+
+  border:
+    1px solid #dfa959 !important;
+}
+
+
+.stat-grid .stat-card:nth-child(4)::before {
+  background:
+    linear-gradient(
+      90deg,
+      #d79227,
+      #e4ae52,
+      #9a6bd5
+    ) !important;
+}
+
+
+.stat-grid .stat-card:nth-child(4) .stat-label {
+  color: #a26d1d !important;
+}
+
+
+.stat-grid .stat-card:nth-child(4) .stat-value {
+  color: #694410 !important;
+}
+
+
+/* Supporting text stays readable */
+
+.stat-grid .stat-card .stat-detail {
+  color: #5f7384 !important;
+}
+
+
+/* Gentle visual depth */
+
+.stat-grid .stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 105px;
+  height: 105px;
+
+  right: -45px;
+  bottom: -48px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.36);
+
+  pointer-events: none;
+}
+
+
+/* Keep the credit compact on smaller screens */
+
+@media (max-width: 760px) {
+
+  .designer-credit-header {
+    white-space: normal;
+
+    font-size: 0.62rem;
+  }
+
+}
