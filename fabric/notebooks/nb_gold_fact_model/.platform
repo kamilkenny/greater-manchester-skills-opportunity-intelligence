@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "nb_gold_fact_model",
+    "description": "Builds the GM SkillsFlow Gold fact star schema, Nomis dimensions and governed surrogate-key relationships."
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "0d0e79c8-a827-4d52-b96c-87b46416eec7"
+  }
+}
