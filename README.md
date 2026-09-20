@@ -72,8 +72,6 @@ Application health endpoint:
 ---
 
 # High Level Architecture
-
-```mermaid
 flowchart LR
 
     DFE[Department for Education]
