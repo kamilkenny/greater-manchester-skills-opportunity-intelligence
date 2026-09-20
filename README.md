@@ -1,5 +1,7 @@
 # Greater Manchester Skills & Opportunity Intelligence
 
+# Live Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
+
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
 The platform integrates data from multiple public sources, processes them through a Microsoft Fabric Medallion architecture, builds governed dimensional and fact models in a Fabric Warehouse, preserves analytical and operational history using **Slowly Changing Dimension Type 2 and Type 4 patterns**, and publishes validated intelligence through a live Azure hosted web application.
