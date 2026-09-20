@@ -35,3 +35,7 @@ echo "Workspace: GM SkillsFlow Dev"
 echo "Workspace ID: $WORKSPACE_ID"
 
 export SILVER_MODEL_PIPELINE_ID="9ab81518-0410-4bfc-bf80-ad031df6a5f3"
+
+export SILVER_TO_GOLD_NOTEBOOK_ID="8acb2ede-0045-4859-9d1c-13a3f5c87917"
+
+export SILVER_TO_GOLD_PIPELINE_ID="304cee55-294a-4999-9410-b6a0e6c5f809"
