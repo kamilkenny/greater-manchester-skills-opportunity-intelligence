@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
 
@@ -53,11 +53,57 @@ jobs:
           python -m pip install "pyodbc>=5.2,<6"
 
       - name: Login to Fabric tenant
-        uses: azure/login@v2
+        uses: azure/login@v3
         with:
           client-id: ${{ vars.FABRIC_CLIENT_ID }}
           tenant-id: ${{ vars.FABRIC_TENANT_ID }}
           allow-no-subscriptions: true
+
+      - name: Bind Fabric pipelines to automation identity
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          WORKSPACE_ID="81e75ca0-f556-48c0-9dea-4851ce7bf916"
+
+          TOKEN="$(
+            az account get-access-token \
+              --resource https://api.fabric.microsoft.com \
+              --query accessToken \
+              -o tsv
+          )"
+
+          declare -A PIPELINES=(
+            [pl_ingest_dfe]="d74cac73-5175-47e6-b3e1-f36bb54e5c3d"
+            [pl_ingest_nomis]="9d8cf3d5-3430-4bb0-8814-a8e5cd8ada1f"
+            [pl_bronze_to_silver]="e446f1f5-a03c-462e-aada-0dfe5bc21903"
+            [pl_silver_model]="9ab81518-0410-4bfc-bf80-ad031df6a5f3"
+            [pl_silver_to_gold]="304cee55-294a-4999-9410-b6a0e6c5f809"
+          )
+
+          for NAME in \
+            pl_ingest_dfe \
+            pl_ingest_nomis \
+            pl_bronze_to_silver \
+            pl_silver_model \
+            pl_silver_to_gold
+          do
+            ID="${PIPELINES[$NAME]}"
+
+            echo "Binding ${NAME} to GitHub automation identity"
+
+            curl \
+              --fail-with-body \
+              --silent \
+              --show-error \
+              -X PATCH \
+              "https://api.fabric.microsoft.com/v1/workspaces/${WORKSPACE_ID}/dataPipelines/${ID}" \
+              -H "Authorization: Bearer ${TOKEN}" \
+              -H "Content-Type: application/json" \
+              --data "{\"description\":\"GM SkillsFlow production pipeline managed by GitHub automation: ${NAME}\"}"
+
+            echo
+          done
 
       - name: Run Fabric refresh chain and export Gold
         run: |
@@ -69,7 +115,7 @@ jobs:
           az logout || true
 
       - name: Login to Azure serving tenant
-        uses: azure/login@v2
+        uses: azure/login@v3
         with:
           client-id: ${{ vars.SERVING_CLIENT_ID }}
           tenant-id: ${{ vars.SERVING_TENANT_ID }}
@@ -87,7 +133,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          curl --fail-with-body \
+          curl \
+            --fail-with-body \
             --retry 5 \
             --retry-delay 5 \
             --max-time 60 \
@@ -99,7 +146,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          curl --fail-with-body \
+          curl \
+            --fail-with-body \
             --retry 5 \
             --retry-delay 5 \
             --max-time 60 \
