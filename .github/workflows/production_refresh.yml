@@ -59,6 +59,19 @@ jobs:
           tenant-id: ${{ vars.FABRIC_TENANT_ID }}
           allow-no-subscriptions: true
 
+      - name: Prime Fabric Warehouse SQL token
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "Acquiring Fabric Warehouse SQL access token early..."
+
+          az account get-access-token \
+            --resource https://database.windows.net/ \
+            --output none
+
+          echo "Fabric Warehouse SQL token cached successfully."
+
       - name: Bind Fabric pipelines to automation identity
         shell: bash
         run: |
