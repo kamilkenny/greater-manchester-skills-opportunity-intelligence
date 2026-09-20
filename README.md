@@ -1,54 +1,69 @@
 # Greater Manchester Skills & Opportunity Intelligence
 
-# Live Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
+**GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
+The platform integrates data from multiple public sources, processes them through a Microsoft Fabric Medallion architecture, builds governed dimensional and fact models in a Fabric Warehouse, preserves analytical and operational history using **Slowly Changing Dimension Type 2 and Type 4 patterns**, and publishes validated intelligence through a live Azure hosted web application.
 
-**GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform for understanding skills development, apprenticeships, youth transition and labour market conditions across Greater Manchester.
-
-The platform combines data from multiple public data sources, processes them through a Microsoft Fabric Medallion architecture, builds governed analytical fact and dimension models, publishes validated public datasets, and serves the resulting intelligence through a live Azure hosted web application.
-
-The project demonstrates a complete production style workflow covering:
+The project demonstrates a production style data engineering lifecycle covering:
 
 - Multi source data ingestion
 - Microsoft Fabric Data Factory pipelines
-- Bronze, Silver and Gold data architecture
+- Bronze, Silver and Gold architecture
+- Immutable source preservation
 - Data cleansing and standardisation
-- Dimensional modelling
-- Slowly Changing Dimension Type 2 management
-- Fact table engineering
 - Data quality validation
+- Dimensional modelling
+- Fact table engineering
+- SCD Type 2 historisation
+- SCD Type 4 historical configuration management
 - Microsoft Fabric Warehouse
 - Python based public data export
-- Azure Blob Storage serving
-- Azure App Service deployment
+- Azure Blob Storage
+- Azure App Service
+- Plotly Dash
 - GitHub Actions automation
-- Workload identity federation using OpenID Connect
-- Change aware public snapshot publishing
-- Automated health validation
+- OpenID Connect authentication
+- Managed Identity
+- Change aware snapshot publication
+- Automated application health validation
 
 ---
 
 # Project Overview
 
-Greater Manchester has a complex relationship between education, apprenticeships, youth participation and labour market demand.
+Public information relating to skills, apprenticeships, youth participation and labour market conditions is distributed across several datasets, publishing organisations and reporting structures.
 
-Relevant information exists across different public datasets, reporting periods and administrative structures. This project brings those datasets together into a common analytical platform.
+GM SkillsFlow was developed to bring these sources together into a consistent analytical environment.
 
-The platform is designed to answer questions such as:
+Rather than treating each source independently, the platform creates shared dimensions and analytical models that allow education, skills and labour market indicators to be explored together.
+
+The platform supports questions such as:
 
 > How are apprenticeship outcomes changing across Greater Manchester?
 
-> Which boroughs show stronger or weaker youth transition outcomes?
+> Which boroughs show stronger or weaker youth participation and transition outcomes?
 
-> How does labour market participation differ between boroughs?
+> How does labour market participation vary across Greater Manchester?
 
-> Which skills and apprenticeship subject areas are more strongly represented?
+> Which apprenticeship subject areas and MBacc pathways have greater representation?
 
-> How can education, employment and skills indicators be viewed together rather than through isolated datasets?
+> How can skills supply, youth participation and labour market indicators be analysed within a common model?
 
-The objective is not simply to visualise data.
+The project therefore goes beyond dashboard development.
 
-The project demonstrates how heterogeneous public datasets can be engineered into a governed analytical platform with repeatable ingestion, transformation, modelling, validation, publication and deployment.
+It demonstrates how heterogeneous public datasets can be acquired, preserved, transformed, modelled, validated, automated and securely served through a production style cloud architecture.
+
+---
+
+# Live Application
+
+The deployed GM SkillsFlow platform is available at:
+
+**https://gm-skillsflow-kamil-898341.azurewebsites.net**
+
+Application health endpoint:
+
+**https://gm-skillsflow-kamil-898341.azurewebsites.net/healthz**
 
 ---
 
@@ -57,175 +72,231 @@ The project demonstrates how heterogeneous public datasets can be engineered int
 ```mermaid
 flowchart LR
 
-    A[Department for Education Data] --> B[Fabric Data Factory]
-    C[Nomis Labour Market Data] --> B
-    D[Reference and MBacc Mapping Data] --> B
+    DFE[Department for Education]
+    NOMIS[Nomis]
+    REF[Reference and MBacc Data]
 
-    B --> E[Bronze Lakehouse]
+    FABRIC[Microsoft Fabric Data Factory]
 
-    E --> F[Silver Lakehouse]
+    BRONZE[Bronze Lakehouse]
+    SILVER[Silver Lakehouse]
+    GOLD[Gold Fabric Warehouse]
 
-    F --> G[Gold Fabric Warehouse]
+    EXPORT[Validated Public Export]
+    BLOB[Private Azure Blob Storage]
+    APP[Azure App Service]
+    DASH[GM SkillsFlow Dashboard]
 
-    G --> H[Public Data Export Layer]
+    GH[GitHub Actions]
 
-    H --> I[Azure Blob Storage]
+    DFE --> FABRIC
+    NOMIS --> FABRIC
+    REF --> FABRIC
 
-    I --> J[Azure App Service]
+    FABRIC --> BRONZE
+    BRONZE --> SILVER
+    SILVER --> GOLD
 
-    J --> K[GM SkillsFlow Public Dashboard]
+    GOLD --> EXPORT
+    EXPORT --> BLOB
+    BLOB --> APP
+    APP --> DASH
 
-    L[GitHub Actions] --> B
-    L --> H
-    L --> I
-    L --> J
+    GH --> FABRIC
+    GH --> EXPORT
+    GH --> BLOB
+    GH --> APP
 ```
 
-The architecture separates source ingestion, data engineering, analytics modelling and public serving.
+The architecture deliberately separates:
 
-This prevents the live dashboard from querying operational source systems directly and provides a controlled path from raw source data to public intelligence.
+```text
+Source acquisition
+        ↓
+Raw data preservation
+        ↓
+Data engineering
+        ↓
+Analytical modelling
+        ↓
+Public publication
+        ↓
+Application serving
+```
+
+This prevents the public dashboard from depending directly on operational source systems.
 
 ---
 
 # End to End Data Flow
 
 ```text
-Public Data Sources
-        │
-        ├── Department for Education
-        │      ├── Apprenticeship data
-        │      ├── Youth NEET indicators
-        │      └── Participation indicators
-        │
-        ├── Nomis
-        │      └── Annual Population Survey labour market indicators
-        │
-        └── Reference Data
-               └── MBacc gateway and subject mappings
-        │
-        ▼
-Microsoft Fabric Data Factory
-        │
-        ▼
-┌──────────────────────────────────────┐
-│             BRONZE                   │
-│ Immutable source snapshots           │
-│ Raw ingestion and source retention   │
-└──────────────────────────────────────┘
-        │
-        ▼
-┌──────────────────────────────────────┐
-│             SILVER                   │
-│ Cleaning                             │
-│ Standardisation                      │
-│ Data quality                         │
-│ Geographic alignment                 │
-│ Schema harmonisation                 │
-└──────────────────────────────────────┘
-        │
-        ▼
-┌──────────────────────────────────────┐
-│              GOLD                    │
-│ Dimensions                           │
-│ SCD Type 2 history                   │
-│ Fact tables                          │
-│ KPI models                           │
-│ Borough intelligence                 │
-└──────────────────────────────────────┘
-        │
-        ▼
-Validated Public JSON Export
-        │
-        ▼
-Azure Blob Storage
-        │
-        ▼
-Azure App Service
-        │
-        ▼
-GM SkillsFlow Dashboard
+┌─────────────────────────────────────┐
+│          PUBLIC DATA SOURCES        │
+│                                     │
+│ Department for Education            │
+│ Nomis                               │
+│ Reference and MBacc mappings        │
+└─────────────────┬───────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│      MICROSOFT FABRIC DATA FACTORY  │
+│                                     │
+│ Source ingestion pipelines          │
+│ Pipeline orchestration              │
+└─────────────────┬───────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│              BRONZE                 │
+│                                     │
+│ Immutable raw source snapshots      │
+│ Source evidence                     │
+│ Run metadata                        │
+└─────────────────┬───────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│              SILVER                 │
+│                                     │
+│ Cleaning                            │
+│ Standardisation                     │
+│ Geography alignment                 │
+│ Data quality validation             │
+│ Reference mapping                   │
+└─────────────────┬───────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│               GOLD                  │
+│                                     │
+│ Dimensions                          │
+│ SCD Type 2                          │
+│ SCD Type 4                          │
+│ Fact tables                         │
+│ KPI models                          │
+│ Public marts                        │
+└─────────────────┬───────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│        VALIDATED PUBLIC EXPORT      │
+│                                     │
+│ JSON analytical datasets            │
+└─────────────────┬───────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│        AZURE SERVING LAYER          │
+│                                     │
+│ Private Blob Storage                │
+│ Azure App Service                   │
+│ Plotly Dash                         │
+└─────────────────────────────────────┘
 ```
 
 ---
 
 # Data Sources
 
-The platform integrates information from several independent sources rather than relying on a single dataset.
+The platform combines several independent data sources.
 
 ## Department for Education
 
-Department for Education datasets provide education and youth transition information used by the platform.
+Department for Education datasets provide the main education and youth transition component of the platform.
 
-The ingestion layer processes datasets including:
+The ingestion process includes datasets covering areas such as:
 
-- Apprenticeship participation and achievement data
-- Apprenticeship subject and level information
-- NEET and Not Known indicators
-- Participation indicators
-- Local authority level education statistics
+- Apprenticeship participation
+- Apprenticeship achievements
+- Apprenticeship levels
+- Sector Subject Areas
+- Local authority apprenticeship statistics
+- NEET indicators
+- Not Known indicators
+- Youth participation indicators
 
-These datasets provide the education and skills supply component of the analytical model.
+These datasets provide information about skills development and education outcomes.
+
+---
 
 ## Nomis
 
 Nomis provides labour market statistics used to complement the education datasets.
 
-Annual Population Survey data is used to provide labour market indicators across Greater Manchester.
+Annual Population Survey information is incorporated into the platform to provide labour market measures across Greater Manchester.
 
-This enables the platform to connect skills and education information with wider employment and economic participation measures.
+This allows the analytical model to connect:
+
+```text
+Education
+    +
+Skills
+    +
+Youth transition
+    +
+Labour market participation
+```
+
+within one environment.
+
+---
 
 ## Reference and Mapping Data
 
-Additional reference datasets are used to create consistent analytical classifications.
+Reference datasets are used to harmonise independently published sources.
 
-These include:
+They include areas such as:
 
 - Greater Manchester borough mappings
 - Apprenticeship level classifications
-- Sector Subject Area mappings
+- Sector Subject Areas
 - MBacc gateway mappings
 - Geographic reference information
+- Analytical classification mappings
 
-Reference data ensures that independently published datasets can be analysed using common dimensions.
+These reference structures allow different source datasets to share common analytical dimensions.
 
 ---
 
 # Microsoft Fabric Medallion Architecture
 
-The engineering platform follows a Bronze, Silver and Gold design.
+The platform follows a Bronze, Silver and Gold architecture.
 
 ```mermaid
 flowchart TD
 
     SRC[External Data Sources]
 
-    SRC --> BRONZE
+    SRC --> B
 
-    subgraph BRONZE[Bronze Layer]
-        B1[Immutable Source Files]
-        B2[Run Metadata]
-        B3[Original Source Structure]
+    subgraph B[Bronze Layer]
+        B1[Immutable Source Snapshots]
+        B2[Raw Source Structures]
+        B3[Run Metadata]
     end
 
-    BRONZE --> SILVER
+    B --> S
 
-    subgraph SILVER[Silver Layer]
+    subgraph S[Silver Layer]
         S1[Schema Standardisation]
-        S2[Data Type Enforcement]
-        S3[Data Cleaning]
-        S4[Geographic Filtering]
-        S5[Quality Validation]
-        S6[Reference Mapping]
+        S2[Data Cleansing]
+        S3[Type Enforcement]
+        S4[Greater Manchester Filtering]
+        S5[Reference Mapping]
+        S6[Data Quality Validation]
     end
 
-    SILVER --> GOLD
+    S --> G
 
-    subgraph GOLD[Gold Layer]
+    subgraph G[Gold Layer]
         G1[Dimensions]
-        G2[SCD Type 2 Dimensions]
-        G3[Fact Tables]
-        G4[KPI Models]
-        G5[Public Intelligence Views]
+        G2[SCD Type 2]
+        G3[SCD Type 4]
+        G4[Fact Tables]
+        G5[KPI Models]
+        G6[Public Marts]
     end
 ```
 
@@ -233,49 +304,67 @@ flowchart TD
 
 # Bronze Layer
 
-The Bronze layer preserves the source data in its original or near original structure.
+The Bronze layer preserves source data in its original or near original form.
 
-Source snapshots are stored immutably so previous source states remain available for:
+Each successful ingestion retains source evidence rather than destroying the previous source state.
 
-- Audit
+The layer supports:
+
+- Auditability
 - Reprocessing
-- Troubleshooting
 - Data lineage
+- Troubleshooting
 - Historical comparison
+- Reproducibility
 
-A new ingestion run therefore does not destroy previously acquired source evidence.
+Conceptually:
 
-The Bronze layer acts as the system of record for data received from external providers.
+```text
+Source publication
+       │
+       ▼
+Ingestion run
+       │
+       ▼
+Immutable Bronze snapshot
+       │
+       ├── Source file
+       ├── Run identifier
+       ├── Ingestion timestamp
+       └── Source metadata
+```
+
+Bronze therefore acts as the platform's historical source evidence layer.
 
 ---
 
 # Silver Layer
 
-The Silver layer converts heterogeneous source datasets into governed analytical tables.
+The Silver layer converts heterogeneous source data into governed analytical datasets.
 
-Typical Silver transformations include:
+Typical transformations include:
 
 ```text
-Raw field names
-      ↓
-Standard column naming
-      ↓
-Data type conversion
-      ↓
+Raw source columns
+        ↓
+Standard column names
+        ↓
+Data type enforcement
+        ↓
 Missing value handling
-      ↓
+        ↓
 Greater Manchester filtering
-      ↓
-Local authority normalisation
-      ↓
-Subject and level mapping
-      ↓
-Data quality checks
-      ↓
+        ↓
+Geographic standardisation
+        ↓
+Reference mapping
+        ↓
+Data quality validation
+        ↓
 Curated Silver tables
 ```
 
-The Silver model contains curated datasets for areas including:
+The Silver model contains curated datasets including:
 
 ```text
 apprenticeship_lad
@@ -287,21 +376,39 @@ mbacc_gateway
 data_quality_result
 ```
 
-This layer separates source specific structures from the downstream analytical model.
+The Silver layer therefore provides a clean boundary between source specific structures and the analytical warehouse.
 
 ---
 
-# Gold Analytical Model
+# Gold Analytical Warehouse
 
-The Gold layer is implemented in Microsoft Fabric Warehouse.
+The Gold layer is implemented using Microsoft Fabric Warehouse.
 
-It converts the curated Silver datasets into a dimensional model suitable for analytics, public reporting and downstream application serving.
+It transforms the curated Silver datasets into a dimensional analytical model.
 
-The model combines dimensions and fact tables rather than exposing raw operational structures directly to the dashboard.
+The Gold model contains:
+
+```text
+Dimensions
+    +
+Historical dimensions
+    +
+Fact tables
+    +
+Control structures
+    +
+Historical control structures
+    +
+KPI models
+    +
+Public analytical marts
+```
+
+This layer supports both analytical reporting and the downstream public application.
 
 ---
 
-# Dimensional Modelling
+# Dimensional Model
 
 The analytical model includes dimensions such as:
 
@@ -313,7 +420,7 @@ dim_time_period
 dim_apprenticeship_level
 ```
 
-Fact models contain measurable events and indicators including:
+Fact models include:
 
 ```text
 fact_apprenticeship_lad
@@ -323,7 +430,7 @@ fact_participation
 fact_labour_market_aps
 ```
 
-The relationship can be represented conceptually as:
+A simplified dimensional relationship is shown below.
 
 ```mermaid
 flowchart LR
@@ -359,185 +466,350 @@ flowchart LR
     DT --> FL
 ```
 
-This design makes it possible to analyse multiple datasets through shared business dimensions.
+Shared dimensions allow independently sourced datasets to be analysed consistently.
 
 ---
 
-# Slowly Changing Dimensions
+# Slowly Changing Dimension Management
 
-An important component of the Gold model is the implementation of **Slowly Changing Dimension Type 2**, or SCD Type 2.
+The platform implements **both Slowly Changing Dimension Type 2 and Slowly Changing Dimension Type 4 patterns**.
 
-SCD Type 2 is used where a dimension attribute may change over time but historical records must retain the version that existed when a fact was recorded.
-
-The platform applies SCD Type 2 management to governed dimensions including:
+The two approaches solve different historical modelling requirements.
 
 ```text
-Borough
-MBacc Gateway
-Sector Subject Area
+SCD Type 2
+    │
+    └── Historical versions remain inside
+        the analytical dimension itself
+
+SCD Type 4
+    │
+    └── Current state and historical state
+        are stored separately
 ```
 
-Instead of overwriting an existing dimension record when an attribute changes, the existing version is closed and a new version is created.
+Using both patterns gives the platform a richer historical and governance model.
 
-Conceptually:
+---
+
+# SCD Type 2
+
+SCD Type 2 is used for analytical dimensions where historical attribute changes must remain available within the same dimension.
+
+Examples include:
 
 ```text
-Original Dimension Record
-
-Borough Key : 101
-Borough     : Example Borough
-Region      : Greater Manchester
-Valid From  : 2024-01-01
-Valid To    : 9999-12-31
-Is Current  : 1
-
-
-Attribute Changes
-       │
-       ▼
-
-
-Historical Record
-
-Borough Key : 101
-Valid From  : 2024-01-01
-Valid To    : 2026-09-19
-Is Current  : 0
-
-
-New Current Record
-
-Borough Key : 102
-Valid From  : 2026-09-20
-Valid To    : 9999-12-31
-Is Current  : 1
+dim_borough
+dim_mbacc_gateway
+dim_ssa_subject
 ```
 
-The process can also be represented as:
+Instead of overwriting an existing dimension record when a tracked attribute changes, the current version is expired and a new version is inserted.
+
+Typical SCD Type 2 attributes include:
+
+```text
+surrogate_key
+business_key
+valid_from
+valid_to
+is_current
+```
+
+---
+
+## SCD Type 2 Example
+
+Original current record:
+
+```text
+borough_key   : 101
+borough_code  : E00001
+borough_name  : Example Borough
+valid_from    : 2024-01-01
+valid_to      : 9999-12-31
+is_current    : 1
+```
+
+If a tracked attribute changes, the existing version becomes:
+
+```text
+borough_key   : 101
+borough_code  : E00001
+borough_name  : Example Borough
+valid_from    : 2024-01-01
+valid_to      : 2026-09-19
+is_current    : 0
+```
+
+and a new current version is inserted:
+
+```text
+borough_key   : 102
+borough_code  : E00001
+borough_name  : Updated Borough
+valid_from    : 2026-09-20
+valid_to      : 9999-12-31
+is_current    : 1
+```
+
+---
+
+## SCD Type 2 Processing Logic
 
 ```mermaid
 flowchart TD
 
-    A[Incoming Dimension Record] --> B{Business Key Exists?}
+    A[Incoming Dimension Record]
 
-    B -- No --> C[Insert New Record]
+    A --> B{Business Key Exists?}
+
+    B -- No --> C[Insert New Current Record]
 
     B -- Yes --> D{Tracked Attributes Changed?}
 
-    D -- No --> E[Keep Existing Current Record]
+    D -- No --> E[Retain Existing Record]
 
     D -- Yes --> F[Expire Current Version]
 
     F --> G[Set Is Current = 0]
-    G --> H[Set Valid To Date]
-    H --> I[Insert New Dimension Version]
-    I --> J[Set Is Current = 1]
+
+    G --> H[Set Valid To]
+
+    H --> I[Insert New Version]
+
+    I --> J[Set Valid From]
+
+    J --> K[Set Is Current = 1]
 ```
 
-This preserves historical analytical integrity.
+This preserves analytical history while still providing a simple way to identify the current record.
 
-A historical fact can therefore continue referencing the dimension version that was valid at the time, while new facts can reference the new version.
+Historical facts can therefore remain associated with the dimension version that existed at the appropriate point in time.
+
+---
+
+# SCD Type 4
+
+SCD Type 4 is used where the platform benefits from keeping the **current operational state separate from its historical versions**.
+
+Rather than storing all historical records inside the current table, the design maintains:
+
+```text
+Current table
+     +
+Historical table
+```
+
+The project applies this principle to source configuration governance.
+
+The pattern includes structures such as:
+
+```text
+ctl.source_config
+hist.source_config
+```
+
+`ctl.source_config` represents the current configuration required by the production process.
+
+`hist.source_config` provides a historical record of previous configuration states.
+
+---
+
+## SCD Type 4 Architecture
+
+```mermaid
+flowchart LR
+
+    CHANGE[Configuration Change]
+
+    CHANGE --> CURRENT[ctl.source_config]
+
+    CURRENT --> PRODUCTION[Current Production Configuration]
+
+    CURRENT --> HISTORY[hist.source_config]
+
+    HISTORY --> AUDIT[Historical Audit Trail]
+```
+
+This creates a clear separation between:
+
+```text
+What configuration should be used now?
+                │
+                ▼
+       ctl.source_config
+
+
+What configuration existed previously?
+                │
+                ▼
+      hist.source_config
+```
+
+---
+
+# Why Both SCD Type 2 and Type 4?
+
+The two patterns are complementary.
+
+| Pattern | Primary purpose | Historical approach |
+|---|---|---|
+| SCD Type 2 | Analytical dimension history | Historical versions remain inside the dimension |
+| SCD Type 4 | Operational and configuration history | Current and historical records are separated |
+
+SCD Type 2 is suitable where fact tables need to retain historical dimensional context.
+
+SCD Type 4 is suitable where production processes need fast access to the current configuration while older configurations remain available for auditing and governance.
+
+The combined architecture can be represented as:
+
+```text
+                    GOLD WAREHOUSE
+                          │
+              ┌───────────┴───────────┐
+              │                       │
+              ▼                       ▼
+      Analytical History      Operational History
+              │                       │
+              ▼                       ▼
+         SCD Type 2               SCD Type 4
+              │                       │
+      Versioned dimensions     Current + history
+              │                       │
+              ▼                       ▼
+      dim_borough              ctl.source_config
+      dim_ssa_subject                 +
+      dim_mbacc_gateway        hist.source_config
+```
 
 ---
 
 # Fact Table Engineering
 
-Fact tables store measurable indicators while dimensions provide analytical context.
+Fact tables store measurable observations while dimension tables provide analytical context.
 
 For example:
 
 ```text
-                  dim_time_period
-                        │
-                        │
-dim_borough ───── fact_neet
-                        │
-                        │
-                  NEET measures
+                   dim_time_period
+                         │
+                         │
+dim_borough ────── fact_neet
+                         │
+                         │
+                  NEET indicators
 ```
 
-and:
+For apprenticeship detail:
 
 ```text
-                      dim_time_period
-                            │
-                            │
+                       dim_time_period
+                              │
+                              │
 dim_borough ── fact_apprenticeship_detail ── dim_ssa_subject
-                            │
-                            │
-                  dim_apprenticeship_level
-                            │
-                            │
-                    dim_mbacc_gateway
+                              │
+                              │
+                    dim_apprenticeship_level
+                              │
+                              │
+                      dim_mbacc_gateway
 ```
 
-This enables reusable cross dimensional analysis without duplicating descriptive information inside every fact table.
-
----
-
-# Data Quality
-
-Data quality validation is embedded into the transformation process.
-
-Checks include areas such as:
-
-- Required field validation
-- Null detection
-- Duplicate detection
-- Expected geographic coverage
-- Valid reference mapping
-- Data type validation
-- Row count validation
-- Source completeness
-- Mapping completeness
-- Unexpected category detection
-
-Quality outcomes are retained in the platform rather than existing only as temporary notebook output.
-
-```text
-Source Data
-    │
-    ▼
-Validation Rules
-    │
-    ├── PASS ──→ Continue processing
-    │
-    └── FAIL ──→ Record quality result
-                  and investigate
-```
+This structure reduces descriptive duplication and supports reusable analytical slicing.
 
 ---
 
 # MBacc Pathway Intelligence
 
-The platform includes a governed MBacc mapping layer that associates apprenticeship subject areas with MBacc gateway classifications.
+The platform contains a governed MBacc mapping layer that connects apprenticeship subject areas with MBacc gateway classifications.
 
-This provides an additional analytical view of skills pathways across Greater Manchester.
-
-The mapping process distinguishes between:
+Conceptually:
 
 ```text
-Mapped apprenticeship subjects
+Apprenticeship Subject
         │
-        ├── MBacc gateway classification
+        ▼
+Sector Subject Area
         │
-        └── analytical pathway
-        
-
-Intentionally unmapped subjects
+        ▼
+MBacc Mapping
         │
-        └── retained and explicitly governed
+        ├── Construction and Built Environment
+        ├── Digital
+        ├── Education
+        ├── Financial and Professional
+        ├── Health and Social Care
+        └── Other governed pathways
 ```
 
-Unmapped categories are therefore not silently discarded.
+The modelling process distinguishes between:
+
+```text
+Mapped records
+      │
+      └── Assigned MBacc gateway
+
+Intentionally unmapped records
+      │
+      └── Explicitly retained
+```
+
+Unmapped records are therefore not silently discarded from the analytical model.
 
 ---
 
-# Public Analytics Layer
+# Data Quality Framework
 
-The public dashboard does not connect directly to the Gold Warehouse.
+Data quality validation is embedded within the transformation process.
 
-Instead, selected analytical outputs are exported into validated JSON datasets.
+Checks cover areas such as:
+
+- Required field validation
+- Missing values
+- Duplicate detection
+- Geographic coverage
+- Data type validation
+- Expected category validation
+- Reference mapping completeness
+- Row count checks
+- Source completeness
+- Unexpected values
+- Transformation integrity
+
+Quality results are retained rather than existing only as temporary notebook outputs.
+
+```mermaid
+flowchart TD
+
+    A[Source Data]
+
+    A --> B[Validation Rules]
+
+    B --> C{Validation Result}
+
+    C -- Pass --> D[Continue Processing]
+
+    C -- Fail --> E[Record Quality Failure]
+
+    E --> F[Investigate or Stop Processing]
+```
+
+A dedicated analytical structure such as:
+
+```text
+data_quality_result
+```
+
+provides traceability of validation outcomes.
+
+---
+
+# Public Analytical Layer
+
+The public web application does not query the Fabric Warehouse directly.
+
+Instead, selected analytical models are exported into validated JSON datasets.
 
 Examples include:
 
@@ -552,99 +824,166 @@ skills-supply.json
 youth-transition.json
 ```
 
-This provides a controlled boundary between the analytical warehouse and the public application.
+This creates a controlled boundary between the analytical warehouse and the public application.
+
+```text
+Fabric Warehouse
+       │
+       ▼
+Curated analytical marts
+       │
+       ▼
+Python export
+       │
+       ▼
+JSON validation
+       │
+       ▼
+Public serving bundle
+```
 
 ---
 
-# Public Serving Architecture
+# Azure Public Serving Architecture
 
 ```mermaid
 flowchart LR
 
-    WH[Fabric Gold Warehouse]
-        --> EX[Python Export and Validation]
+    GOLD[Fabric Gold Warehouse]
 
-    EX --> JSON[Validated JSON Bundle]
+    GOLD --> EXPORT[Python Export and Validation]
+
+    EXPORT --> JSON[Validated JSON Snapshot]
 
     JSON --> BLOB[Private Azure Blob Storage]
 
     BLOB --> APP[Azure App Service]
 
-    APP --> DASH[Plotly Dash Web Application]
+    APP --> DASH[Plotly Dash Application]
 
     DASH --> USER[Public User]
 ```
 
 Azure Blob Storage remains private.
 
-The Azure App Service uses managed identity based access to read the published snapshot.
+The public application accesses the serving container through Azure identity based authentication rather than anonymous Blob access.
 
 ---
 
-# Resilient Snapshot Publishing
+# Two Slot Snapshot Publishing
 
-Public dashboard data is published using a two slot snapshot model.
+The serving architecture uses two publication slots.
 
 ```text
-                  manifest.json
-                       │
-                       ▼
-                  active_slot
-                       │
-             ┌─────────┴─────────┐
-             │                   │
-          slot-a              slot-b
-             │                   │
-       snapshot files       snapshot files
+                       manifest.json
+                            │
+                            ▼
+                       active_slot
+                            │
+                ┌───────────┴───────────┐
+                │                       │
+                ▼                       ▼
+             slot-a                  slot-b
+                │                       │
+         validated files         validated files
 ```
 
-A new validated snapshot is written to the inactive slot first.
+A new snapshot is uploaded into the inactive slot.
 
-Only after validation succeeds is the manifest switched to the new active slot.
+Only after the new snapshot is validated is the manifest changed to point to it.
 
-This reduces the risk of users seeing partially published datasets.
+This prevents partially uploaded datasets from becoming visible to the application.
 
 ---
 
 # Change Aware Publishing
 
-The public serving layer includes a `NO_CHANGE` mechanism.
+The publication process implements a `NO_CHANGE` mechanism.
 
-After the Gold model is exported, the generated public snapshot is compared with the currently published version.
+The newly exported public dataset is compared against the currently published dataset.
 
 ```mermaid
 flowchart TD
 
-    A[Export Gold Public Dataset] --> B[Validate Snapshot]
+    A[Export Gold Dataset]
 
-    B --> C{Snapshot Changed?}
+    A --> B[Validate Public Snapshot]
+
+    B --> C{Material Change?}
 
     C -- No --> D[NO_CHANGE]
-    D --> E[Keep Existing Published Snapshot]
-    E --> F[No Dashboard Reload Required]
+
+    D --> E[Keep Existing Snapshot]
+
+    E --> F[Skip Application Refresh]
 
     C -- Yes --> G[Publish New Snapshot]
+
     G --> H[Switch Active Slot]
+
     H --> I[Notify Live Application]
+
+    I --> J[Load New Snapshot]
 ```
 
-This means the scheduled pipeline can execute normally while the public application remains unchanged when the resulting data contains no material differences.
-
-This avoids unnecessary public snapshot replacement.
+This means that the automated refresh can run while the public application remains unchanged when the resulting analytical data has not materially changed.
 
 ---
 
-# Automation
+# Current Loading Strategy
+
+The current production implementation prioritises:
+
+- Reliability
+- Auditability
+- Reproducibility
+- Operational simplicity
+
+Each scheduled refresh currently performs the main processing chain again.
+
+```text
+Check source datasets
+        │
+        ▼
+Run ingestion
+        │
+        ▼
+Bronze
+        │
+        ▼
+Silver
+        │
+        ▼
+Gold
+        │
+        ▼
+Export public snapshot
+        │
+        ▼
+Compare with published snapshot
+        │
+        ├── Same    → NO_CHANGE
+        │
+        └── Changed → Publish
+```
+
+The project deliberately does not yet use full source level watermark based incremental loading.
+
+This preserves a stable and easily auditable production baseline.
+
+A future optimisation could introduce persistent watermarks and Delta `MERGE` operations without redesigning the public serving architecture.
+
+---
+
+# GitHub Actions Automation
 
 Production refresh is orchestrated using GitHub Actions.
-
-The workflow runs:
 
 ```text
 GitHub Actions
       │
       ▼
-Authenticate to Microsoft Fabric
+Login to Fabric tenant
       │
       ▼
 Acquire Fabric Warehouse SQL token
@@ -662,141 +1001,179 @@ Run Nomis ingestion
 Bronze → Silver
       │
       ▼
-Silver analytical modelling
+Silver modelling
       │
       ▼
 Silver → Gold
       │
       ▼
-Export validated public snapshot
+Export public snapshot
       │
       ▼
-Authenticate to Azure serving tenant
+Login to Azure serving tenant
       │
       ▼
-Publish if changed
+Check for material change
       │
-      ▼
-Refresh live application
+      ├── NO_CHANGE
       │
-      ▼
-Verify application health
+      └── Publish new snapshot
+              │
+              ▼
+       Refresh live application
+              │
+              ▼
+       Verify application health
 ```
 
-The production workflow is scheduled daily using:
+The production workflow can be executed manually and is also scheduled automatically.
 
 ```yaml
 schedule:
   - cron: "30 5 * * *"
 ```
 
-The workflow can also be started manually through GitHub Actions.
-
 ---
 
-# Secure Cross Tenant Automation
+# Secure Cross Tenant Authentication
 
-The platform operates across separate Microsoft environments.
+The solution operates across separate Microsoft environments.
 
-Microsoft Fabric processing and Azure public serving use different identities.
+Microsoft Fabric and Azure public serving use different identities.
 
-Authentication is implemented using GitHub Actions OpenID Connect rather than storing long lived Azure passwords or client secrets in the repository.
+GitHub Actions uses **OpenID Connect workload identity federation** rather than long lived client secrets.
 
 ```mermaid
 sequenceDiagram
 
     participant GH as GitHub Actions
-    participant F as Microsoft Fabric Tenant
-    participant A as Azure Serving Tenant
+    participant F as Microsoft Fabric
+    participant A as Azure Serving Environment
 
     GH->>F: OIDC federated authentication
-    F-->>GH: Fabric access token
+    F-->>GH: Fabric access
 
-    GH->>F: Execute Fabric pipelines
-    F-->>GH: Gold analytical output
+    GH->>F: Execute pipelines
+    F-->>GH: Analytical output
 
     GH->>A: OIDC federated authentication
-    A-->>GH: Azure access token
+    A-->>GH: Azure access
 
     GH->>A: Publish validated snapshot
     A-->>GH: Publication result
 ```
 
-The Fabric automation identity is granted access only to the resources required for pipeline execution.
-
-The Azure serving automation identity has permission to publish to the designated Blob Storage container.
-
-The live web application uses a separate managed identity with read access.
+This design reduces reliance on persistent secrets.
 
 ---
 
-# Production Workflow
+# Identity Separation
 
-The complete production sequence is:
+Different identities are used for different responsibilities.
 
 ```text
-┌──────────────────────────────┐
-│       GitHub Actions         │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│        DfE Ingestion         │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│       Nomis Ingestion        │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│        Bronze Layer          │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│        Silver Layer          │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│     Gold Fabric Warehouse    │
-└──────────────┬───────────────┘
-               │
-               ▼
-┌──────────────────────────────┐
-│     Public JSON Export       │
-└──────────────┬───────────────┘
-               │
-               ▼
-        Has Data Changed?
-          │          │
-         NO         YES
-          │          │
-          ▼          ▼
-     NO_CHANGE    Publish
-          │          │
-          │          ▼
-          │    Azure Blob Storage
-          │          │
-          │          ▼
-          └────► Azure App Service
-                        │
-                        ▼
-                  Public Dashboard
+GitHub Fabric Automation Identity
+        │
+        └── Executes Fabric production pipelines
+
+
+GitHub Azure Serving Identity
+        │
+        └── Publishes validated snapshots
+
+
+Azure App Service Managed Identity
+        │
+        └── Reads published snapshots
+```
+
+This follows the principle of least privilege.
+
+---
+
+# Complete Production Architecture
+
+```mermaid
+flowchart TB
+
+    subgraph SOURCES[Public Data Sources]
+        DFE[Department for Education]
+        NOMIS[Nomis]
+        REF[Reference and MBacc Data]
+    end
+
+    subgraph FABRIC[Microsoft Fabric]
+        DF[Data Factory]
+        BR[Bronze Lakehouse]
+        SI[Silver Lakehouse]
+        WH[Gold Warehouse]
+    end
+
+    subgraph HIST[Historical Modelling]
+        SCD2[SCD Type 2 Dimensions]
+        SCD4[SCD Type 4 Configuration History]
+    end
+
+    subgraph ANALYTICS[Analytical Model]
+        DIM[Dimensions]
+        FACT[Fact Tables]
+        KPI[KPI Models]
+        MART[Public Marts]
+    end
+
+    subgraph SERVING[Azure Serving Layer]
+        EXP[Validated JSON Export]
+        BLOB[Private Blob Storage]
+        APP[Azure App Service]
+        DASH[GM SkillsFlow Dashboard]
+    end
+
+    subgraph AUTO[Automation and Security]
+        GH[GitHub Actions]
+        OIDC[OIDC Federation]
+        HEALTH[Health Validation]
+    end
+
+    DFE --> DF
+    NOMIS --> DF
+    REF --> DF
+
+    DF --> BR
+    BR --> SI
+    SI --> WH
+
+    WH --> SCD2
+    WH --> SCD4
+
+    SCD2 --> DIM
+    SCD4 --> DIM
+
+    DIM --> FACT
+    FACT --> KPI
+    KPI --> MART
+
+    MART --> EXP
+    EXP --> BLOB
+    BLOB --> APP
+    APP --> DASH
+
+    GH --> OIDC
+    OIDC --> DF
+    OIDC --> BLOB
+
+    GH --> HEALTH
 ```
 
 ---
 
-# Dashboard
+# Dashboard Structure
 
-The public application is implemented using Plotly Dash.
-
-The application provides several analytical views:
+The Plotly Dash application provides several analytical perspectives.
 
 ```text
-Overview
+GM SkillsFlow
+│
+├── Overview
 │
 ├── Borough Explorer
 │
@@ -807,21 +1184,9 @@ Overview
 └── Data & Methodology
 ```
 
-The dashboard is designed to expose analytical outputs rather than raw source data.
+The application is deliberately separated from raw warehouse access.
 
-The application reads the currently active validated snapshot from the serving layer.
-
----
-
-# Live Application
-
-The deployed GM SkillsFlow application is available at:
-
-https://gm-skillsflow-kamil-898341.azurewebsites.net
-
-Application health can be checked at:
-
-https://gm-skillsflow-kamil-898341.azurewebsites.net/healthz
+It consumes only validated public serving datasets.
 
 ---
 
@@ -860,7 +1225,9 @@ greater-manchester-skills-opportunity-intelligence/
 │   ├── dimensions/
 │   ├── facts/
 │   ├── mart/
-│   └── quality/
+│   ├── quality/
+│   ├── control/
+│   └── history/
 │
 ├── src/
 │   └── gm_skills/
@@ -879,17 +1246,18 @@ greater-manchester-skills-opportunity-intelligence/
 
 # Technology Stack
 
-| Layer | Technology |
+| Area | Technology |
 |---|---|
 | Source ingestion | Microsoft Fabric Data Factory |
 | Data lake | Microsoft Fabric Lakehouse |
 | Transformation | Python, PySpark, Fabric Notebooks |
-| Analytical storage | Microsoft Fabric Warehouse |
-| Data modelling | SQL, dimensional modelling, SCD Type 2 |
+| Analytical warehouse | Microsoft Fabric Warehouse |
+| Data modelling | SQL, dimensional modelling |
+| Historical modelling | SCD Type 2 and SCD Type 4 |
 | Data quality | Python, SQL, validation controls |
 | Public export | Python |
-| Cloud storage | Azure Blob Storage |
-| Web application | Plotly Dash |
+| Public storage | Azure Blob Storage |
+| Application | Plotly Dash |
 | Hosting | Azure App Service |
 | Automation | GitHub Actions |
 | Authentication | Microsoft Entra ID, OIDC, Managed Identity |
@@ -899,65 +1267,104 @@ greater-manchester-skills-opportunity-intelligence/
 
 # Engineering Principles
 
-The platform was designed around several engineering principles.
+## Separation of Concerns
 
-### Separation of concerns
-
-Source ingestion, data transformation, analytical modelling and public serving operate as separate layers.
-
-### Reproducibility
-
-Source snapshots and transformation logic are retained so analytical results can be reproduced.
-
-### Auditability
-
-Bronze source preservation, run metadata and data quality outputs provide traceability.
-
-### Historical integrity
-
-SCD Type 2 modelling allows important dimension changes to be retained rather than overwritten.
-
-### Security
-
-Long lived cloud credentials are avoided where possible through federated identity and managed identity.
-
-### Resilience
-
-Two slot public snapshot publishing reduces the risk of exposing incomplete datasets.
-
-### Controlled publication
-
-Only validated analytical outputs are exposed to the public application.
-
-### Change awareness
-
-A public snapshot is not replaced when no material change is detected.
+Ingestion, transformation, modelling, publication and application serving operate as separate layers.
 
 ---
 
-# Current Loading Strategy
+## Reproducibility
 
-The current implementation deliberately favours reliability and traceability over premature optimisation.
+Immutable Bronze snapshots and version controlled transformation logic support reproducible analytical processing.
 
-Each scheduled refresh:
+---
+
+## Auditability
+
+Run metadata, historical source snapshots, SCD structures and data quality results improve traceability.
+
+---
+
+## Analytical History
+
+SCD Type 2 preserves historical versions of important analytical dimensions.
+
+---
+
+## Operational History
+
+SCD Type 4 separates current operational configuration from historical configuration states.
+
+---
+
+## Security
+
+OIDC federation and Managed Identity reduce the need for persistent cloud credentials.
+
+---
+
+## Resilience
+
+Two slot snapshot publication reduces the risk of incomplete public datasets becoming active.
+
+---
+
+## Controlled Publication
+
+The web application receives only validated analytical outputs.
+
+---
+
+## Change Awareness
+
+The serving layer does not replace the current public snapshot when no material change is detected.
+
+---
+
+# Platform Lifecycle
+
+The complete project lifecycle can be summarised as:
 
 ```text
-Rechecks source datasets
-        ↓
-Creates or evaluates source snapshots
-        ↓
-Processes the current Silver analytical state
-        ↓
-Refreshes the Gold analytical model
-        ↓
-Exports the public dataset
-        ↓
-Publishes only when the public output changes
+Acquire
+   │
+   ▼
+Preserve
+   │
+   ▼
+Clean
+   │
+   ▼
+Standardise
+   │
+   ▼
+Validate
+   │
+   ▼
+Model
+   │
+   ▼
+Historise
+   │
+   ├── SCD Type 2
+   │
+   └── SCD Type 4
+   │
+   ▼
+Analyse
+   │
+   ▼
+Publish
+   │
+   ▼
+Serve
+   │
+   ▼
+Automate
+   │
+   ▼
+Monitor
 ```
-
-A future enhancement could introduce source level watermark based incremental ingestion and Delta `MERGE` processing.
-
-This was intentionally not introduced into the current implementation because the existing architecture provides a clear, reproducible and operationally stable baseline.
 
 ---
 
@@ -965,124 +1372,65 @@ This was intentionally not introduced into the current implementation because th
 
 Potential extensions include:
 
-- Source level incremental loading using persistent watermarks
-- Delta based Silver `MERGE` processing
+- Persistent source watermarks
+- Incremental API extraction
+- Delta `MERGE` based Silver processing
 - Incremental Gold fact loading
 - Additional Greater Manchester skills datasets
-- Vacancy and occupational demand intelligence
-- Qualification supply and demand comparison
-- Forecasting of apprenticeship participation
-- Labour market trend forecasting
+- Vacancy intelligence
+- Occupational demand analysis
+- Qualification supply and demand analysis
+- Apprenticeship forecasting
+- Labour market forecasting
 - Automated anomaly detection
-- Microsoft Power BI semantic model
+- Microsoft Power BI semantic models
 - Additional API serving endpoints
 - Infrastructure as Code
-- Automated data lineage reporting
-- Expanded observability and alerting
+- Automated lineage reporting
+- Expanded pipeline observability
+- Alerting and incident notifications
 
 ---
 
 # Project Value
 
-GM SkillsFlow demonstrates how fragmented public education and labour market datasets can be transformed into a coherent intelligence platform.
+GM SkillsFlow demonstrates how fragmented public sector datasets can be transformed into a coherent, governed and automated analytical platform.
 
-The project goes beyond dashboard development by demonstrating the complete analytical engineering lifecycle:
+The project demonstrates more than visualisation.
+
+It brings together:
 
 ```text
-Acquire
-   ↓
-Preserve
-   ↓
-Clean
-   ↓
-Validate
-   ↓
-Model
-   ↓
-Historise
-   ↓
-Analyse
-   ↓
-Publish
-   ↓
-Serve
-   ↓
-Automate
-   ↓
-Monitor
+Multi Source Ingestion
+        +
+Cloud Data Engineering
+        +
+Medallion Architecture
+        +
+Data Quality
+        +
+Dimensional Modelling
+        +
+SCD Type 2
+        +
+SCD Type 4
+        +
+Fact Modelling
+        +
+Secure Cloud Publication
+        +
+Web Application Development
+        +
+Production Automation
 ```
 
-It combines data engineering, analytics engineering, cloud architecture, dimensional modelling, automation and application deployment within one production style project.
+within one integrated solution.
+
+The result is a platform that combines data engineering, analytics engineering, cloud architecture, governance, automation and public intelligence delivery.
 
 ---
 
-# Architecture Summary
-
-```mermaid
-flowchart TB
-
-    subgraph SOURCES[Public Data Sources]
-        DFE[Department for Education]
-        NOMIS[Nomis]
-        REF[Reference and MBacc Data]
-    end
-
-    subgraph FABRIC[Microsoft Fabric]
-        DF[Data Factory Pipelines]
-        BR[Bronze Lakehouse]
-        SI[Silver Lakehouse]
-        WH[Gold Warehouse]
-    end
-
-    subgraph MODEL[Analytical Model]
-        DIM[Dimensions]
-        SCD[SCD Type 2]
-        FACT[Fact Tables]
-        MART[Public Marts]
-    end
-
-    subgraph SERVING[Azure Serving Layer]
-        EXPORT[Validated JSON Export]
-        BLOB[Private Blob Storage]
-        APP[Azure App Service]
-        DASH[GM SkillsFlow Dashboard]
-    end
-
-    subgraph AUTOMATION[Automation]
-        GH[GitHub Actions]
-        OIDC[OIDC Federation]
-        HEALTH[Health Validation]
-    end
-
-    DFE --> DF
-    NOMIS --> DF
-    REF --> DF
-
-    DF --> BR
-    BR --> SI
-    SI --> WH
-
-    WH --> DIM
-    WH --> SCD
-    WH --> FACT
-    DIM --> MART
-    SCD --> MART
-    FACT --> MART
-
-    MART --> EXPORT
-    EXPORT --> BLOB
-    BLOB --> APP
-    APP --> DASH
-
-    GH --> OIDC
-    OIDC --> DF
-    OIDC --> BLOB
-    GH --> HEALTH
-```
-
----
-
-# Author and Modeller
+# Author
 
 **Kamil Ridwan Kehinde**
 
@@ -1090,28 +1438,29 @@ Energy Systems Scientist
 Data Intelligence and Forecasting Analyst  
 Data Engineering and Applied Artificial Intelligence
 
-Areas of interest include:
+Technical interests include:
 
-- Energy systems analytics
+- Data Engineering
+- Energy Systems Analytics
 - Forecasting
-- Data engineering
-- Artificial intelligence
-- Cloud analytics
-- Public infrastructure intelligence
+- Artificial Intelligence
 - Microsoft Fabric
-- Azure
+- Microsoft Azure
 - Python
 - SQL
 - Power BI
+- Cloud Analytics
+- Public Infrastructure Intelligence
+- Predictive Analytics
 
-
-# Live Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
 ---
 
 # Disclaimer
 
-This project is developed for research, analytical engineering and portfolio demonstration purposes.
+This project was developed for research, analytical engineering and portfolio demonstration purposes.
 
-It uses publicly available data and should not be interpreted as an official Greater Manchester, Department for Education, Nomis or government reporting service.
+It uses publicly available datasets from external publishing organisations.
 
-Users requiring official statistics should consult the original publishing organisations.
+The platform is not an official service of Greater Manchester, the Department for Education, Nomis or any other government organisation.
+
+Users requiring authoritative official statistics should consult the original publishing organisations and their associated documentation.
