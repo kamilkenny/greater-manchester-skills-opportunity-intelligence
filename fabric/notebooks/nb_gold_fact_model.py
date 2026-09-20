@@ -20,6 +20,7 @@
 import json
 import uuid
 
+import com.microsoft.spark.fabric  # noqa: F401
 from pyspark.sql import functions as F
 
 GOLD = "wh_gm_skills_gold"
