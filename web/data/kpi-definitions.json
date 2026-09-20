@@ -1,0 +1,122 @@
+[
+  {
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_name": "Employment Rate",
+    "domain_name": "Labour Market",
+    "unit_name": "percent",
+    "source_name": "ONS Nomis APS",
+    "period_type": "rolling_annual",
+    "definition": "Employment rate for people aged 16 to 64.",
+    "interpretation": "higher_is_generally_favourable"
+  },
+  {
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_name": "Economic Inactivity Rate",
+    "domain_name": "Labour Market",
+    "unit_name": "percent",
+    "source_name": "ONS Nomis APS",
+    "period_type": "rolling_annual",
+    "definition": "Economic inactivity rate for people aged 16 to 64.",
+    "interpretation": "contextual"
+  },
+  {
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_name": "Unemployment Rate",
+    "domain_name": "Labour Market",
+    "unit_name": "percent",
+    "source_name": "ONS Nomis APS",
+    "period_type": "rolling_annual",
+    "definition": "Unemployment rate for people aged 16 to 64.",
+    "interpretation": "lower_is_generally_favourable"
+  },
+  {
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_name": "MBacc-mapped Apprenticeship Achievements",
+    "domain_name": "MBacc Pathways",
+    "unit_name": "count",
+    "source_name": "DfE Apprenticeships + governed MBacc crosswalk",
+    "period_type": "academic_year",
+    "definition": "Apprenticeship achievements mapped to governed MBacc pathways.",
+    "interpretation": "contextual"
+  },
+  {
+    "kpi_code": "MBACC_STARTS",
+    "kpi_name": "MBacc-mapped Apprenticeship Starts",
+    "domain_name": "MBacc Pathways",
+    "unit_name": "count",
+    "source_name": "DfE Apprenticeships + governed MBacc crosswalk",
+    "period_type": "academic_year",
+    "definition": "Apprenticeship starts mapped to governed MBacc pathways.",
+    "interpretation": "contextual"
+  },
+  {
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_name": "RQF3+ Qualification Rate",
+    "domain_name": "Qualifications",
+    "unit_name": "percent",
+    "source_name": "ONS Nomis APS",
+    "period_type": "calendar_year",
+    "definition": "Percentage of people aged 16 to 64 qualified to RQF level 3 or above.",
+    "interpretation": "higher_is_generally_favourable"
+  },
+  {
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_name": "RQF4+ Qualification Rate",
+    "domain_name": "Qualifications",
+    "unit_name": "percent",
+    "source_name": "ONS Nomis APS",
+    "period_type": "calendar_year",
+    "definition": "Percentage of people aged 16 to 64 qualified to RQF level 4 or above.",
+    "interpretation": "higher_is_generally_favourable"
+  },
+  {
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_name": "Apprenticeship Achievements",
+    "domain_name": "Skills Supply",
+    "unit_name": "count",
+    "source_name": "DfE Apprenticeships",
+    "period_type": "academic_year",
+    "definition": "Number of apprenticeship achievements.",
+    "interpretation": "contextual"
+  },
+  {
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_name": "Apprenticeship Participation",
+    "domain_name": "Skills Supply",
+    "unit_name": "count",
+    "source_name": "DfE Apprenticeships",
+    "period_type": "academic_year",
+    "definition": "Number participating in apprenticeships.",
+    "interpretation": "contextual"
+  },
+  {
+    "kpi_code": "APP_STARTS",
+    "kpi_name": "Apprenticeship Starts",
+    "domain_name": "Skills Supply",
+    "unit_name": "count",
+    "source_name": "DfE Apprenticeships",
+    "period_type": "academic_year",
+    "definition": "Number of apprenticeship starts.",
+    "interpretation": "contextual"
+  },
+  {
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_name": "Education and Training Participation Rate",
+    "domain_name": "Youth Transition",
+    "unit_name": "percent",
+    "source_name": "DfE Participation",
+    "period_type": "calendar_year",
+    "definition": "Percentage of young people aged 16 to 17 participating in education or training.",
+    "interpretation": "higher_is_generally_favourable"
+  },
+  {
+    "kpi_code": "NEET_RATE",
+    "kpi_name": "NEET Rate",
+    "domain_name": "Youth Transition",
+    "unit_name": "percent",
+    "source_name": "DfE NEET",
+    "period_type": "calendar_year",
+    "definition": "Percentage of young people aged 16 to 17 recorded as NEET.",
+    "interpretation": "lower_is_generally_favourable"
+  }
+]

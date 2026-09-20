@@ -1,0 +1,22 @@
+{
+  "product": "GM SkillsFlow",
+  "title": "Greater Manchester Skills & Opportunity Intelligence",
+  "exported_at_utc": "2026-09-20T11:21:26.009707+00:00",
+  "warehouse": "wh_gm_skills_gold",
+  "datasets": {
+    "borough-current.json": 10,
+    "borough-kpis.json": 120,
+    "kpi-definitions.json": 12,
+    "skills-supply.json": 60,
+    "mbacc-pathways.json": 70,
+    "youth-transition.json": 80,
+    "borough-opportunity.json": 860
+  },
+  "reporting_periods": {
+    "apprenticeships": "2025/26",
+    "youth_transition": "2026",
+    "labour_market": "Apr 2025-Mar 2026",
+    "qualifications": "Jan 2025-Dec 2025"
+  },
+  "disclosure_note": "Null values may represent official suppression or unavailable values. Suppressed values are not reconstructed."
+}

@@ -1,0 +1,1202 @@
+[
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 750.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 4120.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1770.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 91.73123627,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 69.5,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 27.8,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 750.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 1770.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 4.084306246,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 61.3,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 41.7,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -2768393693799128606,
+    "borough_code": "E08000001",
+    "borough_name": "Bolton",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 3.7,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 550.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 2590.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1080.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 91.3213448,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 69.6,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 24.7,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": null,
+    "value_status": "partial_or_suppressed",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": null,
+    "value_status": "partial_or_suppressed",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 4.253511924,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 65.1,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 45.2,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -1068236802146137771,
+    "borough_code": "E08000002",
+    "borough_name": "Bury",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 7.6,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 1220.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 6330.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 2880.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 90.92761817,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 74.9,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 22.0,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 1210.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 2870.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 5.298217752,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 72.3,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 58.5,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -5489197403348390468,
+    "borough_code": "E08000003",
+    "borough_name": "Manchester",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 3.9,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 640.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 3420.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1470.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 92.26265161,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 64.3,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 31.2,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": null,
+    "value_status": "partial_or_suppressed",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": null,
+    "value_status": "partial_or_suppressed",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 3.747910087,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 56.1,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 38.3,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -565755306290749210,
+    "borough_code": "E08000004",
+    "borough_name": "Oldham",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 6.6,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 660.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 3180.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1350.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 91.25560538,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 67.1,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 27.5,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 670.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 1360.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 4.969594258,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 59.8,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 33.5,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 1637707521831862458,
+    "borough_code": "E08000005",
+    "borough_name": "Rochdale",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 7.5,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 790.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 4100.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1760.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 89.41383728,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 70.8,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 25.3,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 800.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 1750.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 5.814822725,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 65.0,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 47.6,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -8892336881825189487,
+    "borough_code": "E08000006",
+    "borough_name": "Salford",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 5.1,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 810.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 4030.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1710.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 93.16132612,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 73.8,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 23.2,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 820.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 1720.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 3.902529246,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 78.7,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 53.1,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 1978543835514118564,
+    "borough_code": "E08000007",
+    "borough_name": "Stockport",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 4.0,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 720.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 3420.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1420.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 91.50424788,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 73.6,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 23.3,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": null,
+    "value_status": "partial_or_suppressed",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 1430.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 3.027446632,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 61.3,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 39.3,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 7753390375427332112,
+    "borough_code": "E08000008",
+    "borough_name": "Tameside",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 4.0,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 560.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 2920.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 1270.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 94.65488846,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 79.1,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 17.4,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 570.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": 1260.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 2.749912662,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 76.4,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 62.0,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": 1268108985555937374,
+    "borough_code": "E08000009",
+    "borough_name": "Trafford",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 4.3,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "APP_ACHIEVEMENTS",
+    "kpi_value": 1040.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "APP_PARTICIPATION",
+    "kpi_value": 5520.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "APP_STARTS",
+    "kpi_value": 2280.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "EDU_TRAINING_RATE",
+    "kpi_value": 90.56736756,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "EMPLOYMENT_RATE",
+    "kpi_value": 72.1,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "INACTIVITY_RATE",
+    "kpi_value": 25.2,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "MBACC_ACHIEVEMENTS",
+    "kpi_value": 1050.0,
+    "value_status": "reported",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "MBACC_STARTS",
+    "kpi_value": null,
+    "value_status": "partial_or_suppressed",
+    "period_code": "202526",
+    "period_name": "Academic year 202526"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "NEET_RATE",
+    "kpi_value": 3.925482369,
+    "value_status": "reported",
+    "period_code": "2026",
+    "period_name": "Calendar year 2026"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "RQF3_PLUS_RATE",
+    "kpi_value": 55.4,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "RQF4_PLUS_RATE",
+    "kpi_value": 34.2,
+    "value_status": "reported",
+    "period_code": "2025-12",
+    "period_name": "Jan 2025-Dec 2025"
+  },
+  {
+    "borough_key": -266939434599374975,
+    "borough_code": "E08000010",
+    "borough_name": "Wigan",
+    "kpi_code": "UNEMPLOYMENT_RATE",
+    "kpi_value": 3.6,
+    "value_status": "reported",
+    "period_code": "2026-03",
+    "period_name": "Apr 2025-Mar 2026"
+  }
+]
