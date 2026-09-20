@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "description": "Builds governed Greater Manchester geography and MBacc analytical reference tables in the Silver Lakehouse.",
+    "activities": [
+      {
+        "name": "Run_Silver_Reference_Model",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "typeProperties": {
+          "notebookId": "2ab72583-94c5-4853-8867-c386e85d5e29",
+          "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916"
+        }
+      }
+    ]
+  }
+}

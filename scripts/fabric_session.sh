@@ -13,6 +13,7 @@ export DFE_PIPELINE_ID="d74cac73-5175-47e6-b3e1-f36bb54e5c3d"
 export NOMIS_PIPELINE_ID="9d8cf3d5-3430-4bb0-8814-a8e5cd8ada1f"
 
 export B2S_NOTEBOOK_ID="91fb3609-26ce-4bb5-9332-f282a1349614"
+export SILVER_MODEL_NOTEBOOK_ID="2ab72583-94c5-4853-8867-c386e85d5e29"
 export B2S_PIPELINE_ID="e446f1f5-a03c-462e-aada-0dfe5bc21903"
 
 export ONELAKE_DFS="https://southafricanorth-onelake.dfs.fabric.microsoft.com"
@@ -32,3 +33,5 @@ export ONELAKE_TOKEN=$(az account get-access-token     --resource https://storag
 echo "Fabric session ready."
 echo "Workspace: GM SkillsFlow Dev"
 echo "Workspace ID: $WORKSPACE_ID"
+
+export SILVER_MODEL_PIPELINE_ID="9ab81518-0410-4bfc-bf80-ad031df6a5f3"
