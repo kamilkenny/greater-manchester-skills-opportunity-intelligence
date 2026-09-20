@@ -1,0 +1,106 @@
+name: Production refresh
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 5 * * *"
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: gm-skillsflow-production-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Microsoft ODBC Driver 18
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          source /etc/os-release
+
+          curl -sSL \
+            "https://packages.microsoft.com/config/ubuntu/${VERSION_ID}/packages-microsoft-prod.deb" \
+            -o /tmp/packages-microsoft-prod.deb
+
+          sudo dpkg -i /tmp/packages-microsoft-prod.deb
+
+          sudo apt-get update
+
+          sudo ACCEPT_EULA=Y apt-get install -y \
+            msodbcsql18 \
+            unixodbc-dev
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+          python -m pip install "pyodbc>=5.2,<6"
+
+      - name: Login to Fabric tenant
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.FABRIC_CLIENT_ID }}
+          tenant-id: ${{ vars.FABRIC_TENANT_ID }}
+          allow-no-subscriptions: true
+
+      - name: Run Fabric refresh chain and export Gold
+        run: |
+          python scripts/run_refresh_chain.py
+
+      - name: Leave Fabric tenant session
+        if: always()
+        run: |
+          az logout || true
+
+      - name: Login to Azure serving tenant
+        uses: azure/login@v2
+        with:
+          client-id: ${{ vars.SERVING_CLIENT_ID }}
+          tenant-id: ${{ vars.SERVING_TENANT_ID }}
+          subscription-id: ${{ vars.SERVING_SUBSCRIPTION_ID }}
+
+      - name: Publish validated snapshot
+        run: |
+          python scripts/publish_public_snapshot.py \
+            --account "${{ vars.SERVING_STORAGE_ACCOUNT }}" \
+            --container "${{ vars.SERVING_STORAGE_CONTAINER }}" \
+            --snapshot-dir data/public/build
+
+      - name: Tell live application to check new snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail-with-body \
+            --retry 5 \
+            --retry-delay 5 \
+            --max-time 60 \
+            -X POST \
+            "${{ vars.PUBLIC_APP_URL }}/refresh-data"
+
+      - name: Verify live health
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          curl --fail-with-body \
+            --retry 5 \
+            --retry-delay 5 \
+            --max-time 60 \
+            "${{ vars.PUBLIC_APP_URL }}/healthz"
