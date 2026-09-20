@@ -22,11 +22,12 @@
 
 # CELL ********************
 
-from pyspark.sql import functions as F
 import json
 import re
 import uuid
 from functools import reduce
+
+from pyspark.sql import functions as F
 
 WORKSPACE_ID = "81e75ca0-f556-48c0-9dea-4851ce7bf916"
 BRONZE_ID = "b9a4e5f8-5c7f-41b5-bd54-7241fed3dc12"

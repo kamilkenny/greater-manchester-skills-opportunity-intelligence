@@ -2,11 +2,10 @@ import json
 import os
 import struct
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pyodbc
-
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "web" / "data"
@@ -116,7 +115,7 @@ def fetch_rows(cursor, query):
             {
                 column: serialise(value)
                 for column, value
-                in zip(columns, record)
+                in zip(columns, record, strict=False)
             }
         )
 
@@ -186,7 +185,7 @@ with pyodbc.connect(
 
 
 exported_at = datetime.now(
-    timezone.utc
+    UTC
 ).isoformat()
 
 metadata = {

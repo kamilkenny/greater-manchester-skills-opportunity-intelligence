@@ -21,7 +21,6 @@ import json
 
 from pyspark.sql import functions as F
 
-
 WORKSPACE_ID = "81e75ca0-f556-48c0-9dea-4851ce7bf916"
 SILVER_ID = "d4a65e02-93bd-4109-9acc-80c8c57e6b4d"
 

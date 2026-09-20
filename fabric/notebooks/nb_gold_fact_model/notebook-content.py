@@ -20,9 +20,8 @@
 import json
 import uuid
 
-import com.microsoft.spark.fabric
+import com.microsoft.spark.fabric  # noqa: F401
 from pyspark.sql import functions as F
-
 
 GOLD = "wh_gm_skills_gold"
 MODEL_RUN_ID = str(uuid.uuid4())
@@ -109,7 +108,7 @@ def require_keys(df, table, keys):
 
 borough = (
     read_gold("dim.borough")
-    .filter(F.col("is_current") == True)
+    .filter(F.col("is_current"))
     .select(
         "borough_code",
         "borough_key",
@@ -135,7 +134,7 @@ apps_level = (
 
 ssa = (
     read_gold("dim.ssa_subject")
-    .filter(F.col("is_current") == True)
+    .filter(F.col("is_current"))
     .select(
         "ssa_tier_1",
         "ssa_subject_key",
@@ -145,7 +144,7 @@ ssa = (
 
 gateway = (
     read_gold("dim.mbacc_gateway")
-    .filter(F.col("is_current") == True)
+    .filter(F.col("is_current"))
     .select(
         "gateway_code",
         "gateway_key",

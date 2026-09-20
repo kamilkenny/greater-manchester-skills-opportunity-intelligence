@@ -20,9 +20,8 @@
 import json
 import uuid
 
-import com.microsoft.spark.fabric
+import com.microsoft.spark.fabric  # noqa: F401
 from pyspark.sql import functions as F
-
 
 GOLD_NAME = "wh_gm_skills_gold"
 MODEL_RUN_ID = str(uuid.uuid4())

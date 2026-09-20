@@ -21,9 +21,8 @@ import json
 import time
 import uuid
 
-import com.microsoft.spark.fabric
+import com.microsoft.spark.fabric  # noqa: F401
 from pyspark.sql import functions as F
-
 
 WORKSPACE_ID = "81e75ca0-f556-48c0-9dea-4851ce7bf916"
 GOLD_ID = "ce6454df-212a-438a-809d-7f77075fb5c9"
