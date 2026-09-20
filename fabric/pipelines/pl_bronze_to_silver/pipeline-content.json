@@ -1,0 +1,16 @@
+{
+  "properties": {
+    "description": "Orchestrates the governed GM SkillsFlow Bronze to Silver PySpark transformation and data-quality gates.",
+    "activities": [
+      {
+        "name": "Run_Bronze_to_Silver",
+        "type": "TridentNotebook",
+        "dependsOn": [],
+        "typeProperties": {
+          "notebookId": "91fb3609-26ce-4bb5-9332-f282a1349614",
+          "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916"
+        }
+      }
+    ]
+  }
+}

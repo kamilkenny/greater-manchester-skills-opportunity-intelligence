@@ -252,7 +252,8 @@ NUMERIC_PATTERN = (
     r"^[+-]?("
     r"[0-9]+([.][0-9]*)?"
     r"|[.][0-9]+"
-    r")$"
+    r")"
+    r"([eE][+-]?[0-9]+)?$"
 )
 
 
@@ -279,6 +280,10 @@ def add_disclosure_triplet(
         .when(
             token == "z",
             F.lit("not_applicable"),
+        )
+        .when(
+            token == "x",
+            F.lit("unavailable"),
         )
         .when(
             token == "low",
