@@ -1,15 +1,15 @@
 ssa_tier_1,gateway_code,mapping_status,mapping_basis,mapping_version,effective_from,effective_to,is_current
-"Agriculture, Horticulture and Animal Care",,pending_review,,v1,2026-09-20,,true
-"Arts, Media and Publishing",,pending_review,,v1,2026-09-20,,true
-"Business, Administration and Law",,pending_review,,v1,2026-09-20,,true
-"Construction, Planning and the Built Environment",,pending_review,,v1,2026-09-20,,true
-Digital Technology,,pending_review,,v1,2026-09-20,,true
-Education and Training,,pending_review,,v1,2026-09-20,,true
-Engineering and Manufacturing Technologies,,pending_review,,v1,2026-09-20,,true
-"Health, Public Services and Care",,pending_review,,v1,2026-09-20,,true
-"History, Philosophy and Theology",,pending_review,,v1,2026-09-20,,true
-"Leisure, Travel and Tourism",,pending_review,,v1,2026-09-20,,true
-Retail and Commercial Enterprise,,pending_review,,v1,2026-09-20,,true
-Science and Mathematics,,pending_review,,v1,2026-09-20,,true
-Social Sciences,,pending_review,,v1,2026-09-20,,true
-Total,,pending_review,,v1,2026-09-20,,true
+"Agriculture, Horticulture and Animal Care",MBACC01,analytical_proxy,Analytical alignment to Construction and the Green Economy; not an official GMCA SSA crosswalk.,v1,2026-09-20,,true
+"Arts, Media and Publishing",MBACC02,analytical_proxy,"Analytical alignment to Creative, Culture and Sport; not an official GMCA SSA crosswalk.",v1,2026-09-20,,true
+"Business, Administration and Law",MBACC06,analytical_proxy,"Analytical alignment to Financial, Business and Professional Services; not an official GMCA SSA crosswalk.",v1,2026-09-20,,true
+"Construction, Planning and the Built Environment",MBACC01,direct_theme_alignment,Strong semantic alignment to Construction and the Green Economy; analytical mapping.,v1,2026-09-20,,true
+Digital Technology,MBACC03,direct_theme_alignment,Strong semantic alignment to Digital and Technology; analytical mapping.,v1,2026-09-20,,true
+Education and Training,MBACC04,direct_theme_alignment,Strong semantic alignment to Education and Early Years; analytical mapping.,v1,2026-09-20,,true
+Engineering and Manufacturing Technologies,MBACC05,direct_theme_alignment,Strong semantic alignment to Engineering and Manufacturing; analytical mapping.,v1,2026-09-20,,true
+"Health, Public Services and Care",MBACC07,analytical_proxy,"Health and care align to Health and Social Care, while the SSA also contains broader public services.",v1,2026-09-20,,true
+"History, Philosophy and Theology",,no_direct_mapping,No defensible single MBacc gateway at SSA Tier 1.,v1,2026-09-20,,true
+"Leisure, Travel and Tourism",MBACC02,analytical_proxy,"Leisure has partial thematic alignment to Creative, Culture and Sport; travel and tourism make this a broad proxy.",v1,2026-09-20,,true
+Retail and Commercial Enterprise,MBACC06,analytical_proxy,"Commercial enterprise has partial alignment to Financial, Business and Professional Services; analytical proxy.",v1,2026-09-20,,true
+Science and Mathematics,,cross_cutting,Science and mathematics support multiple MBacc gateways; not forced into a single gateway.,v1,2026-09-20,,true
+Social Sciences,,cross_cutting,Potential relevance spans multiple gateways; not forced into a single gateway.,v1,2026-09-20,,true
+Total,,aggregate_excluded,"DfE aggregate category, excluded from gateway attribution.",v1,2026-09-20,,true
