@@ -60,6 +60,100 @@ def serving_label(
     )
 
 
+
+def refresh_panel(
+    status: dict[str, Any],
+):
+    published = format_timestamp(
+        status.get(
+            "published_at_utc"
+        )
+    )
+
+    snapshot = (
+        status.get("snapshot_id")
+        or "Unavailable"
+    )
+
+    snapshot_short = (
+        snapshot[:16]
+        if snapshot != "Unavailable"
+        else snapshot
+    )
+
+    return html.Div(
+        className="refresh-panel",
+        children=[
+            html.Div(
+                className="refresh-meta",
+                children=[
+                    html.Div(
+                        [
+                            html.Span(
+                                "Published",
+                                className=(
+                                    "refresh-meta-label"
+                                ),
+                            ),
+                            html.Span(
+                                published,
+                                className=(
+                                    "refresh-meta-value"
+                                ),
+                            ),
+                        ],
+                        className=(
+                            "refresh-meta-item"
+                        ),
+                    ),
+                    html.Div(
+                        [
+                            html.Span(
+                                "Snapshot",
+                                className=(
+                                    "refresh-meta-label"
+                                ),
+                            ),
+                            html.Span(
+                                snapshot_short,
+                                className=(
+                                    "refresh-meta-value "
+                                    "snapshot-code"
+                                ),
+                            ),
+                        ],
+                        className=(
+                            "refresh-meta-item"
+                        ),
+                    ),
+                ],
+            ),
+            html.Div(
+                className="refresh-action",
+                children=[
+                    html.Button(
+                        "Refresh data",
+                        id="refresh-data-button",
+                        type="button",
+                        className=(
+                            "refresh-data-button"
+                        ),
+                    ),
+                    html.Div(
+                        (
+                            "Reloads the latest validated "
+                            "published snapshot."
+                        ),
+                        id="refresh-data-message",
+                        className=(
+                            "refresh-data-message"
+                        ),
+                    ),
+                ],
+            ),
+        ],
+    )
+
 def header(
     active_page: str,
     status: dict[str, Any],
@@ -110,15 +204,6 @@ def header(
                                 "Designed and modelled by Kamil Ridwan",
                                 className="designer-credit-header",
                             ),
-                            html.Div(
-                                (
-                                    "Designed and modelled "
-                                    "by Kamil Ridwan"
-                                ),
-                                className=(
-                                    "designer-credit-header"
-                                ),
-                            ),
                         ]
                     ),
                 ],
@@ -133,6 +218,7 @@ def header(
                         ),
                         children=label,
                     ),
+                    refresh_panel(status),
                     html.Nav(
                         nav,
                         className="desktop-nav",

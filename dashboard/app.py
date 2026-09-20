@@ -199,6 +199,75 @@ trends.register_callbacks(
 )
 
 
+
+@server.route("/refresh-data", methods=["POST"])
+def refresh_data():
+    """Reload the latest validated published snapshot."""
+
+    before_status = store.status()
+    before_snapshot = before_status.get(
+        "snapshot_id"
+    )
+
+    try:
+        store.refresh()
+
+        status = store.status()
+
+        after_snapshot = status.get(
+            "snapshot_id"
+        )
+
+        changed = bool(
+            after_snapshot
+            and after_snapshot != before_snapshot
+        )
+
+        return jsonify(
+            {
+                "ok": True,
+                "changed": changed,
+                "snapshot_id": after_snapshot,
+                "published_at_utc": status.get(
+                    "published_at_utc"
+                ),
+                "serving_status": status.get(
+                    "serving_status"
+                ),
+                "last_successful_refresh_at":
+                    status.get(
+                        "last_successful_refresh_at"
+                    ),
+                "message": (
+                    "Updated to latest published snapshot."
+                    if changed
+                    else
+                    "Already showing latest published snapshot."
+                ),
+            }
+        )
+
+    except Exception as exc:
+        status = store.status()
+
+        return (
+            jsonify(
+                {
+                    "ok": False,
+                    "changed": False,
+                    "snapshot_id": status.get(
+                        "snapshot_id"
+                    ),
+                    "message": (
+                        "Refresh failed. The current "
+                        "validated snapshot remains active."
+                    ),
+                    "detail": str(exc),
+                }
+            ),
+            503,
+        )
+
 if __name__ == "__main__":
     app.run(
         host="0.0.0.0",

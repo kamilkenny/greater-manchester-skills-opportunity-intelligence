@@ -1,0 +1,264 @@
+/*
+   GM SkillsFlow
+   Operational dashboard refinements
+*/
+
+
+/* ---------- Refresh controls ---------- */
+
+.refresh-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 0 0 10px;
+}
+
+.refresh-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.refresh-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.refresh-meta-label {
+  color: #66788a;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.refresh-meta-value {
+  color: #10283c;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.snapshot-code {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+}
+
+.refresh-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.refresh-data-button {
+  border: 0;
+  border-radius: 10px;
+  background: #006f91;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 800;
+  min-height: 40px;
+  padding: 9px 16px;
+  transition:
+    opacity 120ms ease,
+    transform 120ms ease;
+}
+
+.refresh-data-button:hover {
+  opacity: 0.9;
+}
+
+.refresh-data-button:active {
+  transform: translateY(1px);
+}
+
+.refresh-data-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.refresh-data-button:focus-visible {
+  outline: 3px solid rgba(0, 111, 145, 0.25);
+  outline-offset: 3px;
+}
+
+.refresh-data-message {
+  color: #64788b;
+  font-size: 0.72rem;
+  max-width: 270px;
+  text-align: right;
+}
+
+.refresh-data-message.refresh-success {
+  color: #08785c;
+}
+
+.refresh-data-message.refresh-error {
+  color: #a53b34;
+}
+
+
+/* ---------- Stop Plotly cards being clipped ---------- */
+
+.chart-card,
+.mbacc-chart-panel,
+.trend-chart-panel {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.chart-card {
+  min-height: 520px !important;
+  padding-bottom: 24px !important;
+}
+
+.mbacc-chart-panel {
+  min-height: 560px !important;
+}
+
+.trend-chart-panel {
+  min-height: 640px !important;
+}
+
+
+/*
+   Give Plotly enough room for axis titles,
+   ticks, legends and labels.
+*/
+
+.chart-card .dash-graph,
+.mbacc-chart-panel .dash-graph {
+  height: 400px !important;
+  min-height: 400px !important;
+  width: 100% !important;
+}
+
+.trend-chart-panel .dash-graph {
+  height: 490px !important;
+  min-height: 490px !important;
+  width: 100% !important;
+}
+
+.chart-card .js-plotly-plot,
+.chart-card .plot-container,
+.chart-card .svg-container,
+.mbacc-chart-panel .js-plotly-plot,
+.mbacc-chart-panel .plot-container,
+.mbacc-chart-panel .svg-container,
+.trend-chart-panel .js-plotly-plot,
+.trend-chart-panel .plot-container,
+.trend-chart-panel .svg-container {
+  max-height: none !important;
+}
+
+
+/* ---------- Plain English chart interpretation ---------- */
+
+.visual-explainer {
+  border-top: 1px solid #e3e9ee;
+  margin: 16px 22px 0;
+  padding: 15px 0 3px;
+}
+
+.visual-explainer-title {
+  color: #17344a;
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 5px;
+}
+
+.visual-explainer-text {
+  color: #526b7c;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.visual-source-note {
+  color: #718494;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+
+/* Existing chart notes should remain fully visible. */
+
+.chart-note {
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  white-space: normal !important;
+}
+
+
+/* ---------- Responsive chart layout ---------- */
+
+@media (max-width: 1100px) {
+  .chart-grid,
+  .analytics-grid,
+  .two-column-grid,
+  .overview-grid,
+  .trend-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .chart-card,
+  .mbacc-chart-panel,
+  .trend-chart-panel {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .refresh-panel {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .refresh-action {
+    align-items: stretch;
+  }
+
+  .refresh-data-button {
+    width: 100%;
+  }
+
+  .refresh-data-message {
+    max-width: none;
+    text-align: left;
+  }
+
+  .chart-card {
+    min-height: 500px !important;
+  }
+
+  .chart-card .dash-graph,
+  .mbacc-chart-panel .dash-graph {
+    height: 380px !important;
+    min-height: 380px !important;
+  }
+
+  .trend-chart-panel .dash-graph {
+    height: 440px !important;
+    min-height: 440px !important;
+  }
+
+  .visual-explainer {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}
