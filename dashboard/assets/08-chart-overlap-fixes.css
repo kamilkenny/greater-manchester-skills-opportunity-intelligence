@@ -1,0 +1,65 @@
+/* Final chart spacing fixes */
+
+/* Give every main chart card more safe space */
+.chart-card,
+.mbacc-chart-panel,
+.trend-chart-panel {
+  padding-bottom: 28px !important;
+}
+
+/* Increase graph height further where needed */
+.chart-card .dash-graph,
+.mbacc-chart-panel .dash-graph {
+  height: 430px !important;
+  min-height: 430px !important;
+}
+
+.trend-chart-panel .dash-graph {
+  height: 500px !important;
+  min-height: 500px !important;
+}
+
+/* Ensure chart notes sit fully below the graph */
+.chart-note,
+.reporting-note,
+.source-note {
+  display: block !important;
+  position: relative !important;
+  clear: both !important;
+  margin-top: 18px !important;
+  margin-bottom: 8px !important;
+  padding-top: 0 !important;
+  line-height: 1.6 !important;
+  z-index: 2 !important;
+}
+
+/* Keep the explanatory section well separated */
+.visual-explainer {
+  margin-top: 18px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid #dfe7ed !important;
+}
+
+/* Extra safety for any paragraph inside chart cards */
+.chart-card p,
+.mbacc-chart-panel p,
+.trend-chart-panel p,
+.chart-card div,
+.mbacc-chart-panel div,
+.trend-chart-panel div {
+  overflow: visible !important;
+}
+
+/* Mobile tuning */
+@media (max-width: 760px) {
+  .chart-card .dash-graph,
+  .mbacc-chart-panel .dash-graph {
+    height: 390px !important;
+    min-height: 390px !important;
+  }
+
+  .trend-chart-panel .dash-graph {
+    height: 450px !important;
+    min-height: 450px !important;
+  }
+}
