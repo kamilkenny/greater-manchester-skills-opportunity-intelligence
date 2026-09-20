@@ -57,3 +57,7 @@ Thumbs.db
 *.temp
 *.bak
 .runtime/
+
+# Generated public serving snapshots
+data/public/build/
+data/public/.build.candidate/
