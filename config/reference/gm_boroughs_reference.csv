@@ -1,0 +1,11 @@
+borough_code,borough_name,source_authority,is_current,source_checked_date
+E08000001,Bolton,ONS GSS,true,2026-09-20
+E08000002,Bury,ONS GSS,true,2026-09-20
+E08000003,Manchester,ONS GSS,true,2026-09-20
+E08000004,Oldham,ONS GSS,true,2026-09-20
+E08000005,Rochdale,ONS GSS,true,2026-09-20
+E08000006,Salford,ONS GSS,true,2026-09-20
+E08000007,Stockport,ONS GSS,true,2026-09-20
+E08000008,Tameside,ONS GSS,true,2026-09-20
+E08000009,Trafford,ONS GSS,true,2026-09-20
+E08000010,Wigan,ONS GSS,true,2026-09-20
