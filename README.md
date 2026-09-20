@@ -1,4 +1,4 @@
-# Greater Manchester Skills & Opportunity Intelligence
+# Greater Manchester Skills & Opportunity Intelligence Live Platform
 <img width="1763" height="841" alt="GMCA EDU SKILLS" src="https://github.com/user-attachments/assets/b168cb63-53f4-412d-be9a-af654af7f4af" />
 
 # Live Dashboard Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
