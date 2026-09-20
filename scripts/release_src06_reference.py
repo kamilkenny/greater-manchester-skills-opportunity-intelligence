@@ -5,12 +5,11 @@ import hashlib
 import os
 import subprocess
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import quote
 
 import requests
-
 
 SOURCE_ID = "SRC06"
 SOURCE_FILE = Path("config/reference/mbacc_gateways_reference.csv")
@@ -70,7 +69,7 @@ def main() -> None:
     if any(not row or not row[0].strip() for row in records):
         raise ValueError("SRC06 contains a record with a blank primary identifier.")
 
-    now = datetime.now(timezone.utc)
+    now = datetime.now(UTC)
     run_id = str(uuid.uuid4())
     sha256 = hashlib.sha256(data).hexdigest()
 
