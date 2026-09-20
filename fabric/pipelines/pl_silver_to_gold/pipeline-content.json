@@ -3,11 +3,27 @@
     "description": "Loads governed Silver datasets into the GM SkillsFlow Gold Fabric Warehouse and reconciles source and target row counts.",
     "activities": [
       {
-        "name": "Run_Silver_to_Gold",
+        "name": "Run_Gold_Dimensional_Model",
         "type": "TridentNotebook",
         "dependsOn": [],
         "typeProperties": {
-          "notebookId": "8acb2ede-0045-4859-9d1c-13a3f5c87917",
+          "notebookId": "09702af1-1f81-4a19-a2a8-b3c10e09da3a",
+          "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916"
+        }
+      },
+      {
+        "name": "Run_Gold_Fact_Model",
+        "type": "TridentNotebook",
+        "dependsOn": [
+          {
+            "activity": "Run_Gold_Dimensional_Model",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ],
+        "typeProperties": {
+          "notebookId": "0d0e79c8-a827-4d52-b96c-87b46416eec7",
           "workspaceId": "81e75ca0-f556-48c0-9dea-4851ce7bf916"
         }
       }
