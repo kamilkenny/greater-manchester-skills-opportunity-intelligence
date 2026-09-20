@@ -1,6 +1,8 @@
 # Greater Manchester Skills & Opportunity Intelligence
+<img width="1763" height="841" alt="GMCA EDU SKILLS" src="https://github.com/user-attachments/assets/b168cb63-53f4-412d-be9a-af654af7f4af" />
 
 # Live Dashboard Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
+# Project Full Documentation - https://medium.com/@kamilkenny22/building-gm-skillsflow-from-fragmented-public-data-to-a-governed-skills-intelligence-platform-with-3a7c35c9dac4?postPublishedType=repub 
 
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
