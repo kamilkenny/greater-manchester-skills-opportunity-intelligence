@@ -27,6 +27,14 @@ dev = [
     "ruff>=0.11,<1"
 ]
 
+web = [
+    "dash>=3.2,<5",
+    "plotly>=6.3,<7",
+    "gunicorn>=23,<24",
+    "azure-identity>=1.24,<2",
+    "azure-storage-blob>=12.26,<13"
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
