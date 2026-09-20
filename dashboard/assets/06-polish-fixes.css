@@ -1,0 +1,242 @@
+/* ==================================================
+   GM SkillsFlow, visual polish and layout fixes
+   ================================================== */
+
+/* ---------- Header refresh panel ---------- */
+
+.refresh-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 0 0 10px;
+}
+
+.refresh-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.refresh-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.refresh-meta-label {
+  color: #c1d3e2 !important;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.refresh-meta-value {
+  color: #f2f7fb !important;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.refresh-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.refresh-data-button {
+  border: 0;
+  border-radius: 10px;
+  background: #0f8fc7;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 800;
+  min-height: 44px;
+  padding: 10px 18px;
+  transition: opacity 120ms ease;
+}
+
+.refresh-data-button:hover {
+  opacity: 0.9;
+}
+
+.refresh-data-button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.refresh-data-message {
+  color: #d7e3ee !important;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  max-width: 320px;
+}
+
+.refresh-data-message.refresh-success {
+  color: #9df1cb !important;
+}
+
+.refresh-data-message.refresh-error {
+  color: #ffcbc3 !important;
+}
+
+
+/* ---------- Fix card and chart overlap ---------- */
+
+.chart-card,
+.mbacc-chart-panel,
+.trend-chart-panel {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow: visible !important;
+  padding-bottom: 22px !important;
+}
+
+.chart-card > *,
+.mbacc-chart-panel > *,
+.trend-chart-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+.chart-card .dash-graph,
+.mbacc-chart-panel .dash-graph,
+.trend-chart-panel .dash-graph {
+  width: 100% !important;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  flex: 0 0 auto !important;
+}
+
+.chart-card .dash-graph,
+.mbacc-chart-panel .dash-graph {
+  height: 350px !important;
+  min-height: 350px !important;
+}
+
+.trend-chart-panel .dash-graph {
+  height: 410px !important;
+  min-height: 410px !important;
+}
+
+.chart-card .js-plotly-plot,
+.chart-card .plot-container,
+.chart-card .svg-container,
+.mbacc-chart-panel .js-plotly-plot,
+.mbacc-chart-panel .plot-container,
+.mbacc-chart-panel .svg-container,
+.trend-chart-panel .js-plotly-plot,
+.trend-chart-panel .plot-container,
+.trend-chart-panel .svg-container {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.chart-note,
+.visual-explainer,
+.visual-source-note {
+  position: relative;
+  z-index: 2;
+}
+
+.chart-note {
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+  line-height: 1.5 !important;
+  white-space: normal !important;
+}
+
+.visual-explainer {
+  border-top: 1px solid #e3e9ee;
+  margin: 8px 22px 0;
+  padding: 14px 0 0;
+}
+
+.visual-explainer-title {
+  color: #17344a;
+  display: block;
+  font-size: 0.80rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.visual-explainer-text {
+  color: #526b7c;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+
+.visual-source-note {
+  color: #718494;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------- Extra spacing around small text blocks ---------- */
+
+.chart-card p,
+.mbacc-chart-panel p,
+.trend-chart-panel p,
+.chart-card .chart-note,
+.mbacc-chart-panel .chart-note,
+.trend-chart-panel .chart-note {
+  overflow: visible !important;
+}
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 1100px) {
+  .chart-grid,
+  .analytics-grid,
+  .two-column-grid,
+  .overview-grid,
+  .trend-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .refresh-panel {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .refresh-action {
+    align-items: stretch;
+  }
+
+  .refresh-data-button {
+    width: 100%;
+  }
+
+  .refresh-data-message {
+    max-width: none;
+  }
+
+  .chart-card .dash-graph,
+  .mbacc-chart-panel .dash-graph {
+    height: 320px !important;
+    min-height: 320px !important;
+  }
+
+  .trend-chart-panel .dash-graph {
+    height: 370px !important;
+    min-height: 370px !important;
+  }
+
+  .visual-explainer {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+}

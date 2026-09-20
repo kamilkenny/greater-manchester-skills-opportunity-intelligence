@@ -61,6 +61,7 @@ def serving_label(
 
 
 
+
 def refresh_panel(
     status: dict[str, Any],
 ):
@@ -68,17 +69,6 @@ def refresh_panel(
         status.get(
             "published_at_utc"
         )
-    )
-
-    snapshot = (
-        status.get("snapshot_id")
-        or "Unavailable"
-    )
-
-    snapshot_short = (
-        snapshot[:16]
-        if snapshot != "Unavailable"
-        else snapshot
     )
 
     return html.Div(
@@ -91,40 +81,14 @@ def refresh_panel(
                         [
                             html.Span(
                                 "Published",
-                                className=(
-                                    "refresh-meta-label"
-                                ),
+                                className="refresh-meta-label",
                             ),
                             html.Span(
                                 published,
-                                className=(
-                                    "refresh-meta-value"
-                                ),
+                                className="refresh-meta-value",
                             ),
                         ],
-                        className=(
-                            "refresh-meta-item"
-                        ),
-                    ),
-                    html.Div(
-                        [
-                            html.Span(
-                                "Snapshot",
-                                className=(
-                                    "refresh-meta-label"
-                                ),
-                            ),
-                            html.Span(
-                                snapshot_short,
-                                className=(
-                                    "refresh-meta-value "
-                                    "snapshot-code"
-                                ),
-                            ),
-                        ],
-                        className=(
-                            "refresh-meta-item"
-                        ),
+                        className="refresh-meta-item",
                     ),
                 ],
             ),
@@ -135,9 +99,7 @@ def refresh_panel(
                         "Refresh data",
                         id="refresh-data-button",
                         type="button",
-                        className=(
-                            "refresh-data-button"
-                        ),
+                        className="refresh-data-button",
                     ),
                     html.Div(
                         (
@@ -145,14 +107,13 @@ def refresh_panel(
                             "published snapshot."
                         ),
                         id="refresh-data-message",
-                        className=(
-                            "refresh-data-message"
-                        ),
+                        className="refresh-data-message",
                     ),
                 ],
             ),
         ],
     )
+
 
 def header(
     active_page: str,
