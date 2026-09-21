@@ -278,6 +278,59 @@ def validate_local_snapshot(snapshot):
     return metadata
 
 
+
+def write_operational_status(
+    account,
+    container,
+    *,
+    data_status,
+    snapshot_id,
+    published_at_utc,
+):
+    checked_at = datetime.now(
+        UTC
+    ).isoformat()
+
+    payload = {
+        "schema_version": 1,
+        "last_data_check_at_utc": checked_at,
+        "data_status": data_status,
+        "snapshot_id": snapshot_id,
+        "published_at_utc": published_at_utc,
+    }
+
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        suffix=".json",
+        encoding="utf-8",
+        delete=False,
+    ) as handle:
+        json.dump(
+            payload,
+            handle,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+        handle.write("\n")
+        status_path = Path(
+            handle.name
+        )
+
+    try:
+        upload_blob(
+            account,
+            container,
+            "operational-status.json",
+            status_path,
+        )
+    finally:
+        status_path.unlink(
+            missing_ok=True
+        )
+
+    return checked_at
+
+
 def main():
     args = parse_args()
 
@@ -321,6 +374,18 @@ def main():
         )
         == fingerprint
     ):
+        checked_at = write_operational_status(
+            args.account,
+            args.container,
+            data_status="no_change",
+            snapshot_id=current_manifest[
+                "snapshot_id"
+            ],
+            published_at_utc=current_manifest[
+                "published_at_utc"
+            ],
+        )
+
         print(
             "GM SkillsFlow publication: "
             "NO_CHANGE"
@@ -335,6 +400,10 @@ def main():
         )
         print(
             "No blobs were uploaded."
+        )
+        print(
+            "Last data check: "
+            f"{checked_at}"
         )
         return
 
@@ -494,6 +563,18 @@ def main():
         manifest_path.unlink(
             missing_ok=True
         )
+
+    checked_at = write_operational_status(
+        args.account,
+        args.container,
+        data_status="published",
+        snapshot_id=manifest[
+            "snapshot_id"
+        ],
+        published_at_utc=manifest[
+            "published_at_utc"
+        ],
+    )
 
     print()
     print(

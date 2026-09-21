@@ -6,6 +6,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
+from azure.core.exceptions import (
+    ResourceNotFoundError,
+)
 from azure.identity import (
     AzureCliCredential,
     ManagedIdentityCredential,
@@ -64,6 +67,8 @@ class SnapshotStore:
         self._last_checked_at: str | None = None
         self._last_successful_refresh_at: str | None = None
         self._last_error: str | None = None
+
+        self._operational_status: dict[str, Any] = {}
 
         self._bootstrap_dir = bootstrap_dir
 
@@ -173,6 +178,34 @@ class SnapshotStore:
         return json.loads(
             payload.decode("utf-8")
         )
+
+    def _load_operational_status(
+        self,
+    ) -> dict[str, Any]:
+        """
+        Load optional operational refresh metadata.
+
+        This file is deliberately non-critical. The validated
+        public snapshot must remain available if the status blob
+        has not yet been created or cannot be read.
+        """
+        try:
+            payload = self._download_json(
+                "operational-status.json"
+            )
+        except (
+            ResourceNotFoundError,
+            RuntimeError,
+        ):
+            return {}
+
+        if not isinstance(
+            payload,
+            dict,
+        ):
+            return {}
+
+        return payload
 
     @staticmethod
     def _validate_manifest(
@@ -480,6 +513,23 @@ class SnapshotStore:
                 manifest
             )
 
+            operational_status = (
+                self._load_operational_status()
+            )
+
+            operational_snapshot = (
+                operational_status.get(
+                    "snapshot_id"
+                )
+            )
+
+            if (
+                operational_snapshot
+                and operational_snapshot
+                != manifest["snapshot_id"]
+            ):
+                operational_status = {}
+
             with self._lock:
                 current = self._bundle
 
@@ -492,6 +542,9 @@ class SnapshotStore:
                 with self._lock:
                     self._last_checked_at = (
                         checked_at
+                    )
+                    self._operational_status = (
+                        operational_status
                     )
                     self._last_error = None
 
@@ -512,6 +565,10 @@ class SnapshotStore:
 
                 self._last_successful_refresh_at = (
                     self._now()
+                )
+
+                self._operational_status = (
+                    operational_status
                 )
 
                 self._last_error = None
@@ -631,6 +688,16 @@ class SnapshotStore:
                     bundle.source_exported_at_utc
                     if bundle
                     else None
+                ),
+                "last_data_check_at_utc": (
+                    self._operational_status.get(
+                        "last_data_check_at_utc"
+                    )
+                ),
+                "data_status": (
+                    self._operational_status.get(
+                        "data_status"
+                    )
                 ),
                 "last_checked_at": (
                     self._last_checked_at

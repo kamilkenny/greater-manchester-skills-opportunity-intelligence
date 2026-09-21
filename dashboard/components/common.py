@@ -71,12 +71,47 @@ def refresh_panel(
         )
     )
 
+    last_data_check = format_timestamp(
+        status.get(
+            "last_data_check_at_utc"
+        )
+    )
+
+    data_status_code = status.get(
+        "data_status"
+    )
+
+    data_status_text = {
+        "no_change": (
+            "No material change detected"
+        ),
+        "published": (
+            "New validated snapshot published"
+        ),
+    }.get(
+        data_status_code,
+        "Not yet recorded",
+    )
+
     return html.Div(
         className="refresh-panel",
         children=[
             html.Div(
                 className="refresh-meta",
                 children=[
+                    html.Div(
+                        [
+                            html.Span(
+                                "Last data check",
+                                className="refresh-meta-label",
+                            ),
+                            html.Span(
+                                last_data_check,
+                                className="refresh-meta-value",
+                            ),
+                        ],
+                        className="refresh-meta-item",
+                    ),
                     html.Div(
                         [
                             html.Span(
@@ -89,6 +124,25 @@ def refresh_panel(
                             ),
                         ],
                         className="refresh-meta-item",
+                    ),
+                    html.Div(
+                        [
+                            html.Span(
+                                "Data status",
+                                className="refresh-meta-label",
+                            ),
+                            html.Span(
+                                data_status_text,
+                                className=(
+                                    "refresh-meta-value "
+                                    "refresh-status-value"
+                                ),
+                            ),
+                        ],
+                        className=(
+                            "refresh-meta-item "
+                            "refresh-meta-status"
+                        ),
                     ),
                 ],
             ),
@@ -113,7 +167,6 @@ def refresh_panel(
             ),
         ],
     )
-
 
 def header(
     active_page: str,
