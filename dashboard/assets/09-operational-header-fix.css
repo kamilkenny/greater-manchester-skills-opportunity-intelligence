@@ -1,0 +1,92 @@
+/* ==========================================================
+   GM SkillsFlow
+   Final operational header layout fix
+   ========================================================== */
+
+.refresh-panel {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.refresh-meta {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(140px, auto));
+  align-items: start;
+  gap: 12px 20px;
+}
+
+.refresh-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.refresh-meta-label {
+  display: block;
+  margin: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.refresh-meta-value {
+  display: block;
+  margin: 0;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.refresh-meta-status .refresh-meta-value {
+  max-width: 190px;
+  white-space: normal;
+}
+
+.refresh-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+@media (max-width: 1180px) {
+  .refresh-meta {
+    grid-template-columns:
+      repeat(2, minmax(140px, auto));
+  }
+
+  .refresh-meta-status {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .refresh-panel {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .refresh-meta {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .refresh-meta-status {
+    grid-column: auto;
+  }
+
+  .refresh-meta-value {
+    white-space: normal;
+  }
+
+  .refresh-action {
+    width: 100%;
+  }
+}
