@@ -1,5 +1,6 @@
 # Greater Manchester Skills & Opportunity Intelligence Live Platform
-<img width="1763" height="841" alt="GMCA EDU SKILLS" src="https://github.com/user-attachments/assets/b168cb63-53f4-412d-be9a-af654af7f4af" />
+<img width="1187" height="737" alt="Screenshot 2026-09-21 012948" src="https://github.com/user-attachments/assets/5d6cd675-fb90-4bc9-8826-0abb61877394" />
+
 
 # Live Dashboard Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
 # Project Full Documentation - https://medium.com/@kamilkenny22/building-gm-skillsflow-from-fragmented-public-data-to-a-governed-skills-intelligence-platform-with-3a7c35c9dac4?postPublishedType=repub 
@@ -1455,6 +1456,8 @@ Technical interests include:
 - Public Infrastructure Intelligence
 - Predictive Analytics
 
+
+<img width="1763" height="841" alt="GMCA EDU SKILLS" src="https://github.com/user-attachments/assets/b168cb63-53f4-412d-be9a-af654af7f4af" />
 ---
 
 # Disclaimer
