@@ -243,12 +243,153 @@ def layout(
         ],
     )
 
+
+    technology = html.Section(
+        className="panel technology-overview-panel",
+        children=[
+            html.Div(
+                className="technology-overview-heading",
+                children=[
+                    html.Div(
+                        children=[
+                            html.Span(
+                                "Technology behind GM SkillsFlow",
+                                className="eyebrow",
+                            ),
+                            html.H2(
+                                "Built as a data platform, not only a dashboard"
+                            ),
+                        ],
+                    ),
+                    html.P(
+                        (
+                            "GM SkillsFlow combines multi-source ingestion, "
+                            "Microsoft Fabric data engineering, dimensional "
+                            "modelling, secure Azure serving and automated "
+                            "production workflows."
+                        )
+                    ),
+                ],
+            ),
+
+            html.Div(
+                className="technology-overview-grid",
+                children=[
+                    html.Article(
+                        className="technology-overview-card",
+                        children=[
+                            html.Span("Microsoft Fabric"),
+                            html.H3("Data platform"),
+                            html.P(
+                                "Data Factory • Lakehouse • OneLake • "
+                                "Fabric Warehouse • Bronze / Silver / Gold"
+                            ),
+                        ],
+                    ),
+                    html.Article(
+                        className="technology-overview-card",
+                        children=[
+                            html.Span("Data Engineering"),
+                            html.H3("Engineering layer"),
+                            html.P(
+                                "Python • PySpark • SQL • "
+                                "Multi-source ETL / ELT • Data Quality"
+                            ),
+                        ],
+                    ),
+                    html.Article(
+                        className="technology-overview-card",
+                        children=[
+                            html.Span("Warehouse Modelling"),
+                            html.H3("Historical intelligence"),
+                            html.P(
+                                "Dimensions • Fact Tables • "
+                                "SCD Type 2 • SCD Type 4"
+                            ),
+                        ],
+                    ),
+                    html.Article(
+                        className="technology-overview-card",
+                        children=[
+                            html.Span("Microsoft Azure"),
+                            html.H3("Cloud serving"),
+                            html.P(
+                                "Private Blob Storage • Azure App Service • "
+                                "Managed Identity"
+                            ),
+                        ],
+                    ),
+                    html.Article(
+                        className="technology-overview-card",
+                        children=[
+                            html.Span("Automation & Security"),
+                            html.H3("Production workflow"),
+                            html.P(
+                                "GitHub Actions • OIDC • Entra ID • "
+                                "Automated Refresh • Health Checks"
+                            ),
+                        ],
+                    ),
+                ],
+            ),
+
+            html.Div(
+                className="technology-flow",
+                children=[
+                    html.Span(
+                        "DfE + Nomis + Reference Data",
+                        className="technology-flow-step",
+                    ),
+                    html.Span(
+                        "→",
+                        className="technology-flow-arrow",
+                    ),
+                    html.Span(
+                        "Microsoft Fabric",
+                        className="technology-flow-step",
+                    ),
+                    html.Span(
+                        "→",
+                        className="technology-flow-arrow",
+                    ),
+                    html.Span(
+                        "Bronze → Silver → Gold",
+                        className="technology-flow-step",
+                    ),
+                    html.Span(
+                        "→",
+                        className="technology-flow-arrow",
+                    ),
+                    html.Span(
+                        "Azure Serving",
+                        className="technology-flow-step",
+                    ),
+                    html.Span(
+                        "→",
+                        className="technology-flow-arrow",
+                    ),
+                    html.Span(
+                        "GM SkillsFlow",
+                        className="technology-flow-step",
+                    ),
+                ],
+            ),
+
+            html.A(
+                "Explore the full architecture, data sources and methodology →",
+                href="/methodology",
+                className="technology-more-link",
+            ),
+        ],
+    )
+
     content = [
         hero,
         html.Div(
             className="content",
             children=[
                 stats,
+                technology,
                 comparison,
                 supporting,
             ],
