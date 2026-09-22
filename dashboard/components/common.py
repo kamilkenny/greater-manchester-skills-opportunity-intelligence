@@ -190,7 +190,7 @@ def header(
     ]
 
     return html.Header(
-        className="site-header",
+        className="site-header overview-header",
         children=[
             html.Div(
                 className="brand",
@@ -244,6 +244,54 @@ def header(
     )
 
 
+def compact_nav(
+    active_page: str,
+):
+    """Compact navigation used outside the Overview page."""
+
+    nav = [
+        dcc.Link(
+            text,
+            href=get_relative_path(href),
+            className=(
+                "nav-link active"
+                if page == active_page
+                else "nav-link"
+            ),
+        )
+        for page, text, href in NAV_ITEMS
+    ]
+
+    return html.Nav(
+        className="compact-site-nav",
+        children=[
+            html.Div(
+                className="compact-nav-inner",
+                children=[
+                    dcc.Link(
+                        href=get_relative_path("/"),
+                        className="compact-brand",
+                        children=[
+                            html.Span(
+                                "GM",
+                                className="compact-brand-mark",
+                            ),
+                            html.Span(
+                                "GM SkillsFlow",
+                                className="compact-brand-name",
+                            ),
+                        ],
+                    ),
+                    html.Div(
+                        nav,
+                        className="compact-nav-links",
+                    ),
+                ],
+            ),
+        ],
+    )
+
+
 def footer():
     return html.Footer(
         className="site-footer",
@@ -279,12 +327,18 @@ def page_shell(
     status: dict[str, Any],
     children,
 ):
+    shell_header = (
+        header(
+            active_page,
+            status,
+        )
+        if active_page == "overview"
+        else compact_nav(active_page)
+    )
+
     return html.Div(
         [
-            header(
-                active_page,
-                status,
-            ),
+            shell_header,
             html.Main(children),
             footer(),
         ],

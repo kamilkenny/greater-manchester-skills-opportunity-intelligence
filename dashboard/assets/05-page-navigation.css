@@ -1,0 +1,412 @@
+/* ==========================================================
+   GM SkillsFlow
+   Overview-only operational header + compact secondary nav
+   ========================================================== */
+
+
+/* ==========================================================
+   1. OVERVIEW HEADER
+   Normal page content, never sticky
+   ========================================================== */
+
+.overview-header {
+  position: static !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  z-index: auto !important;
+
+  min-height: 0 !important;
+  height: auto !important;
+
+  padding:
+    16px
+    max(4vw, calc((100vw - 1280px) / 2)) !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    minmax(250px, 0.75fr)
+    minmax(0, 2fr);
+
+  align-items: center !important;
+
+  gap: 12px 28px !important;
+
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* Slightly tighter branding */
+
+.overview-header .brand {
+  min-width: 0;
+}
+
+.overview-header .brand-mark {
+  width: 40px;
+  height: 40px;
+}
+
+
+/* ==========================================================
+   2. RIGHT SIDE OF OVERVIEW HEADER
+   ========================================================== */
+
+.overview-header .header-actions {
+  display: grid !important;
+
+  grid-template-columns:
+    auto minmax(0, 1fr);
+
+  grid-template-areas:
+    "status nav"
+    "refresh refresh";
+
+  align-items: center !important;
+
+  gap: 9px 18px !important;
+
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* Live data badge */
+
+.overview-header .header-serving-status {
+  grid-area: status;
+
+  margin: 0 !important;
+
+  white-space: nowrap;
+}
+
+
+/* Navigation */
+
+.overview-header .desktop-nav {
+  grid-area: nav;
+
+  display: flex !important;
+
+  justify-content: flex-end !important;
+  align-items: center !important;
+
+  flex-wrap: wrap;
+
+  gap: 3px !important;
+
+  min-width: 0;
+}
+
+
+/* ==========================================================
+   3. OPERATIONAL STATUS
+   ========================================================== */
+
+.overview-header .refresh-panel {
+  grid-area: refresh;
+
+  display: flex !important;
+
+  flex-direction: row !important;
+
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  flex-wrap: wrap;
+
+  gap: 12px 20px !important;
+
+  width: 100%;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.overview-header .refresh-meta {
+  display: flex !important;
+
+  flex-direction: row !important;
+
+  align-items: center !important;
+  justify-content: flex-end !important;
+
+  flex-wrap: wrap;
+
+  gap: 10px 18px !important;
+}
+
+
+.overview-header .refresh-meta-item {
+  display: flex !important;
+
+  flex-direction: column !important;
+
+  gap: 1px !important;
+
+  min-width: 0 !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.overview-header .refresh-meta-label {
+  font-size: 0.61rem !important;
+
+  line-height: 1.15 !important;
+
+  letter-spacing: 0.09em;
+}
+
+
+.overview-header .refresh-meta-value {
+  font-size: 0.72rem !important;
+
+  line-height: 1.25 !important;
+
+  white-space: nowrap;
+}
+
+
+.overview-header
+.refresh-meta-status
+.refresh-meta-value {
+  max-width: 145px;
+
+  white-space: normal;
+}
+
+
+/* ==========================================================
+   4. REFRESH BUTTON
+   ========================================================== */
+
+.overview-header .refresh-action {
+  display: flex !important;
+
+  flex-direction: row !important;
+
+  align-items: center !important;
+
+  margin: 0 !important;
+}
+
+
+.overview-header .refresh-data-button {
+  min-height: 34px !important;
+
+  padding: 7px 12px !important;
+
+  border-radius: 8px !important;
+
+  font-size: 0.72rem !important;
+
+  white-space: nowrap;
+}
+
+
+/*
+   The button explains the action already.
+   Remove the extra sentence from the global visual layout.
+*/
+
+.overview-header .refresh-data-message {
+  display: none !important;
+}
+
+
+/* ==========================================================
+   5. COMPACT NAVIGATION FOR OTHER PAGES
+   ========================================================== */
+
+.compact-site-nav {
+  position: static;
+
+  width: 100%;
+
+  background: var(--navy);
+  color: white;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.10);
+}
+
+
+.compact-nav-inner {
+  width: min(1280px, 92vw);
+
+  min-height: 58px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+.compact-brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: white;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+
+.compact-brand-mark {
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 8px;
+
+  background: white;
+  color: var(--navy);
+
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+
+.compact-brand-name {
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+
+.compact-nav-links {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+
+/*
+   Make secondary navigation slightly slimmer than
+   the full Overview navigation.
+*/
+
+.compact-site-nav .nav-link {
+  padding: 7px 10px;
+
+  font-size: 0.76rem;
+}
+
+
+/* ==========================================================
+   6. RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 1100px) {
+
+  .overview-header {
+    grid-template-columns: 1fr !important;
+
+    gap: 12px !important;
+  }
+
+  .overview-header .header-actions {
+    width: 100%;
+  }
+
+  .overview-header .refresh-panel,
+  .overview-header .refresh-meta {
+    justify-content: flex-start !important;
+  }
+}
+
+
+@media (max-width: 760px) {
+
+  .overview-header {
+    padding: 14px 4vw !important;
+  }
+
+  .overview-header .header-actions {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: flex-start !important;
+
+    gap: 10px !important;
+  }
+
+  .overview-header .desktop-nav {
+    width: 100%;
+
+    justify-content: flex-start !important;
+
+    overflow-x: auto;
+
+    flex-wrap: nowrap;
+  }
+
+  .overview-header .refresh-panel {
+    align-items: flex-start !important;
+
+    flex-direction: column !important;
+  }
+
+  .overview-header .refresh-meta {
+    display: grid !important;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    width: 100%;
+  }
+
+  .overview-header .refresh-meta-status {
+    grid-column: 1 / -1;
+  }
+
+  .compact-nav-inner {
+    min-height: 54px;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 7px;
+
+    padding: 10px 0;
+  }
+
+  .compact-nav-links {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    padding-bottom: 2px;
+  }
+
+  .compact-site-nav .nav-link {
+    white-space: nowrap;
+  }
+}
