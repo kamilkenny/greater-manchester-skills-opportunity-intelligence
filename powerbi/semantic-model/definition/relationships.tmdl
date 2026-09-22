@@ -1,0 +1,20 @@
+relationship ce7a5607-223b-eff5-59fa-bebcda53ab1f
+	fromColumn: borough_opportunity.borough_key
+	toColumn: borough.borough_key
+
+relationship c2477177-7936-0c7c-6f01-3a030b79b8c6
+	fromColumn: skills_supply.borough_key
+	toColumn: borough.borough_key
+
+relationship 16c91ebd-5504-c54a-56b3-b7261f43c45c
+	fromColumn: youth_transition.borough_key
+	toColumn: borough.borough_key
+
+relationship db507e91-accd-a9f9-51c6-aadce41d1772
+	fromColumn: mbacc_pathway.borough_key
+	toColumn: borough.borough_key
+
+relationship ac17a292-cd99-4e7a-9a9d-8401719ae942
+	fromColumn: mbacc_pathway.gateway_key
+	toColumn: mbacc_gateway.gateway_key
+

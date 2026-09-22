@@ -1,0 +1,229 @@
+table borough_opportunity
+	lineageTag: 479a1dbc-103e-4243-99cb-5b76cb85f40d
+	sourceLineageTag: [mart].[borough_opportunity]
+
+	column labour_market_period_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3b8f4aeb-0a56-42d8-916d-9ba8fddf951d
+		sourceLineageTag: labour_market_period_key
+		summarizeBy: sum
+		sourceColumn: labour_market_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b8a8c1f6-84fd-4f2c-b9b7-bb406b208497
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0a412292-2c5f-4bb7-ac52-128221b9fddb
+		sourceLineageTag: date_name
+		summarizeBy: none
+		sourceColumn: date_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_type
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: ef5cec37-f57e-4c11-bf32-69319f2aa044
+		sourceLineageTag: date_type
+		summarizeBy: none
+		sourceColumn: date_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: b2db31ed-436a-4444-adb2-8999d29323f7
+		sourceLineageTag: borough_key
+		summarizeBy: none
+		sourceColumn: borough_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d3690486-2e10-43c8-9e6b-f7fbc283b964
+		sourceLineageTag: borough_code
+		summarizeBy: none
+		sourceColumn: borough_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 5d20aa5c-59cc-4bf5-a1ba-76c7e33ba5b2
+		sourceLineageTag: borough_name
+		summarizeBy: none
+		sourceColumn: borough_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column employment_rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 517703a7-43cc-4d36-81c8-3004804539c7
+		sourceLineageTag: employment_rate
+		summarizeBy: sum
+		sourceColumn: employment_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column employment_rate_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 2a70fd1e-61ee-482a-ac67-9e1101578b46
+		sourceLineageTag: employment_rate_status
+		summarizeBy: none
+		sourceColumn: employment_rate_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column unemployment_rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: bf4cbf0b-fcb1-49dc-adfb-ada8d38f5944
+		sourceLineageTag: unemployment_rate
+		summarizeBy: sum
+		sourceColumn: unemployment_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unemployment_rate_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 3740c776-5256-4925-a4f9-8f471a30de99
+		sourceLineageTag: unemployment_rate_status
+		summarizeBy: none
+		sourceColumn: unemployment_rate_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column economic_inactivity_rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 8cdb1dc5-5cc7-42a5-981c-c77075cbc1e1
+		sourceLineageTag: economic_inactivity_rate
+		summarizeBy: sum
+		sourceColumn: economic_inactivity_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column economic_inactivity_rate_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 08eed0ad-871e-4416-a9dc-23f806eac003
+		sourceLineageTag: economic_inactivity_rate_status
+		summarizeBy: none
+		sourceColumn: economic_inactivity_rate_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column rqf3_plus_rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 27beed25-358c-402a-a48f-c3deb9ea8728
+		sourceLineageTag: rqf3_plus_rate
+		summarizeBy: sum
+		sourceColumn: rqf3_plus_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rqf3_plus_rate_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e381b198-58a1-4a89-bf77-30875d7d9213
+		sourceLineageTag: rqf3_plus_rate_status
+		summarizeBy: none
+		sourceColumn: rqf3_plus_rate_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column rqf4_plus_rate
+		dataType: double
+		sourceProviderType: float
+		lineageTag: a1a61ff8-8158-4b72-8762-adb634f78206
+		sourceLineageTag: rqf4_plus_rate
+		summarizeBy: sum
+		sourceColumn: rqf4_plus_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column rqf4_plus_rate_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 200997a2-3f9f-4af9-ba82-eb3e491d69d6
+		sourceLineageTag: rqf4_plus_rate_status
+		summarizeBy: none
+		sourceColumn: rqf4_plus_rate_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_snapshot_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: afddd0d2-26aa-45f7-8c9a-477441ef79a4
+		sourceLineageTag: source_snapshot_date
+		summarizeBy: none
+		sourceColumn: source_snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column rqf3_plus_minus_rqf4_plus_pp
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 585edfd9-1718-4928-8aa0-f3875d19a71d
+		sourceLineageTag: rqf3_plus_minus_rqf4_plus_pp
+		summarizeBy: sum
+		sourceColumn: rqf3_plus_minus_rqf4_plus_pp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_latest_period
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 07e575ab-a499-4bbf-827c-01d98ecd0688
+		sourceLineageTag: is_latest_period
+		summarizeBy: sum
+		sourceColumn: is_latest_period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition borough_opportunity = entity
+		mode: directLake
+		source
+			entityName: borough_opportunity
+			schemaName: mart
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

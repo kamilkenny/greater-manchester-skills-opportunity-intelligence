@@ -1,0 +1,129 @@
+table borough
+	lineageTag: 9babf76f-6e94-44c7-a91e-a8f22f733de9
+	sourceLineageTag: [dim].[borough]
+
+	column borough_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 9ddf61de-e72a-4b76-b39f-9cb760f3d8cf
+		sourceLineageTag: borough_key
+		summarizeBy: none
+		sourceColumn: borough_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a297a7dd-d28b-453b-b747-5b7bcc3d5bf3
+		sourceLineageTag: borough_code
+		summarizeBy: none
+		sourceColumn: borough_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b01ba030-a3dc-44f8-bfa8-a6ca82ecd068
+		sourceLineageTag: borough_name
+		summarizeBy: none
+		sourceColumn: borough_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_authority
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: add0cf24-f8d0-44c3-b469-4e5354a43e99
+		sourceLineageTag: source_authority
+		summarizeBy: none
+		sourceColumn: source_authority
+
+		annotation SummarizationSetBy = Automatic
+
+	column effective_from
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: e914d4d9-696b-4121-ad40-f4f5ec726b44
+		sourceLineageTag: effective_from
+		summarizeBy: none
+		sourceColumn: effective_from
+
+		annotation SummarizationSetBy = Automatic
+
+	column effective_to
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: f171a9db-0c57-4b0a-8c9f-33dfd052b71c
+		sourceLineageTag: effective_to
+		summarizeBy: none
+		sourceColumn: effective_to
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_current
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 44e6fe9a-b638-4f3a-8517-2691173d2194
+		sourceLineageTag: is_current
+		summarizeBy: none
+		sourceColumn: is_current
+
+		annotation SummarizationSetBy = Automatic
+
+	column scd_version
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b079c197-a7a1-4e1f-a3f7-c5d7fa4953d9
+		sourceLineageTag: scd_version
+		summarizeBy: sum
+		sourceColumn: scd_version
+
+		annotation SummarizationSetBy = Automatic
+
+	column row_hash
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: c007bba0-fa4c-4fa0-894a-c7a7b030962f
+		sourceLineageTag: row_hash
+		summarizeBy: none
+		sourceColumn: row_hash
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_model_run_id
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: faad206f-cac9-4ab3-8757-9843e7a8004c
+		sourceLineageTag: gold_model_run_id
+		summarizeBy: none
+		sourceColumn: gold_model_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_modelled_at_utc
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 9fa4420b-8588-47ee-914b-f4a0bd836930
+		sourceLineageTag: gold_modelled_at_utc
+		summarizeBy: none
+		sourceColumn: gold_modelled_at_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition borough = entity
+		mode: directLake
+		source
+			entityName: borough
+			schemaName: dim
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
