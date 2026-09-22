@@ -1,6 +1,24 @@
 table borough_opportunity
 	lineageTag: 479a1dbc-103e-4243-99cb-5b76cb85f40d
 	sourceLineageTag: [mart].[borough_opportunity]
+	measure 'Average Employment Rate (%)' = AVERAGE('borough_opportunity'[employment_rate])
+		formatString: 0.0
+
+	measure 'Average Unemployment Rate (%)' = AVERAGE('borough_opportunity'[unemployment_rate])
+		formatString: 0.0
+
+	measure 'Average Economic Inactivity Rate (%)' = AVERAGE('borough_opportunity'[economic_inactivity_rate])
+		formatString: 0.0
+
+	measure 'Average RQF3+ Rate (%)' = AVERAGE('borough_opportunity'[rqf3_plus_rate])
+		formatString: 0.0
+
+	measure 'Average RQF4+ Rate (%)' = AVERAGE('borough_opportunity'[rqf4_plus_rate])
+		formatString: 0.0
+
+	measure 'Average RQF3 to RQF4 Gap (pp)' = AVERAGE('borough_opportunity'[rqf3_plus_minus_rqf4_plus_pp])
+		formatString: 0.0
+
 
 	column labour_market_period_key
 		dataType: int64

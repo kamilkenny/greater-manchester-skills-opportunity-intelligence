@@ -1,6 +1,15 @@
 table mbacc_pathway
 	lineageTag: dadefbdc-8eb5-47ce-8551-cd3153f5b008
 	sourceLineageTag: [mart].[mbacc_pathway]
+	measure 'MBacc Apprenticeship Starts' = SUM('mbacc_pathway'[apprenticeship_starts])
+		formatString: #,##0
+
+	measure 'MBacc Apprenticeship Achievements' = SUM('mbacc_pathway'[apprenticeship_achievements])
+		formatString: #,##0
+
+	measure 'MBacc Gateways' = DISTINCTCOUNT('mbacc_pathway'[gateway_key])
+		formatString: #,##0
+
 
 	column time_period_key
 		dataType: int64

@@ -1,6 +1,27 @@
 table skills_supply
 	lineageTag: 00207950-8e77-40f3-ab93-127bca4729d9
 	sourceLineageTag: [mart].[skills_supply]
+	measure 'Apprenticeship Starts' = SUM('skills_supply'[apprenticeship_starts])
+		formatString: #,##0
+
+	measure 'Apprenticeship Achievements' = SUM('skills_supply'[apprenticeship_achievements])
+		formatString: #,##0
+
+	measure 'Apprenticeship Participation' = SUM('skills_supply'[apprenticeship_participation])
+		formatString: #,##0
+
+	measure 'Starts YoY Change' = SUM('skills_supply'[starts_change])
+		formatString: #,##0
+
+	measure 'Starts YoY Change %' = DIVIDE([Starts YoY Change], SUM('skills_supply'[previous_starts]))
+		formatString: 0.0%;-0.0%;0.0%
+
+	measure 'Achievements YoY Change' = SUM('skills_supply'[achievements_change])
+		formatString: #,##0
+
+	measure 'Achievements YoY Change %' = DIVIDE([Achievements YoY Change], SUM('skills_supply'[previous_achievements]))
+		formatString: 0.0%;-0.0%;0.0%
+
 
 	column time_period_key
 		dataType: int64

@@ -1,6 +1,36 @@
 table youth_transition
 	lineageTag: f5709507-55e4-4d61-94f6-e33e3fea14f3
 	sourceLineageTag: [mart].[youth_transition]
+	measure 'Youth Cohort' = SUM('youth_transition'[cohort_count])
+		formatString: #,##0
+
+	measure 'NEET Count' = SUM('youth_transition'[neet_count])
+		formatString: #,##0
+
+	measure 'Not Known Count' = SUM('youth_transition'[not_known_count])
+		formatString: #,##0
+
+	measure 'NEET or Not Known Count' = SUM('youth_transition'[neet_or_not_known_count])
+		formatString: #,##0
+
+	measure 'NEET Rate' = DIVIDE([NEET Count], [Youth Cohort])
+		formatString: 0.0%
+
+	measure 'Not Known Rate' = DIVIDE([Not Known Count], [Youth Cohort])
+		formatString: 0.0%
+
+	measure 'NEET or Not Known Rate' = DIVIDE([NEET or Not Known Count], [Youth Cohort])
+		formatString: 0.0%
+
+	measure 'Participation Cohort' = SUM('youth_transition'[participation_cohort_count])
+		formatString: #,##0
+
+	measure 'Education or Training Count' = SUM('youth_transition'[education_training_count])
+		formatString: #,##0
+
+	measure 'Education or Training Rate' = DIVIDE([Education or Training Count], [Participation Cohort])
+		formatString: 0.0%
+
 
 	column time_period_key
 		dataType: int64
