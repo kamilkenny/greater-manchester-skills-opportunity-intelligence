@@ -1,0 +1,235 @@
+table skills_supply
+	lineageTag: 00207950-8e77-40f3-ab93-127bca4729d9
+	sourceLineageTag: [mart].[skills_supply]
+
+	column time_period_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: f7807e26-2394-4fc4-91c6-e7fcbd374e82
+		sourceLineageTag: time_period_key
+		summarizeBy: sum
+		sourceColumn: time_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: cf9d779d-47b6-492c-8f0e-bbd698127283
+		sourceLineageTag: time_period
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_identifier
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 4b80c11a-45e6-43b0-bb71-7679b3eaaf9e
+		sourceLineageTag: time_identifier
+		summarizeBy: none
+		sourceColumn: time_identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 7c805b05-fb2e-47f0-809e-ba663a9957f3
+		sourceLineageTag: borough_key
+		summarizeBy: none
+		sourceColumn: borough_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 38bd57ee-b38f-4f63-89e3-f430b867f20c
+		sourceLineageTag: borough_code
+		summarizeBy: none
+		sourceColumn: borough_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: ff063425-db77-4db5-82ac-4ca90ab9a82e
+		sourceLineageTag: borough_name
+		summarizeBy: none
+		sourceColumn: borough_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column apprenticeship_starts
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e7b95cd4-02a4-45b8-bcbe-c6049cac90ec
+		sourceLineageTag: apprenticeship_starts
+		summarizeBy: sum
+		sourceColumn: apprenticeship_starts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column apprenticeship_starts_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: aa169698-b788-4d16-8c59-413dded71652
+		sourceLineageTag: apprenticeship_starts_status
+		summarizeBy: none
+		sourceColumn: apprenticeship_starts_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column apprenticeship_achievements
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 02667210-75dd-4dd6-b347-8a59ee02ca65
+		sourceLineageTag: apprenticeship_achievements
+		summarizeBy: sum
+		sourceColumn: apprenticeship_achievements
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column apprenticeship_achievements_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: ef269813-852c-475d-9836-a6adcffa5bf2
+		sourceLineageTag: apprenticeship_achievements_status
+		summarizeBy: none
+		sourceColumn: apprenticeship_achievements_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column apprenticeship_participation
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 1deb20bd-7ce1-447f-aef6-12227972522b
+		sourceLineageTag: apprenticeship_participation
+		summarizeBy: sum
+		sourceColumn: apprenticeship_participation
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column apprenticeship_participation_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 645fd2e9-6296-4670-b49e-18584a8b6b8a
+		sourceLineageTag: apprenticeship_participation_status
+		summarizeBy: none
+		sourceColumn: apprenticeship_participation_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column previous_starts
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 51dd4f54-f3c1-4c34-b3c5-aeab43688efa
+		sourceLineageTag: previous_starts
+		summarizeBy: sum
+		sourceColumn: previous_starts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column starts_change
+		dataType: double
+		sourceProviderType: float
+		lineageTag: c971f77a-8630-42a5-802d-67342f4e1528
+		sourceLineageTag: starts_change
+		summarizeBy: sum
+		sourceColumn: starts_change
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column starts_change_pct
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e45b876e-68f1-4509-9981-4c943eb33e89
+		sourceLineageTag: starts_change_pct
+		summarizeBy: sum
+		sourceColumn: starts_change_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column previous_achievements
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 17fa17cd-47fa-4e8a-aa9d-3ffe1def2b53
+		sourceLineageTag: previous_achievements
+		summarizeBy: sum
+		sourceColumn: previous_achievements
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column achievements_change
+		dataType: double
+		sourceProviderType: float
+		lineageTag: da47a897-92b1-40f3-bb52-fdf6f9b7e607
+		sourceLineageTag: achievements_change
+		summarizeBy: sum
+		sourceColumn: achievements_change
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column achievements_change_pct
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 9625580a-3384-4265-b26a-d8d0069bd653
+		sourceLineageTag: achievements_change_pct
+		summarizeBy: sum
+		sourceColumn: achievements_change_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column is_latest_period
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4d90901c-181d-457c-b03d-bef208a5414e
+		sourceLineageTag: is_latest_period
+		summarizeBy: sum
+		sourceColumn: is_latest_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_snapshot_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 279d96cd-9b71-4549-b83f-609a69422a19
+		sourceLineageTag: source_snapshot_date
+		summarizeBy: none
+		sourceColumn: source_snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition skills_supply = entity
+		mode: directLake
+		source
+			entityName: skills_supply
+			schemaName: mart
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
