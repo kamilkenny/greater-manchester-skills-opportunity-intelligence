@@ -30,6 +30,18 @@ table youth_transition
 
 	measure 'Education or Training Rate' = DIVIDE([Education or Training Count], [Participation Cohort])
 		formatString: 0.0%
+	measure 'Latest NEET Rate' = CALCULATE([NEET Rate], 'youth_transition'[is_latest_period] = 1)
+		formatString: 0.0%
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest NEET or Not Known Rate' = CALCULATE([NEET or Not Known Rate], 'youth_transition'[is_latest_period] = 1)
+		formatString: 0.0%
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Education or Training Rate' = CALCULATE([Education or Training Rate], 'youth_transition'[is_latest_period] = 1)
+		formatString: 0.0%
+		displayFolder: "Headline KPIs"
+
 
 
 	column time_period_key

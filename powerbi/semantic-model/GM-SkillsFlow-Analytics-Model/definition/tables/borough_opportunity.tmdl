@@ -18,6 +18,22 @@ table borough_opportunity
 
 	measure 'Average RQF3 to RQF4 Gap (pp)' = AVERAGE('borough_opportunity'[rqf3_plus_minus_rqf4_plus_pp])
 		formatString: 0.0
+	measure 'Latest Employment Rate (%)' = CALCULATE([Average Employment Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
+		formatString: 0.0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Unemployment Rate (%)' = CALCULATE([Average Unemployment Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
+		formatString: 0.0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Economic Inactivity Rate (%)' = CALCULATE([Average Economic Inactivity Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
+		formatString: 0.0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest RQF4+ Rate (%)' = CALCULATE([Average RQF4+ Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
+		formatString: 0.0
+		displayFolder: "Headline KPIs"
+
 
 
 	column labour_market_period_key

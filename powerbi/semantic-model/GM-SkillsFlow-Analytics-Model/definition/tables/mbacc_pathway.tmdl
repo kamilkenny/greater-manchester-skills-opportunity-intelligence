@@ -9,6 +9,14 @@ table mbacc_pathway
 
 	measure 'MBacc Gateways' = DISTINCTCOUNT('mbacc_pathway'[gateway_key])
 		formatString: #,##0
+	measure 'Latest MBacc Apprenticeship Starts' = CALCULATE([MBacc Apprenticeship Starts], 'mbacc_pathway'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest MBacc Apprenticeship Achievements' = CALCULATE([MBacc Apprenticeship Achievements], 'mbacc_pathway'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: "Headline KPIs"
+
 
 
 	column time_period_key

@@ -21,6 +21,26 @@ table skills_supply
 
 	measure 'Achievements YoY Change %' = DIVIDE([Achievements YoY Change], SUM('skills_supply'[previous_achievements]))
 		formatString: 0.0%;-0.0%;0.0%
+	measure 'Latest Apprenticeship Starts' = CALCULATE([Apprenticeship Starts], 'skills_supply'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Apprenticeship Achievements' = CALCULATE([Apprenticeship Achievements], 'skills_supply'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Apprenticeship Participation' = CALCULATE([Apprenticeship Participation], 'skills_supply'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Starts YoY Change %' = CALCULATE([Starts YoY Change %], 'skills_supply'[is_latest_period] = 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: "Headline KPIs"
+
+	measure 'Latest Achievements YoY Change %' = CALCULATE([Achievements YoY Change %], 'skills_supply'[is_latest_period] = 1)
+		formatString: 0.0%;-0.0%;0.0%
+		displayFolder: "Headline KPIs"
+
 
 
 	column time_period_key
