@@ -7,7 +7,7 @@
 
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
-The platform integrates data from multiple public sources, processes them through a Microsoft Fabric Medallion architecture, builds governed dimensional and fact models in a Fabric Warehouse, preserves analytical and operational history using **Slowly Changing Dimension Type 2 and Type 4 patterns**, and publishes validated intelligence through a live Azure hosted web application.
+The platform integrates data from multiple public sources, processes them through a Microsoft Fabric Medallion architecture, builds governed dimensional and fact models in a Fabric Warehouse, preserves analytical and operational history using **Slowly Changing Dimension Type 2 and Type 4 patterns**, and publishes validated intelligence through a live Azure hosted web application and Power BI web Dashboard.
 
 The project demonstrates a production style data engineering lifecycle covering:
 
@@ -26,6 +26,7 @@ The project demonstrates a production style data engineering lifecycle covering:
 - Azure Blob Storage
 - Azure App Service
 - Plotly Dash
+- Power BI Web Dash
 - GitHub Actions automation
 - OpenID Connect authentication
 - Managed Identity
@@ -109,6 +110,7 @@ flowchart LR
     GH --> EXPORT
     GH --> BLOB
     GH --> APP
+    Power BI Dashboard
 ```
 
 The architecture deliberately separates:
@@ -195,7 +197,7 @@ This prevents the public dashboard from depending directly on operational source
 │                                     │
 │ Private Blob Storage                │
 │ Azure App Service                   │
-│ Plotly Dash                         │
+│ Plotly Dash and Power BI Web        │
 └─────────────────────────────────────┘
 ```
 
@@ -1262,6 +1264,7 @@ greater-manchester-skills-opportunity-intelligence/
 | Public storage | Azure Blob Storage |
 | Application | Plotly Dash |
 | Hosting | Azure App Service |
+| Power BI App Service |      
 | Automation | GitHub Actions |
 | Authentication | Microsoft Entra ID, OIDC, Managed Identity |
 | Version control | Git and GitHub |
@@ -1363,7 +1366,7 @@ Publish
 Serve
    │
    ▼
-Automate
+Automate Plotly Dash and Power BI
    │
    ▼
 Monitor
