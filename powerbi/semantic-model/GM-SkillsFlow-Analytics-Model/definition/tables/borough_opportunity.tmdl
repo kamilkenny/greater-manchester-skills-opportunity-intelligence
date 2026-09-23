@@ -1,6 +1,7 @@
 table borough_opportunity
 	lineageTag: 479a1dbc-103e-4243-99cb-5b76cb85f40d
 	sourceLineageTag: [mart].[borough_opportunity]
+
 	measure 'Average Employment Rate (%)' = AVERAGE('borough_opportunity'[employment_rate])
 		formatString: 0.0
 
@@ -18,23 +19,22 @@ table borough_opportunity
 
 	measure 'Average RQF3 to RQF4 Gap (pp)' = AVERAGE('borough_opportunity'[rqf3_plus_minus_rqf4_plus_pp])
 		formatString: 0.0
+
 	measure 'Latest Employment Rate (%)' = CALCULATE([Average Employment Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
 		formatString: 0.0
-		displayFolder: "Headline KPIs"
+		displayFolder: Headline KPIs
 
 	measure 'Latest Unemployment Rate (%)' = CALCULATE([Average Unemployment Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
 		formatString: 0.0
-		displayFolder: "Headline KPIs"
+		displayFolder: Headline KPIs
 
 	measure 'Latest Economic Inactivity Rate (%)' = CALCULATE([Average Economic Inactivity Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
 		formatString: 0.0
-		displayFolder: "Headline KPIs"
+		displayFolder: Headline KPIs
 
 	measure 'Latest RQF4+ Rate (%)' = CALCULATE([Average RQF4+ Rate (%)], 'borough_opportunity'[is_latest_period] = 1)
 		formatString: 0.0
-		displayFolder: "Headline KPIs"
-
-
+		displayFolder: Headline KPIs
 
 	column labour_market_period_key
 		dataType: int64

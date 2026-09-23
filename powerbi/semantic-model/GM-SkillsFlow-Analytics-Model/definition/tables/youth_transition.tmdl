@@ -1,6 +1,7 @@
 table youth_transition
 	lineageTag: f5709507-55e4-4d61-94f6-e33e3fea14f3
 	sourceLineageTag: [mart].[youth_transition]
+
 	measure 'Youth Cohort' = SUM('youth_transition'[cohort_count])
 		formatString: #,##0
 
@@ -30,19 +31,18 @@ table youth_transition
 
 	measure 'Education or Training Rate' = DIVIDE([Education or Training Count], [Participation Cohort])
 		formatString: 0.0%
+
 	measure 'Latest NEET Rate' = CALCULATE([NEET Rate], 'youth_transition'[is_latest_period] = 1)
 		formatString: 0.0%
-		displayFolder: "Headline KPIs"
+		displayFolder: Headline KPIs
 
 	measure 'Latest NEET or Not Known Rate' = CALCULATE([NEET or Not Known Rate], 'youth_transition'[is_latest_period] = 1)
 		formatString: 0.0%
-		displayFolder: "Headline KPIs"
+		displayFolder: Headline KPIs
 
 	measure 'Latest Education or Training Rate' = CALCULATE([Education or Training Rate], 'youth_transition'[is_latest_period] = 1)
 		formatString: 0.0%
-		displayFolder: "Headline KPIs"
-
-
+		displayFolder: Headline KPIs
 
 	column time_period_key
 		dataType: int64

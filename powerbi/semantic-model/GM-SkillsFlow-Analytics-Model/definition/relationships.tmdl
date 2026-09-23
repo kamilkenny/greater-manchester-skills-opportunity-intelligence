@@ -65,3 +65,4 @@ relationship a4795d7e-f108-52bb-b58f-f82f496cc0fd
 relationship 8dc36b36-1e77-5e3f-b860-0af7edee8cc9
 	fromColumn: apprenticeship_detail.gateway_key
 	toColumn: mbacc_gateway.gateway_key
+
