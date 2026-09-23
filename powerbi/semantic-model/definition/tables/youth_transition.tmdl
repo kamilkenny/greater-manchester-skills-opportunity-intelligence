@@ -1,0 +1,414 @@
+table youth_transition
+	lineageTag: f5709507-55e4-4d61-94f6-e33e3fea14f3
+	sourceLineageTag: [mart].[youth_transition]
+
+	measure 'Youth Cohort' = SUM('youth_transition'[cohort_count])
+		formatString: #,##0
+
+	measure 'NEET Count' = SUM('youth_transition'[neet_count])
+		formatString: #,##0
+
+	measure 'Not Known Count' = SUM('youth_transition'[not_known_count])
+		formatString: #,##0
+
+	measure 'NEET or Not Known Count' = SUM('youth_transition'[neet_or_not_known_count])
+		formatString: #,##0
+
+	measure 'NEET Rate' = DIVIDE([NEET Count], [Youth Cohort])
+		formatString: 0.0%
+
+	measure 'Not Known Rate' = DIVIDE([Not Known Count], [Youth Cohort])
+		formatString: 0.0%
+
+	measure 'NEET or Not Known Rate' = DIVIDE([NEET or Not Known Count], [Youth Cohort])
+		formatString: 0.0%
+
+	measure 'Participation Cohort' = SUM('youth_transition'[participation_cohort_count])
+		formatString: #,##0
+
+	measure 'Education or Training Count' = SUM('youth_transition'[education_training_count])
+		formatString: #,##0
+
+	measure 'Education or Training Rate' = DIVIDE([Education or Training Count], [Participation Cohort])
+		formatString: 0.0%
+
+	measure 'Latest NEET Rate' = CALCULATE([NEET Rate], 'youth_transition'[is_latest_period] = 1)
+		formatString: 0.0%
+		displayFolder: Headline KPIs
+
+	measure 'Latest NEET or Not Known Rate' = CALCULATE([NEET or Not Known Rate], 'youth_transition'[is_latest_period] = 1)
+		formatString: 0.0%
+		displayFolder: Headline KPIs
+
+	measure 'Latest Education or Training Rate' = CALCULATE([Education or Training Rate], 'youth_transition'[is_latest_period] = 1)
+		formatString: 0.0%
+		displayFolder: Headline KPIs
+
+	column time_period_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 6107c65c-b8b8-4c0e-9b9d-3812343e90c6
+		sourceLineageTag: time_period_key
+		summarizeBy: sum
+		sourceColumn: time_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: b255c6a9-2b73-40e3-814c-af3b372cbd14
+		sourceLineageTag: time_period
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_identifier
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 2ee9355c-eb0e-47f6-bdab-d3f7e80b953e
+		sourceLineageTag: time_identifier
+		summarizeBy: none
+		sourceColumn: time_identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: d4d31b90-5139-43bc-a33b-f78ae5044c0a
+		sourceLineageTag: borough_key
+		summarizeBy: none
+		sourceColumn: borough_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 23fe082b-e0de-4811-a3fe-7ae4796b3b7a
+		sourceLineageTag: borough_code
+		summarizeBy: none
+		sourceColumn: borough_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 1d01467a-e151-4ea4-86c0-6a284f2e7688
+		sourceLineageTag: borough_name
+		summarizeBy: none
+		sourceColumn: borough_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_count
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 3f5d091a-c15e-4bd7-af34-b8edc0232e86
+		sourceLineageTag: cohort_count
+		summarizeBy: sum
+		sourceColumn: cohort_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cohort_count_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 21f4baf5-f5a3-446c-ba8e-46f989dce7a8
+		sourceLineageTag: cohort_count_status
+		summarizeBy: none
+		sourceColumn: cohort_count_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column neet_or_not_known_count
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 60e02223-d400-414d-9760-bfb154b611d7
+		sourceLineageTag: neet_or_not_known_count
+		summarizeBy: sum
+		sourceColumn: neet_or_not_known_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column neet_or_not_known_count_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 158b23ff-2505-4410-91df-d6e62967e2f2
+		sourceLineageTag: neet_or_not_known_count_status
+		summarizeBy: none
+		sourceColumn: neet_or_not_known_count_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column neet_count
+		dataType: double
+		sourceProviderType: float
+		lineageTag: b7f31ae4-da3a-455c-a89d-48acc1a51bbd
+		sourceLineageTag: neet_count
+		summarizeBy: sum
+		sourceColumn: neet_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column neet_count_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 34b2d35f-57ac-4f6d-84c8-502eb06d7b25
+		sourceLineageTag: neet_count_status
+		summarizeBy: none
+		sourceColumn: neet_count_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column not_known_count
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 343c31e4-1f57-4a2a-84d9-47f8a22eb8db
+		sourceLineageTag: not_known_count
+		summarizeBy: sum
+		sourceColumn: not_known_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column not_known_count_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 9b718385-43e9-48c9-bef8-d17893676bf2
+		sourceLineageTag: not_known_count_status
+		summarizeBy: none
+		sourceColumn: not_known_count_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column neet_or_not_known_percent
+		dataType: double
+		sourceProviderType: float
+		lineageTag: efbe835c-506c-4fca-a565-72b18b03bbbb
+		sourceLineageTag: neet_or_not_known_percent
+		summarizeBy: sum
+		sourceColumn: neet_or_not_known_percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column neet_or_not_known_percent_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 1c75c193-e34f-4426-8b72-73f803c86906
+		sourceLineageTag: neet_or_not_known_percent_status
+		summarizeBy: none
+		sourceColumn: neet_or_not_known_percent_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column neet_percent
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 3b22e015-8106-454d-be9d-4eb756d4c7b3
+		sourceLineageTag: neet_percent
+		summarizeBy: sum
+		sourceColumn: neet_percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column neet_percent_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e1aca65b-0734-46dd-ac2d-73029dae84a4
+		sourceLineageTag: neet_percent_status
+		summarizeBy: none
+		sourceColumn: neet_percent_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column not_known_percent
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 3d39b5f5-ee8e-4be0-b8ae-d4ad73aedaf2
+		sourceLineageTag: not_known_percent
+		summarizeBy: sum
+		sourceColumn: not_known_percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column not_known_percent_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e3c87e2f-706f-40a1-bb40-3c678aa74834
+		sourceLineageTag: not_known_percent_status
+		summarizeBy: none
+		sourceColumn: not_known_percent_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_change_neet_or_not_known_pp
+		dataType: double
+		sourceProviderType: float
+		lineageTag: a8d63dd6-52ec-4de1-a6d6-628c8551d979
+		sourceLineageTag: annual_change_neet_or_not_known_pp
+		summarizeBy: sum
+		sourceColumn: annual_change_neet_or_not_known_pp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annual_change_neet_or_not_known_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 5566ec24-0615-475a-9129-284ba21adf4a
+		sourceLineageTag: annual_change_neet_or_not_known_status
+		summarizeBy: none
+		sourceColumn: annual_change_neet_or_not_known_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column participation_cohort_count
+		dataType: double
+		sourceProviderType: float
+		lineageTag: f169f497-9cd1-448e-9043-bbb6bf45fac1
+		sourceLineageTag: participation_cohort_count
+		summarizeBy: sum
+		sourceColumn: participation_cohort_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column participation_cohort_count_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 99e3cec5-06bf-49ed-b46d-b720bb09b04b
+		sourceLineageTag: participation_cohort_count_status
+		summarizeBy: none
+		sourceColumn: participation_cohort_count_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column education_training_count
+		dataType: double
+		sourceProviderType: float
+		lineageTag: e8c1bd24-35f0-4933-8cfa-651b13f420d4
+		sourceLineageTag: education_training_count
+		summarizeBy: sum
+		sourceColumn: education_training_count
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column education_training_count_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0d27781b-17ee-413b-af45-dcb5a7e206e2
+		sourceLineageTag: education_training_count_status
+		summarizeBy: none
+		sourceColumn: education_training_count_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column education_training_percent
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 609a471b-a124-44eb-8521-18e6728c9326
+		sourceLineageTag: education_training_percent
+		summarizeBy: sum
+		sourceColumn: education_training_percent
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column education_training_percent_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 58aaec30-d42e-4e91-9248-5f3419133a06
+		sourceLineageTag: education_training_percent_status
+		summarizeBy: none
+		sourceColumn: education_training_percent_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column annual_change_education_training_pp
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 55476118-052f-418d-b0a6-977cbee00cce
+		sourceLineageTag: annual_change_education_training_pp
+		summarizeBy: sum
+		sourceColumn: annual_change_education_training_pp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column annual_change_education_training_status
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d78aede0-c9cb-462e-a181-f40890b5c2a1
+		sourceLineageTag: annual_change_education_training_status
+		summarizeBy: none
+		sourceColumn: annual_change_education_training_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_latest_period
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 013c3d18-e1f5-4590-bd34-aefc0fe96b68
+		sourceLineageTag: is_latest_period
+		summarizeBy: sum
+		sourceColumn: is_latest_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column neet_snapshot_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: fb80922c-bf26-4d40-b5df-6fb1458dadfa
+		sourceLineageTag: neet_snapshot_date
+		summarizeBy: none
+		sourceColumn: neet_snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column participation_snapshot_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: a341e14d-893f-446e-9a88-30bc258d8461
+		sourceLineageTag: participation_snapshot_date
+		summarizeBy: none
+		sourceColumn: participation_snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition youth_transition = entity
+		mode: directLake
+		source
+			entityName: youth_transition
+			schemaName: mart
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

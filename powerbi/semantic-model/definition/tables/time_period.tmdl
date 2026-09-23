@@ -1,0 +1,65 @@
+table time_period
+	lineageTag: 91d1d933-31e0-4887-afc2-67461aec61a4
+	sourceLineageTag: [dim].[time_period]
+
+	column time_period_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 10298cce-116b-46ff-a1d2-46bd941751fb
+		sourceLineageTag: time_period_key
+		summarizeBy: sum
+		sourceColumn: time_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 1963e0df-5e0a-47bd-91a4-16206aa5738b
+		sourceLineageTag: time_period
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_identifier
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: d5f81c7a-32c8-4c19-abc0-86a003fb9293
+		sourceLineageTag: time_identifier
+		summarizeBy: none
+		sourceColumn: time_identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_model_run_id
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 83437a4c-ec03-4f4e-aba9-e94520d5fbd3
+		sourceLineageTag: gold_model_run_id
+		summarizeBy: none
+		sourceColumn: gold_model_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_modelled_at_utc
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 8273d8f6-9c78-46ca-8bde-b61b249af25b
+		sourceLineageTag: gold_modelled_at_utc
+		summarizeBy: none
+		sourceColumn: gold_modelled_at_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition time_period = entity
+		mode: directLake
+		source
+			entityName: time_period
+			schemaName: dim
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,222 @@
+table mbacc_pathway
+	lineageTag: dadefbdc-8eb5-47ce-8551-cd3153f5b008
+	sourceLineageTag: [mart].[mbacc_pathway]
+
+	measure 'MBacc Apprenticeship Starts' = SUM('mbacc_pathway'[apprenticeship_starts])
+		formatString: #,##0
+
+	measure 'MBacc Apprenticeship Achievements' = SUM('mbacc_pathway'[apprenticeship_achievements])
+		formatString: #,##0
+
+	measure 'MBacc Gateways' = DISTINCTCOUNT('mbacc_pathway'[gateway_key])
+		formatString: #,##0
+
+	measure 'Latest MBacc Apprenticeship Starts' = CALCULATE([MBacc Apprenticeship Starts], 'mbacc_pathway'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: Headline KPIs
+
+	measure 'Latest MBacc Apprenticeship Achievements' = CALCULATE([MBacc Apprenticeship Achievements], 'mbacc_pathway'[is_latest_period] = 1)
+		formatString: #,##0
+		displayFolder: Headline KPIs
+
+	column time_period_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c73a4aac-6974-4e92-ba0c-a36f9029c24a
+		sourceLineageTag: time_period_key
+		summarizeBy: sum
+		sourceColumn: time_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_period
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 7bf69fda-2b6b-4f35-84a8-695f13d35d9d
+		sourceLineageTag: time_period
+		summarizeBy: none
+		sourceColumn: time_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column time_identifier
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 68046b8f-0334-4264-8c38-ce4332b1d11f
+		sourceLineageTag: time_identifier
+		summarizeBy: none
+		sourceColumn: time_identifier
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 48b63da5-1afc-465b-8fb8-2d5329f2a111
+		sourceLineageTag: borough_key
+		summarizeBy: none
+		sourceColumn: borough_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: e47e8977-27d0-4d21-9e51-2da9874eb10b
+		sourceLineageTag: borough_code
+		summarizeBy: none
+		sourceColumn: borough_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column borough_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: eefc366a-8593-4bc8-87d6-7e9a5098357e
+		sourceLineageTag: borough_name
+		summarizeBy: none
+		sourceColumn: borough_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column gateway_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 3ce7e24b-5140-485f-bba4-fcbe827ef04e
+		sourceLineageTag: gateway_key
+		summarizeBy: sum
+		sourceColumn: gateway_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column gateway_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: da45ed89-fab8-403d-b89f-39a2bd852dbc
+		sourceLineageTag: gateway_code
+		summarizeBy: none
+		sourceColumn: gateway_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column gateway_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: aa668581-ea03-4882-ba7d-2981fd92426f
+		sourceLineageTag: gateway_name
+		summarizeBy: none
+		sourceColumn: gateway_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column contributing_ssa_count
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 73dbc7df-9290-40ea-bf42-3a6c35fa5e10
+		sourceLineageTag: contributing_ssa_count
+		summarizeBy: sum
+		sourceColumn: contributing_ssa_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column reportable_starts_components
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 98bea850-4a59-446e-be32-76d09bcf6870
+		sourceLineageTag: reportable_starts_components
+		summarizeBy: sum
+		sourceColumn: reportable_starts_components
+
+		annotation SummarizationSetBy = Automatic
+
+	column apprenticeship_starts
+		dataType: double
+		sourceProviderType: float
+		lineageTag: fc7638e9-c451-431e-93fd-5f229126ed94
+		sourceLineageTag: apprenticeship_starts
+		summarizeBy: sum
+		sourceColumn: apprenticeship_starts
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column apprenticeship_starts_status
+		dataType: string
+		sourceProviderType: varchar(21)
+		lineageTag: 8db2994d-ee3d-4e21-a353-ff6350187c16
+		sourceLineageTag: apprenticeship_starts_status
+		summarizeBy: none
+		sourceColumn: apprenticeship_starts_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column reportable_achievement_components
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d276ddee-3ab2-4a4f-a033-683c66941169
+		sourceLineageTag: reportable_achievement_components
+		summarizeBy: sum
+		sourceColumn: reportable_achievement_components
+
+		annotation SummarizationSetBy = Automatic
+
+	column apprenticeship_achievements
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 4a7a44af-ea6b-4c62-9cfe-5db355c5eed2
+		sourceLineageTag: apprenticeship_achievements
+		summarizeBy: sum
+		sourceColumn: apprenticeship_achievements
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column apprenticeship_achievements_status
+		dataType: string
+		sourceProviderType: varchar(21)
+		lineageTag: 41102d3d-35f9-4296-8159-831f48f9a09e
+		sourceLineageTag: apprenticeship_achievements_status
+		summarizeBy: none
+		sourceColumn: apprenticeship_achievements_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_latest_period
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 6126885a-0744-4f21-b251-ec263e85444d
+		sourceLineageTag: is_latest_period
+		summarizeBy: sum
+		sourceColumn: is_latest_period
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_snapshot_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: date
+		lineageTag: 31cbf050-6f98-47f9-acf9-59ec72256b27
+		sourceLineageTag: source_snapshot_date
+		summarizeBy: none
+		sourceColumn: source_snapshot_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition mbacc_pathway = entity
+		mode: directLake
+		source
+			entityName: mbacc_pathway
+			schemaName: mart
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

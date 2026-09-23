@@ -1,0 +1,68 @@
+relationship ce7a5607-223b-eff5-59fa-bebcda53ab1f
+	fromColumn: borough_opportunity.borough_key
+	toColumn: borough.borough_key
+
+relationship c2477177-7936-0c7c-6f01-3a030b79b8c6
+	fromColumn: skills_supply.borough_key
+	toColumn: borough.borough_key
+
+relationship 16c91ebd-5504-c54a-56b3-b7261f43c45c
+	fromColumn: youth_transition.borough_key
+	toColumn: borough.borough_key
+
+relationship db507e91-accd-a9f9-51c6-aadce41d1772
+	fromColumn: mbacc_pathway.borough_key
+	toColumn: borough.borough_key
+
+relationship ac17a292-cd99-4e7a-9a9d-8401719ae942
+	fromColumn: mbacc_pathway.gateway_key
+	toColumn: mbacc_gateway.gateway_key
+
+relationship 8aa2f6c1-ee53-5c49-a277-561e49048a7e
+	fromColumn: borough_opportunity.labour_market_period_key
+	toColumn: labour_market_period.labour_market_period_key
+
+relationship f705d951-de00-5e97-a1f9-2ef44a1450fe
+	fromColumn: mbacc_pathway.time_period_key
+	toColumn: time_period.time_period_key
+
+relationship cba9ac56-b4ab-56e1-b18e-2e6c7a93eed2
+	fromColumn: skills_supply.time_period_key
+	toColumn: time_period.time_period_key
+
+relationship 27335e82-98a6-51f7-b777-31c68dd09fbf
+	fromColumn: youth_transition.time_period_key
+	toColumn: time_period.time_period_key
+
+relationship 8d1e4b5f-58df-5946-957d-83c5f54b49b1
+	fromColumn: apprenticeship_lad.borough_key
+	toColumn: borough.borough_key
+
+relationship 71c1cbea-ed8d-5bd4-a55a-17fef8f05701
+	fromColumn: apprenticeship_lad.time_period_key
+	toColumn: time_period.time_period_key
+
+relationship f6b26881-ea4f-5285-9442-9d5e0fd0f107
+	fromColumn: apprenticeship_lad.apprenticeship_level_key
+	toColumn: apprenticeship_level.apprenticeship_level_key
+
+relationship d583c9c8-88dd-5cb8-b5d2-947d216fd8e5
+	fromColumn: apprenticeship_detail.borough_key
+	toColumn: borough.borough_key
+
+relationship dce2fc52-25cf-548a-a1f6-cacc06ce5dfc
+	fromColumn: apprenticeship_detail.time_period_key
+	toColumn: time_period.time_period_key
+
+relationship 9563c975-fd61-5140-a22e-a5e41fee79d5
+	fromColumn: apprenticeship_detail.apprenticeship_level_key
+	toColumn: apprenticeship_level.apprenticeship_level_key
+
+relationship a4795d7e-f108-52bb-b58f-f82f496cc0fd
+	fromColumn: apprenticeship_detail.ssa_subject_key
+	toColumn: ssa_subject.ssa_subject_key
+
+relationship 8dc36b36-1e77-5e3f-b860-0af7edee8cc9
+	fromColumn: apprenticeship_detail.gateway_key
+	toColumn: mbacc_gateway.gateway_key
+

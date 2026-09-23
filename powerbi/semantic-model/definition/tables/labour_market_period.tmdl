@@ -1,0 +1,105 @@
+table labour_market_period
+	lineageTag: 4991a158-e86e-461a-8a27-f1b1651ff9d4
+	sourceLineageTag: [dim].[labour_market_period]
+
+	column labour_market_period_key
+		dataType: int64
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c271e005-17fa-47ac-a5fe-46f97aee52ac
+		sourceLineageTag: labour_market_period_key
+		summarizeBy: sum
+		sourceColumn: labour_market_period_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: dbb8f7ab-e765-4772-b23d-c235e103093d
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_name
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: a9ea4896-3c4a-4b02-8ddb-f165805b6c10
+		sourceLineageTag: date_name
+		summarizeBy: none
+		sourceColumn: date_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_code
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 06973b26-e360-458a-99c0-e2e02d81f72f
+		sourceLineageTag: date_code
+		summarizeBy: none
+		sourceColumn: date_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_type
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 545860e6-5b42-4640-9254-95584deed65d
+		sourceLineageTag: date_type
+		summarizeBy: none
+		sourceColumn: date_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_typecode
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 2bc79867-0e4c-4e13-898d-55a53cb06351
+		sourceLineageTag: date_typecode
+		summarizeBy: none
+		sourceColumn: date_typecode
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_sortorder
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 22384ddd-e94f-4bb8-a826-c83a4322e1b0
+		sourceLineageTag: date_sortorder
+		summarizeBy: none
+		sourceColumn: date_sortorder
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_model_run_id
+		dataType: string
+		sourceProviderType: varchar(-1)
+		lineageTag: 0be1108f-9011-4930-a673-46df8c4acb55
+		sourceLineageTag: gold_model_run_id
+		summarizeBy: none
+		sourceColumn: gold_model_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gold_modelled_at_utc
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 6324ff9f-7bc3-4b2a-95b0-e541552dc068
+		sourceLineageTag: gold_modelled_at_utc
+		summarizeBy: none
+		sourceColumn: gold_modelled_at_utc
+
+		annotation SummarizationSetBy = Automatic
+
+	partition labour_market_period = entity
+		mode: directLake
+		source
+			entityName: labour_market_period
+			schemaName: dim
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+
