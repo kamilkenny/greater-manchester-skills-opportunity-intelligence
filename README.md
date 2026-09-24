@@ -4,6 +4,8 @@
 
 # Live Dashboard Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
 # Project Full Documentation - https://medium.com/@kamilkenny22/building-gm-skillsflow-from-fragmented-public-data-to-a-governed-skills-intelligence-platform-with-3a7c35c9dac4?postPublishedType=repub 
+# The Power BI DashBoard
+<img width="1412" height="792" alt="Power BI Dash" src="https://github.com/user-attachments/assets/c5b0407f-57c8-45f2-be6c-800242dd2625" />
 
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
