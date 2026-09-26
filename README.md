@@ -21,7 +21,7 @@ The platform also include a Power BI executive dashboard for interactive analysi
 <img width="1412" height="792" alt="Power BI Dash" src="https://github.com/user-attachments/assets/8cc239f7-fc19-4be5-922e-0653b63aaac8" />
 
 ## PUBLISHED FINAL
-<img width="1901" height="1078" alt="the polished power BI" src="https://github.com/user-attachments/assets/cc41aa57-1950-4525-8c00-c3de04dc1643" />
+<img width="1280" height="720" alt="GM SkillsFlow  Skills   Opportunity Intelligence" src="https://github.com/user-attachments/assets/6e87cfd4-b463-4529-8b1e-14353098abe8" />
 
 
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
