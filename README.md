@@ -6,7 +6,9 @@
 # Project Full Documentation - https://medium.com/@kamilkenny22/building-gm-skillsflow-from-fragmented-public-data-to-a-governed-skills-intelligence-platform-with-3a7c35c9dac4?postPublishedType=repub 
 # The Power BI DashBoard
 The platform also include a Power BI executive dashboard for interactive analysis of employment, economic inactivity, apprenticeships, NEET outcomes and borough level trends across Greater Manchester.
-<img width="1412" height="792" alt="Power BI Dash" src="https://github.com/user-attachments/assets/c5b0407f-57c8-45f2-be6c-800242dd2625" /><img width="1385" height="788" alt="Screenshot 2026-09-26 102358" src="https://github.com/user-attachments/assets/d9c6d519-9c11-4c85-9571-8643740614da" />
+<img width="1386" height="787" alt="Screenshot 2026-09-26 103610" src="https://github.com/user-attachments/assets/6267f6e3-0616-4afd-827d-f6bec542204b" />
+
+2026-09-26 102358" src="https://github.com/user-attachments/assets/d9c6d519-9c11-4c85-9571-8643740614da" />
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
 The platform integrates data from multiple public sources, processes them through a Microsoft Fabric Medallion architecture, builds governed dimensional and fact models in a Fabric Warehouse, preserves analytical and operational history using **Slowly Changing Dimension Type 2 and Type 4 patterns**, and publishes validated intelligence through a live Azure hosted web application and Power BI web Dashboard.
