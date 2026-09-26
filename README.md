@@ -2,7 +2,17 @@
 <img width="1187" height="737" alt="Screenshot 2026-09-21 012948" src="https://github.com/user-attachments/assets/5d6cd675-fb90-4bc9-8826-0abb61877394" />
 
 
-# Live Dashboard Platform - https://gm-skillsflow-kamil-898341.azurewebsites.net/
+# Live Application
+
+The deployed GM SkillsFlow platform is available at:
+
+**https://gm-skillsflow-kamil-898341.azurewebsites.net**
+
+Application health endpoint:
+
+**https://gm-skillsflow-kamil-898341.azurewebsites.net/healthz**
+
+
 # Project Full Documentation - https://medium.com/@kamilkenny22/building-gm-skillsflow-from-fragmented-public-data-to-a-governed-skills-intelligence-platform-with-3a7c35c9dac4?postPublishedType=repub 
 # The Power BI DashBoard
 The platform also include a Power BI executive dashboard for interactive analysis of employment, economic inactivity, apprenticeships, NEET outcomes and borough level trends across Greater Manchester.
@@ -70,15 +80,6 @@ It demonstrates how heterogeneous public datasets can be acquired, preserved, tr
 
 ---
 
-# Live Application
-
-The deployed GM SkillsFlow platform is available at:
-
-**https://gm-skillsflow-kamil-898341.azurewebsites.net**
-
-Application health endpoint:
-
-**https://gm-skillsflow-kamil-898341.azurewebsites.net/healthz**
 
 ---
 
