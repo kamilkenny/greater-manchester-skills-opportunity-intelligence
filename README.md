@@ -8,7 +8,7 @@
 The platform also include a Power BI executive dashboard for interactive analysis of employment, economic inactivity, apprenticeships, NEET outcomes and borough level trends across Greater Manchester.
 ## SCHEMA 
 <img width="1386" height="787" alt="Screenshot 2026-09-26 103610" src="https://github.com/user-attachments/assets/6267f6e3-0616-4afd-827d-f6bec542204b" />
-
+<img width="1763" height="841" alt="GMCA EDU SKILLS" src="https://github.com/user-attachments/assets/b168cb63-53f4-412d-be9a-af654af7f4af" />
 
 ## PUBLISHED
 <img width="1901" height="1078" alt="the polished power BI" src="https://github.com/user-attachments/assets/cc41aa57-1950-4525-8c00-c3de04dc1643" />
@@ -1469,7 +1469,7 @@ Technical interests include:
 - Predictive Analytics
 
 
-<img width="1763" height="841" alt="GMCA EDU SKILLS" src="https://github.com/user-attachments/assets/b168cb63-53f4-412d-be9a-af654af7f4af" />
+
 ---
 
 # Disclaimer
