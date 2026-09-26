@@ -9,7 +9,8 @@ The platform also include a Power BI executive dashboard for interactive analysi
 ## SCHEMA 
 <img width="1386" height="787" alt="Screenshot 2026-09-26 103610" src="https://github.com/user-attachments/assets/6267f6e3-0616-4afd-827d-f6bec542204b" />
 <img width="1412" height="792" alt="Power BI Dash" src="https://github.com/user-attachments/assets/8cc239f7-fc19-4be5-922e-0653b63aaac8" />
-## PUBLISHED
+
+## PUBLISHED FINAL
 <img width="1901" height="1078" alt="the polished power BI" src="https://github.com/user-attachments/assets/cc41aa57-1950-4525-8c00-c3de04dc1643" />
 
 
