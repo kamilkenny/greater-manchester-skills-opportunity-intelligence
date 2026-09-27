@@ -23,7 +23,7 @@ The platform also include a Power BI executive dashboard for interactive analysi
 ## PUBLISHED FINAL
 <img width="1280" height="720" alt="GM SkillsFlow  Skills   Opportunity Intelligence" src="https://github.com/user-attachments/assets/6e87cfd4-b463-4529-8b1e-14353098abe8" />
 
-## For full Documentation on the Power BI Dashboard Development - ## 📊 [Power BI Dashboard & Semantic Model](https://github.com/kamilkenny/Power-BI-Analytics-and-Semantic-Modelling---GM-SkillsFlow-Skills-Opportunity-Intelligence)
+## For full Documentation on the Power BI Dashboard Development --- 📊 [Power BI Dashboard & Semantic Model](https://github.com/kamilkenny/Power-BI-Analytics-and-Semantic-Modelling---GM-SkillsFlow-Skills-Opportunity-Intelligence)
 **GM SkillsFlow** is an end to end data engineering, analytics and public intelligence platform designed to bring together fragmented education, apprenticeship, youth transition and labour market data for Greater Manchester.
 
 The platform integrates data from multiple public sources, processes them through a Microsoft Fabric Medallion architecture, builds governed dimensional and fact models in a Fabric Warehouse, preserves analytical and operational history using **Slowly Changing Dimension Type 2 and Type 4 patterns**, and publishes validated intelligence through a live Azure hosted web application and Power BI web Dashboard.
